@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+# PATHS
+export ZSH="/Users/kwanghoopark/.oh-my-zsh"
+export LOCAL_BIN=$HOME/.local/bin
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH=${PATH}:$LOCAL_BIN
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# ENV
+export KRY_DB_USERNAME="root"
+export KRY_DB_PASS="1234"
+export KRY_DB_PORT="3307"
+export KRY_DB_IP="localhost"
+export KRY_DB_TABLE="test"
+
+# esc key delay 
+export KEYTIMEOUT=1 
+
+bindkey -v
