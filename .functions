@@ -7,7 +7,6 @@ function timezsh() {
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo "%{\$fg[white]%}[$(basename $VIRTUAL_ENV)]%{$reset_color%}";
-	[ $CONDA_DEFAULT_ENV ] && echo "%{\$fg[white]%}[$(basename $CONDA_DEFAULT_ENV)]%{$reset_color%}";
 }
 
 # conda
@@ -42,13 +41,13 @@ function init-jenv(){
 }
 
 # virtualenv
-function init-virtualenv(){
-    ## virtualEnv Wrapper
-    source /usr/local/bin/virtualenvwrapper.sh
-    export WORKON_HOME=~/.virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-    export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
-}
+#function init-virtualenv(){
+    ### virtualEnv Wrapper
+    #source /usr/local/bin/virtualenvwrapper.sh
+    #export WORKON_HOME=~/.virtualenvs
+    #export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+    #export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
+#}
 
 # gvm
 function init-gvm(){
