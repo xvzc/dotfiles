@@ -12,7 +12,13 @@ source $HOME/dotfiles/.styles
 
 # add following to ~/.tmux.conf
 ```s
-source-file ~/dotfiles/tmux/.tpm.conf
-source-file ~/dotfiles/tmux/.bindkey.conf
-source-file ~/dotfiles/tmux/.options.conf
+source-file ~/dotfiles/tmux/.tmux.tpm.conf
+source-file ~/dotfiles/tmux/.tmux.bindkey.conf
+source-file ~/dotfiles/tmux/.tmux.options.conf
+```
+
+# get .tmux.reset.conf
+```bash
+$ tmux -f /dev/null -L temp start-server \; list-keys > ./.tmux.reset.conf
+
 ```
