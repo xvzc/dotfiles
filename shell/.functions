@@ -41,13 +41,13 @@ function init-jenv(){
 }
 
 # virtualenv
-#function init-virtualenv(){
-    ### virtualEnv Wrapper
-    #source /usr/local/bin/virtualenvwrapper.sh
-    #export WORKON_HOME=~/.virtualenvs
-    #export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-    #export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
-#}
+function init-virtualenv(){
+    ## virtualEnv Wrapper
+    export WORKON_HOME=~/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+    export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
+    source /usr/local/bin/virtualenvwrapper.sh
+}
 
 # gvm
 function init-gvm(){

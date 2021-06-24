@@ -1,14 +1,23 @@
 #!/bin/zsh
 
-alias tmux='tmux new-session -A -s main'
+#alias tmux='tmux new-session -A -s main'
 
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-alias live-server='live-server --port=8080 --browser=chromium'
+
 alias g++='g++ -std=c++17'
 
 alias vi='nvim'
+
+alias tre='tmux attach'
+alias tat='tmux attach-session -t'
+alias tkt='tmux kill-session -t'
+alias tst='tmux switch -t'
+alias tns='tmux new -s'
+alias tls='tmux ls'
+
+alias live-server='live-server --port=8080 --browser=chromium'
 
 # automatically run tmux on startup
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then

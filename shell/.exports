@@ -14,6 +14,9 @@ export KRY_DB_PASS="1234"
 export KRY_DB_PORT="3307"
 export KRY_DB_IP="localhost"
 export KRY_DB_TABLE="test"
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'  # Usage of python3
+
 
 # esc key delay 
 export KEYTIMEOUT=1 
