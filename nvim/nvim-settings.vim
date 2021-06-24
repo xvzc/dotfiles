@@ -1,0 +1,29 @@
+"set spell spelllang=en_us
+set undofile
+set encoding=utf-8
+set fencs=ucs-bom,utf-8,euc-kr.latin1 " euc-kr if Korean, Unicode when unicode 
+set tenc=utf-8      " terminal's encoding 
+        
+set foldmethod=indent
+set foldlevel=99
+
+set ignorecase
+
+set mousehide               " Hide the mouse cursor while typing
+set mouse=a                 " Automatically enable mouse usage
+
+set termguicolors
+set conceallevel=1
+set background=dark
+
+set cindent " C sytle auto indent
+
+set scrolloff=2 
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set hlsearch " Search highlight
+set history=1000
+set number
+
+set undodir=~/.config/nvim/undodir
