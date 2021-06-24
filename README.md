@@ -22,3 +22,6 @@ source-file ~/dotfiles/tmux/tmux.options.conf
 $ tmux -f /dev/null -L temp start-server \; list-keys > ./.tmux.reset.conf
 
 ```
+
+# nvim
+ coc-settings.json in nvim directory is a hard link of coc-settings.json in ~/.config/nvim/coc-settings.json
