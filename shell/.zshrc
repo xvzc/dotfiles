@@ -32,9 +32,11 @@ zmodload zsh/nearcolor
 autoload -U promptinit; promptinit
 
 source $HOME/.profile
-source $HOME/dotfiles/.functions
+source $HOME/dotfiles/.func
 source $HOME/dotfiles/.aliases
 source $HOME/dotfiles/.exports
 source $HOME/dotfiles/.styles
+
+bindkey -v
 
 prompt pure
