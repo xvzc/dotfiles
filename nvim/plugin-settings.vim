@@ -18,18 +18,12 @@ let g:jsx_ext_required = 0
 
 let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 
-"let g:im_select_default = 'com.apple.keylayout.ABC' 
-"let g:im_select_command = '/usr/local/bin/im-select'
-"
-
 let g:airline_theme = 'hybrid'
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 
-"let g:ycm_autoclose_preview_window_after_completion=1
-"nnoremap g :YcmCompleter GoTo
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<tab>'
