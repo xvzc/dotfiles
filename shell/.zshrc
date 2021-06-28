@@ -22,21 +22,23 @@ plugins=(
 	fzf
 	osx
     zsh-syntax-highlighting
+    docker 
+    docker-compose
 )
 
+source $HOME/.profile
+source $HOME/dotfiles/shell/func
+source $HOME/dotfiles/shell/aliases
+source $HOME/dotfiles/shell/variables
+source $HOME/dotfiles/shell/styles
+
 source $ZSH/oh-my-zsh.sh
+
+bindkey -v # vim keymapping on shell
 
 fpath+=$HOME/.pure
 zmodload zsh/nearcolor
 
 autoload -U promptinit; promptinit
-
-source $HOME/.profile
-source $HOME/dotfiles/.func
-source $HOME/dotfiles/.aliases
-source $HOME/dotfiles/.exports
-source $HOME/dotfiles/.styles
-
-bindkey -v
 
 prompt pure

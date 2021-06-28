@@ -1,4 +1,5 @@
 "set spell spelllang=en_us
+
 set undofile
 set encoding=utf-8
 set fencs=ucs-bom,utf-8,euc-kr.latin1 " euc-kr if Korean, Unicode when unicode 
@@ -27,3 +28,4 @@ set history=1000
 set number
 
 set undodir=~/.config/nvim/undodir
+set nostartofline

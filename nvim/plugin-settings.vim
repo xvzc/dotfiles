@@ -1,5 +1,7 @@
 let mapleader=" " "map backslash to leader and will noremap this to <leader>
 
+let NERDTreeShowHidden=1
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -31,3 +33,5 @@ let g:coc_snippet_next = '<tab>'
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<s-tab>'
 
+let g:AutoPairsMapCh = 0
+inoremap <silent> <BS> <C-R>=AutoPairsDelete()<CR>
