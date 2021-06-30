@@ -26,11 +26,12 @@ plugins=(
     docker-compose
 )
 
+export DOT_FILES=$HOME/dotfiles 
 source $HOME/.profile
-source $HOME/dotfiles/shell/func
-source $HOME/dotfiles/shell/aliases
-source $HOME/dotfiles/shell/variables
-source $HOME/dotfiles/shell/styles
+source $DOT_FILES/shell/func
+source $DOT_FILES/shell/aliases
+source $DOT_FILES/shell/variables
+source $DOT_FILES/shell/styles
 
 source $ZSH/oh-my-zsh.sh
 
