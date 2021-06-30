@@ -66,4 +66,22 @@ function init-yvm(){
     [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 }
 
+function fif() {
+  if [ ! "$#" -gt 0 ]; then echo "patterns"; return 1; fi
+  rg --files-with-matches --no-messages $2 "$1" | fzf\
+  --border\
+  --height 80%\
+  --extended\
+  --ansi\
+  --reverse\
+  --cycle\
+  --header 'Find in File'\
+  --bind 'f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort'\
+  --bind 'alt-p:preview-up,alt-n:preview-down'\
+  --bind 'ctrl-u:half-page-up,ctrl-d:half-page-down'\
+  --bind '?:toggle-preview,alt-w:toggle-preview-wrap'\
+  --bind 'alt-v:execute(nvim {} >/dev/tty </dev/tty)'\
+  --preview "bat --theme='OneHalfDark' --style=numbers --color=always {} | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
 ########### function end

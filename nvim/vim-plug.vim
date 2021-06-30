@@ -5,6 +5,8 @@ call plug#begin()
 "Plug 'brglng/vim-im-select'
 Plug 'davidhalter/jedi-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/Vimball'
