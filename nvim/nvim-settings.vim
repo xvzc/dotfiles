@@ -1,5 +1,7 @@
 "set spell spelllang=en_us
 
+let mapleader=" " "map backslash to leader and will noremap this to <leader>
+
 set undofile
 set encoding=utf-8
 set fencs=ucs-bom,utf-8,euc-kr.latin1 " euc-kr if Korean, Unicode when unicode 
@@ -29,3 +31,7 @@ set number
 
 set undodir=~/.config/nvim/undodir
 set nostartofline
+
+
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_skip_check = 1

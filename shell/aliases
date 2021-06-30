@@ -19,6 +19,8 @@ alias tls='tmux ls'
 
 alias live-server='live-server --port=8080 --browser=chromium'
 
+alias bat='bat --style=plain'
+
 # automatically run tmux on startup
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   #exec tmux new-session -A -s main

@@ -24,9 +24,9 @@
     "suggest.echodocSupport": true,
     "codeLens.enable": true,
     "signature.enable": true,
-    "python.linting.flake8Enabled": true,
 
     "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": false,
 
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,

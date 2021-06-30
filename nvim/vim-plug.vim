@@ -4,6 +4,7 @@ filetype plugin indent on
 call plug#begin()
 "Plug 'brglng/vim-im-select'
 Plug 'davidhalter/jedi-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/Vimball'
