@@ -11,10 +11,11 @@ source $HOME/dotfiles/styles
 ```
 
 # add following to ~/.tmux.conf
-```s
-source-file ~/dotfiles/tmux/tmux.tpm.conf
-source-file ~/dotfiles/tmux/tmux.bindkey.conf
-source-file ~/dotfiles/tmux/tmux.options.conf
+```tmux
+source-file $DOT_FILES/tmux/tmux.tpm.conf
+source-file $DOT_FILES/tmux/tmux.bindkey.conf
+source-file $DOT_FILES/tmux/tmux.options.conf
+
 ```
 
 # get .tmux.reset.conf
