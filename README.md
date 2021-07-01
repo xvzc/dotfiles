@@ -39,3 +39,6 @@ source ~/dotfiles/nvim/autocommand.vim
 " this line should be at the last line
 source ~/dotfiles/nvim/styles.vim
  ```
+
+# flake8
+ move flake8 file to ~./config/
