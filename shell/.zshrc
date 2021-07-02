@@ -33,6 +33,10 @@ source $DOT_FILES/shell/aliases
 source $DOT_FILES/shell/variables
 source $DOT_FILES/shell/styles
 
+if [ "$x" = "valid" ]; then
+	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v # vim keymapping on shell
