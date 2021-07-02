@@ -23,8 +23,8 @@ inoremap kj <esc>
 
 " indents
 " Visual shifting (does not exit Visual mode)
-vnoremap <C-l> <gv
-vnoremap <C-h> >gv
+vnoremap <C-h> <gv
+vnoremap <C-l> >gv
 nnoremap <silent><C-l> :call Indent(1)<cr>
 nnoremap <silent><C-h> :call Indent(0)<cr>
 inoremap <silent><C-l> <C-o>:call Indent(1)<cr>

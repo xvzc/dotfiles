@@ -27,6 +27,7 @@ plugins=(
 )
 
 export DOT_FILES=$HOME/dotfiles 
+
 source $HOME/.profile
 source $DOT_FILES/shell/func
 source $DOT_FILES/shell/aliases
@@ -47,3 +48,4 @@ zmodload zsh/nearcolor
 autoload -U promptinit; promptinit
 
 prompt pure
+
