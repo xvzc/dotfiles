@@ -43,5 +43,5 @@ zmodload zsh/nearcolor
 
 autoload -U promptinit; promptinit
 
-prompt pure
+pompt pure
 
