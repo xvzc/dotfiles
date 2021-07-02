@@ -25,8 +25,11 @@
     "codeLens.enable": true,
     "signature.enable": true,
 
+    "python.pythonPath": "/usr/local/bin/python3",
     "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
+    "python.jediEnabled": false,
 
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
