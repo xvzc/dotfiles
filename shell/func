@@ -26,7 +26,6 @@ function init-conda(){
 
 # rbenv
 function init-rbenv(){
-    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
     export PATH="$HOME/.rbenv/bin:$PATH"
     export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
     eval "$(rbenv init -)" #changed this to below because of slow startup

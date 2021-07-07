@@ -34,6 +34,9 @@ inoremap <silent><C-h> <C-o>:call Indent(0)<cr>
 nnoremap <C-k> m`:m--<CR>==``
 nnoremap <C-j> m`:m +1<CR>==``
 
+" cat 
+nnoremap <silent><C-M-e> :!cat %<cr>
+
 func! Indent(ind)
   if &sol
     set nostartofline

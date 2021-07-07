@@ -16,3 +16,9 @@ source $DOT_FILES/nvim/autocommand.vim
 
 " this line should be at the last line
 source $DOT_FILES/nvim/styles.vim
+
+if &term =~ "xterm"
+    let &t_ti = "\<Esc>[?47h"
+    let &t_te = "\<Esc>[?47l"
+endif
+

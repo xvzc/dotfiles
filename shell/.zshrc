@@ -4,6 +4,7 @@ skip_global_compinit=1
 ZSH_DISABLE_COMPFIX="true"
 
 ZSH_THEME=""
+export ZSH='$HOME/.oh-my-zsh/oh-my-zsh.sh'
 # CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_UPDATE="true"
@@ -27,16 +28,12 @@ plugins=(
 )
 
 export DOT_FILES=$HOME/dotfiles 
-
 source $HOME/.profile
 source $DOT_FILES/shell/func
 source $DOT_FILES/shell/aliases
 source $DOT_FILES/shell/variables
 source $DOT_FILES/shell/styles
-
-if [ "$x" = "valid" ]; then
-	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fi
+source $DOT_FILES/shell/startup
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,4 +45,3 @@ zmodload zsh/nearcolor
 autoload -U promptinit; promptinit
 
 prompt pure
-
