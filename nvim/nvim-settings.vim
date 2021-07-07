@@ -13,7 +13,8 @@ set foldlevel=99
 set ignorecase
 
 set mousehide               " Hide the mouse cursor while typing
-set mouse=a                 " Automatically enable mouse usage
+"set mouse=a                 " Automatically enable mouse usage
+set mouse=                  " Automatically enable mouse usage
 
 "set termguicolors
 set notermguicolors
