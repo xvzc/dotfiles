@@ -2,8 +2,10 @@
 nnoremap <silent><leader>t :tabnew<CR>
 
 " split and move cursor
-nnoremap <silent>- :sp<CR><C-w>j
-nnoremap <silent>_ :vsp<CR><C-w>l
+nnoremap <silent><leader>- :sp<CR><C-w>j
+nnoremap <silent><leader>_ :vsp<CR><C-w>l
+nnoremap <silent><C-q> :q<CR>
+nnoremap <silent><C-s> :w<CR>
 
 " disable search highlight when <esc> pressed
 nnoremap <silent><esc> :let @/ = ""<cr>
