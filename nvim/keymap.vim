@@ -46,7 +46,9 @@ func! Indent(ind)
     norm! >>
     exe "norm!". (vcol + shiftwidth()) . '|'
   else
-    norm! <<
-    exe "norm!". (vcol - shiftwidth()) . '|'
+    if vcol > shiftwidth() 
+        norm! <<
+        exe "norm!". (vcol - shiftwidth()) . '|'
+    endif
   endif
 endfunc

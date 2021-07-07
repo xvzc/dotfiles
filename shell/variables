@@ -19,3 +19,7 @@ export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'  # Usage of python3
 
 # esc key delay 
 export KEYTIMEOUT=1 
+
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+
