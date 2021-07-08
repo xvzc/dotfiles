@@ -6,7 +6,7 @@ if has('termguicolors') && &termguicolors
 endif
 
 colorscheme jellybeans
-hi Normal guifg=#F8F8F2 guibg=#000000
+"hi Normal guifg=#F8F8F2 guibg=#000000
 "hi Normal guifg=NONE guibg=000000 ctermbg=NONE
 "set t_ut=""
 
