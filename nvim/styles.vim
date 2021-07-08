@@ -1,5 +1,13 @@
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+if has('termguicolors') && &termguicolors
+    let g:jellybeans_overrides['background']['guibg'] = 'none'
+endif
+
 colorscheme jellybeans
 hi Normal guifg=#F8F8F2 guibg=#000000
+"hi Normal guifg=NONE guibg=000000 ctermbg=NONE
 "set t_ut=""
 
 "red background issue 
