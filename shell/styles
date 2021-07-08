@@ -28,7 +28,7 @@ ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
 #ZSH_HIGHLIGHT_STYLES[assign]=none
 
 # change the path color
-#zstyle :prompt:pure:path color cyan 
+#zstyle :prompt:pure:path color blue
 #zstyle :prompt:pure:git:dirty color '#5e5d49'
 #zstyle :prompt:pure:git:branch color '#5e5d49'
 zstyle :prompt:pure:git:dirty color red
