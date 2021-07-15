@@ -6,3 +6,6 @@ let g:syntastic_mode_map = {'mode': 'active'}
 
 let g:syntastic_python_python_exec = 'python3'
 "let g:syntastic_python_checkers = ['python']
+
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = ' -std=c++17'

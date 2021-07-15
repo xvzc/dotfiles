@@ -7,6 +7,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'honza/vim-snippets'
+Plug 'bluz71/vim-moonfly-colors'
 Plug 'vim-scripts/Vimball'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'

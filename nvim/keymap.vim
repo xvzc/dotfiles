@@ -36,6 +36,10 @@ inoremap <silent><C-h> <C-o>:call Indent(0)<cr>
 nnoremap <C-k> m`:m--<CR>==``
 nnoremap <C-j> m`:m +1<CR>==``
 
+" surround.vim
+nmap <leader>s ysiw
+vmap <leader>s S
+
 func! Indent(ind)
   if &sol
     set nostartofline

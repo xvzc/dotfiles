@@ -10,7 +10,9 @@ endif
 " Use <C-j> for select text for visual placeholder of snippet.
 "vmap <C-j> <Plug>(coc-snippets-select)
 
-inoremap <silent> <CR> <C-r>=<SID>ExpandSnippetOrClosePumOrReturnNewline()<CR>
+"inoremap <silent><CR> <C-r>=<SID>ExpandSnippetOrClosePumOrReturnNewline()<CR>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :

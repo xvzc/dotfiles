@@ -1,3 +1,13 @@
+" Use clipboard copy if possible.
+"if has('clipboard')
+  "if has('unnamedplus')  " When possible use + register for copy-paste
+    "set clipboard=unnamed,unnamedplus
+  "else         " On mac and Windows, use * register for copy-paste
+    "set clipboard=unnamed
+  "endif
+"endif
+
+
 "set spell spelllang=en_us
 
 let mapleader=" " "map backslash to leader and will noremap this to <leader>
@@ -33,6 +43,7 @@ set number
 set undodir=~/.config/nvim/undodir
 set nostartofline
 
-
 let g:python3_host_prog = expand('/usr/local/bin/python3')
 let g:python3_host_skip_check = 1
+
+autocmd FileType * set formatoptions-=o " set this line with autocmd to get it applied at runtime
