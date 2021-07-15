@@ -26,19 +26,22 @@ $ tmux -f /dev/null -L temp start-server \; list-keys > ./.tmux.reset.conf
 
 # nvim
  coc-settings.json in nvim directory is a hard link of coc-settings.json in ~/.config/nvim/coc-settings.json
-```vim
-source ~/dotfiles/nvim/header.vim
-source ~/dotfiles/nvim/plugin-settings.vim
-source ~/dotfiles/nvim/actions.vim
-source ~/dotfiles/nvim/functions.vim
 
-source ~/dotfiles/nvim/mappings.vim
-source ~/dotfiles/nvim/nvim-settings.vim
-source ~/dotfiles/nvim/autocommand.vim
+```vim
+source $DOT_FILES/nvim/vim-plug.vim
+
+" load all plugin custom settings
+for f in split(glob('$DOT_FILES/nvim/plugin/*.vim'), '\n')
+    exe 'source' f
+endfor
+
+source $DOT_FILES/nvim/nvim-settings.vim
+source $DOT_FILES/nvim/keymap.vim
+source $DOT_FILES/nvim/autocommand.vim
 
 " this line should be at the last line
-source ~/dotfiles/nvim/styles.vim
- ```
+source $DOT_FILES/nvim/styles.vim
+```
 
 # flake8
  move flake8 file to ~./config/
