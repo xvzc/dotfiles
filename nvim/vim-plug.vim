@@ -45,6 +45,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 "Plug 'connorholyday/vim-snazzy'
+Plug 'rrethy/vim-illuminate'
 
 "Plug 'rafi/awesome-vim-colorschemes'
 

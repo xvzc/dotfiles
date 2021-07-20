@@ -25,7 +25,7 @@ endfunction
 
 function! RUN_CPP()
     silent w
-    let compile_out=system('g++ -std=c++17 '.expand('%:p').' -o ./a.out')
+    let compile_out=system('g++ -std=c++17 -O2 -Wall '.expand('%:p').' -o ./a.out')
     if v:shell_error != 0
         echo compile_out 
         return

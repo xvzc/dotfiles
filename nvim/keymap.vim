@@ -1,3 +1,5 @@
+nnoremap <M-l> <C-l>
+
 " new tab
 nnoremap <silent><leader>t :tabnew<CR>
 
@@ -8,7 +10,8 @@ nnoremap <silent><C-q> :q<CR>
 nnoremap <silent><C-s> :w<CR>
 
 " disable search highlight when <esc> pressed
-nnoremap <silent><esc> :let @/ = ""<cr>
+" nnoremap <silent><esc> :let @/=""<cr>:<backspace>
+nmap <silent><esc> :call ESC_ACTION()<CR>
 
 " copy to clip board
 nnoremap <leader>yy "+yy
@@ -33,23 +36,37 @@ inoremap <silent><C-l> <C-o>:call Indent(1)<cr>
 inoremap <silent><C-h> <C-o>:call Indent(0)<cr>
 
 " move line
-nnoremap <C-k> m`:m--<CR>==``
-nnoremap <C-j> m`:m +1<CR>==``
+nnoremap <silent><C-k> m`:m--<CR>==``
+nnoremap <silent><C-j> m`:m +1<CR>==``
 
 " surround.vim
 nmap <leader>s ysiw
 vmap <leader>s S
 
+" select all
+nnoremap <leader>a gg<S-v><S-g>
+
+
 func! Indent(ind)
-  if &sol
-    set nostartofline
-  endif
-  let vcol = virtcol('.')
-  if a:ind
-    norm! >>
-    exe "norm!". (vcol + shiftwidth()) . '|'
-  else
-    norm! <<
-    exe "norm!". (vcol - shiftwidth()) . '|'
-  endif
+    if &sol
+        set nostartofline
+    endif
+
+    let vcol = virtcol('.')
+
+    if a:ind
+        norm! >>
+        exe "norm!". (vcol + shiftwidth()) . '|'
+    else
+        if vcol > shiftwidth()
+            norm! <<
+            exe "norm!". (vcol - shiftwidth()) . '|'
+        endif
+    endif
+endfunc
+
+
+func! ESC_ACTION()
+    :let @/=""
+    normal :<backspace>
 endfunc
