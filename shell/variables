@@ -19,3 +19,11 @@ export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'  # Usage of python3
 
 # esc key delay 
 export KEYTIMEOUT=1 
+
+#fzf option
+export FZF_DEFAULT_OPTS="--layout=reverse \
+                         --inline-info \
+                         --height 40%  \
+                         --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+                         --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899'
+                         "
