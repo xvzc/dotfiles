@@ -17,8 +17,9 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+      \ "\<TAB>" 
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
 
 inoremap <silent><expr> <S-TAB>
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
