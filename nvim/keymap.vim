@@ -53,4 +53,22 @@ func! Indent(ind)
         exe "norm!". (vcol - shiftwidth()) . '|'
     endif
   endif
+
+    let vcol = virtcol('.')
+
+    if a:ind
+        norm! >>
+        exe "norm!". (vcol + shiftwidth()) . '|'
+    else
+        if vcol > shiftwidth()
+            norm! <<
+            exe "norm!". (vcol - shiftwidth()) . '|'
+        endif
+    endif
+endfunc
+
+
+func! ESC_ACTION()
+    :let @/=""
+    normal :<esc>
 endfunc
