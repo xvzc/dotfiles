@@ -17,12 +17,6 @@ vnoremap <leader>y "+y
 vnoremap <leader>d "+d
 nnoremap <leader>p "+p
 
-" insert mode exit
-inoremap jk <esc>
-inoremap jj <esc>
-inoremap kk <esc>
-inoremap kj <esc>
-
 " indents
 " Visual shifting (does not exit Visual mode)
 vnoremap <C-h> <gv
