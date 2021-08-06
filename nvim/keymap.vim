@@ -39,9 +39,6 @@ inoremap <silent><C-h> <C-o>:call Indent(0)<cr>
 nnoremap <silent><C-k> m`:m--<CR>==``
 nnoremap <silent><C-j> m`:m +1<CR>==``
 
-" surround.vim
-nmap <leader>s ysiw
-vmap <leader>s S
 
 " select all
 nnoremap <leader>a gg<S-v><S-g>
