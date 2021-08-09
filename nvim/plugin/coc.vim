@@ -9,19 +9,19 @@ endif
 "imap <C-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 "vmap <C-j> <Plug>(coc-snippets-select)
-
-inoremap <silent> <CR> <C-r>=<SID>ExpandSnippetOrClosePumOrReturnNewline()<CR>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+      \ "\<TAB>" 
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
 
 inoremap <silent><expr> <S-TAB>
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
       \ <SID>check_back_space() ? "\<C-d>" :
-      \ coc#refresh()
 
 "" functions
 

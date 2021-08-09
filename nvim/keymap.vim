@@ -16,6 +16,7 @@ nnoremap <leader>dd "+dd
 vnoremap <leader>y "+y
 vnoremap <leader>d "+d
 nnoremap <leader>p "+p
+nnoremap <leader>a gg<S-v>G
 
 " indents
 " Visual shifting (does not exit Visual mode)
@@ -34,30 +35,18 @@ nnoremap <C-j> m`:m +1<CR>==``
 nnoremap <silent><C-M-e> :!cat %<cr>
 
 func! Indent(ind)
-  if &sol
-    set nostartofline
-  endif
-  let vcol = virtcol('.')
-  if a:ind
-    norm! >>
-    exe "norm!". (vcol + shiftwidth()) . '|'
-  else
-    if vcol > shiftwidth() 
-        norm! <<
-        exe "norm!". (vcol - shiftwidth()) . '|'
+    if &sol
+        set nostartofline
     endif
-  endif
 
     let vcol = virtcol('.')
 
     if a:ind
         norm! >>
         exe "norm!". (vcol + shiftwidth()) . '|'
-    else
-        if vcol > shiftwidth()
-            norm! <<
-            exe "norm!". (vcol - shiftwidth()) . '|'
-        endif
+    elseif vcol > shiftwidth() 
+        norm! <<
+        exe "norm!". (vcol - shiftwidth()) . '|'
     endif
 endfunc
 

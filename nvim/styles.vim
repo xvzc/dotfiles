@@ -5,7 +5,8 @@ if has('termguicolors') && &termguicolors
     let g:jellybeans_overrides['background']['guibg'] = 'none'
 endif
 
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme gruvbox
 highlight LineNr ctermfg=grey
 "hi Normal guifg=#F8F8F2 guibg=#000000
 "hi Normal guifg=NONE guibg=000000 ctermbg=NONE
@@ -20,4 +21,4 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
+highlight clear Error

@@ -2,7 +2,7 @@ filetype plugin indent on
 
 
 call plug#begin()
-Plug 'bfrg/vim-cpp-modern'
+"Plug 'bfrg/vim-cpp-modern'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -45,10 +45,13 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 "Plug 'connorholyday/vim-snazzy'
 
+Plug 'justinmk/vim-sneak'
 "Plug 'rafi/awesome-vim-colorschemes'
 Plug 'neoclide/coc-python' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'pappasam/coc-jedi' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'josa42/coc-sh' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'Maxattax97/coc-ccls' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets' , {'do': 'yarn install --frozen-lockfile'}
+
+Plug 'morhetz/gruvbox'
 call plug#end()
