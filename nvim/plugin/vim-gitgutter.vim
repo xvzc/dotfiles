@@ -13,7 +13,5 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 highlight link GitGutterChangeLine DiffText
 
-"git gutter sign column bg color
+"git gutter sign column 
 highlight! link SignColumn LineNr 
-
-

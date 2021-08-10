@@ -1,25 +1,7 @@
-" let g:jellybeans_overrides = {
-" \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-" \}
-" if has('termguicolors') && &termguicolors
-"     let g:jellybeans_overrides['background']['guibg'] = 'none'
-" endif
-
-
-
-
 colorscheme gruvbox
+
+" set visual mode color to grey
 highlight visual ctermbg=black ctermfg=grey
-
-"set visual mode selection bg-color to grey, fg-color to black
-
-" colorscheme jellybeans
-" highlight LineNr ctermfg=grey "set the color of line number to grey
-
-" colorscheme seoul256
-
-"hi Normal guifg=#F8F8F2 guibg=#000000
-"set t_ut=""
 
 "red background issue 
 " Use :highlight to see all the settings of highlight
