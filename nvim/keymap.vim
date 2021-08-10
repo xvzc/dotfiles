@@ -1,6 +1,5 @@
 nnoremap <M-l> <C-l>
 
-
 " new tab
 nnoremap <silent><leader>t :tabnew<CR>
 
