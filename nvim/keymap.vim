@@ -1,5 +1,6 @@
 nnoremap <M-l> <C-l>
 
+
 " new tab
 nnoremap <silent><leader>t :tabnew<CR>
 
@@ -43,6 +44,10 @@ nnoremap <silent><C-j> m`:m +1<CR>==``
 " select all
 nnoremap <leader>a gg<S-v><S-g>
 
+func! ESC_ACTION()
+    :let @/=""
+    normal :<backspace>
+endfunc
 
 func! Indent(ind)
     if &sol
@@ -50,20 +55,29 @@ func! Indent(ind)
     endif
 
     let vcol = virtcol('.')
+    let cur_line = getline('.')
+
+    let cnt = 0
+    for i in range(len(cur_line))
+        if cur_line[i] == ' '
+            let cnt += 1
+        else
+            break
+        endif
+    endfor
 
     if a:ind
         norm! >>
         exe "norm!". (vcol + shiftwidth()) . '|'
-    else
-        if vcol > shiftwidth()
+    elseif cnt > 0
+
+        if cnt > shiftwidth()
             norm! <<
             exe "norm!". (vcol - shiftwidth()) . '|'
+        else
+            norm! <<
+            exe "norm!". (vcol - cnt) . '|'
         endif
+
     endif
-endfunc
-
-
-func! ESC_ACTION()
-    :let @/=""
-    normal :<backspace>
 endfunc
