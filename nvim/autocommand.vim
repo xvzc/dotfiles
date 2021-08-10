@@ -3,11 +3,10 @@ au BufRead,BufNewFile */etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile *.nginx set ft=nginx
 
-"autocmd filetype cpp nnoremap <silent><C-M-r> :w <bar> !echo ' '; g++ % -o ./a.out<cr>
 autocmd filetype python nnoremap <silent><C-M-r> :call RUN_PYTHON()<CR>
 autocmd filetype cpp nnoremap <silent><C-M-r> :call RUN_CPP()<CR>
 
-" go to the last position that I was editing the file
+" go to the last position that I was editing the file on
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
 autocmd BufEnter * lcd %:p:h
