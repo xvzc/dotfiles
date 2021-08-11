@@ -7,6 +7,10 @@ let g:gitgutter_sign_removed_first_line = '-^'
 let g:gitgutter_sign_removed_above_and_below = '--'
 let g:gitgutter_sign_modified_removed = '*-'
 
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
+
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1

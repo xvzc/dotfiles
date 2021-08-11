@@ -1,6 +1,5 @@
 filetype plugin indent on
 
-
 call plug#begin()
 " Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bfrg/vim-cpp-modern'
@@ -47,6 +46,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 "Plug 'connorholyday/vim-snazzy'
 Plug 'rrethy/vim-illuminate'
+Plug 'tpope/vim-repeat'
 
 "Plug 'rafi/awesome-vim-colorschemes'
 

@@ -43,6 +43,9 @@ set number
 set undodir=~/.config/nvim/undodir
 set nostartofline
 
+"gitgutter sign column
+set signcolumn=yes
+
 let g:python3_host_prog = expand('/usr/local/bin/python3')
 let g:python3_host_skip_check = 1
 

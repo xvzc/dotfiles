@@ -1,5 +1,10 @@
+let g:EasyMotion_keys='hklyuiopnm,qwertzxcvbasdgjf;'
+
+" within line easymotion
+map f <Plug>(easymotion-fl)
+map F <Plug>(easymotion-Fl)
+
 " <Leader>f{char} to move to {char}
-" map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{}{char} to move to {char}{char}
