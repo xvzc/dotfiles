@@ -1,5 +1,5 @@
-{
     "languageserver":{
+        {
         "go":{
             "command":"gopls",
             "rootPatterns":[
@@ -9,6 +9,17 @@
             "filetypes":[
                 "go"
             ]
+        },
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "trace.server": "verbose",
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
         }
     },
     "imselect.defaultInput": "com.apple.keylayout.ABC",

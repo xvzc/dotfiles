@@ -52,6 +52,7 @@ Plug 'pappasam/coc-jedi' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'josa42/coc-sh' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'Maxattax97/coc-ccls' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets' , {'do': 'yarn install --frozen-lockfile'}
+Plug 'Maxattax97/coc-ccls', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'morhetz/gruvbox'
 call plug#end()
