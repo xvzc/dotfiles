@@ -98,6 +98,7 @@
     "imselect.enableStatusItem": true,
     "snippets.priority": 200,
 
+    "diagnostic.enableMessage" : "jump",
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "ℹ",
@@ -106,7 +107,6 @@
     "codeLens.enable": false,
     "signature.enable": true,
 
-    "python.pythonPath": "/usr/local/bin/python3",
     "python.formatting.provider": "black",
 
     "python.linting.pylintEnabled": false,

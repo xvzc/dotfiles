@@ -14,6 +14,8 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+nmap <c-space> <Plug>(coc-diagnostic-info)
+
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-e>"
   nnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-y>"
