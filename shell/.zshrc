@@ -34,6 +34,9 @@ source $DOT_FILES/shell/aliases
 source $DOT_FILES/shell/variables
 source $DOT_FILES/shell/styles
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $DOT_FILES/shell/fzf
+
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v # vim keymapping on shell
@@ -44,4 +47,3 @@ zmodload zsh/nearcolor
 autoload -U promptinit; promptinit
 
 prompt pure
-
