@@ -2,9 +2,9 @@
 "set packpath+=~/.vim
 "source ~/.vimrc
 
-
 source $DOT_FILES/nvim/vim-plug.vim
 
+source $DOT_FILES/nvim/clipboard.vim
 source $DOT_FILES/nvim/nvim-settings.vim
 source $DOT_FILES/nvim/keymap.vim
 source $DOT_FILES/nvim/autocommand.vim

@@ -38,7 +38,7 @@ set nostartofline
 "gitgutter sign column
 set signcolumn=yes
 
-let g:python3_host_prog = expand('/usr/local/bin/python3')
+let g:python3_host_prog = trim(system('which python3')) " trim removes new line
 let g:python3_host_skip_check = 1
 
 autocmd FileType * set formatoptions-=o " set this line with autocmd to get it applied at runtime
