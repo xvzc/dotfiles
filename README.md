@@ -1,3 +1,15 @@
+# Instruction
+intall
+```
+node
+coc-nvim
+vim-plug
+tmux
+tpm
+fzf
+ripgrep
+```
+
 # dotfiles
 a repository for dotfiles
 

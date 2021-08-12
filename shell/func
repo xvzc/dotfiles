@@ -11,14 +11,14 @@ function virtualenv_info {
 
 # conda
 function init-conda(){
-     __conda_setup="$('/Users/kwanghoopark/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+     __conda_setup="$('$HOME/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
      if [ $? -eq 0 ]; then
          eval "$__conda_setup"
      else
-         if [ -f "/Users/kwanghoopark/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-             . "/Users/kwanghoopark/opt/anaconda3/etc/profile.d/conda.sh"
+         if [ -f "$HOME/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+             . "$HOME/opt/anaconda3/etc/profile.d/conda.sh"
          else
-             export PATH="/Users/kwanghoopark/opt/anaconda3/bin:$PATH"
+             export PATH="$HOME/opt/anaconda3/bin:$PATH"
          fi
      fi
      unset __conda_setup
@@ -62,7 +62,7 @@ function init-nvm(){
 
 # yvm
 function init-yvm(){
-    export YVM_DIR=/Users/kwanghoopark/.yvm
+    export YVM_DIR=$HOME/.yvm
     [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
 }
 

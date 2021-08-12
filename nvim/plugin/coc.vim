@@ -1,3 +1,12 @@
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<tab>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<s-tab>'
+
+let g:coc_node_path = substitute(system('which node'), '\n', '', '')
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " Use ctrl - space to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -5,10 +14,14 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use <C-l> for trigger snippet expand.
-"imap <C-l> <Plug>(coc-snippets-expand)
-" Use <C-j> for select text for visual placeholder of snippet.
-"vmap <C-j> <Plug>(coc-snippets-select)
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-e>"
+  nnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-y>"
+  inoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<C-e>"
+  inoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<C-y>"
+  vnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-e>"
+  vnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-y>"
+endif
 
 "inoremap <silent><CR> <C-r>=<SID>ExpandSnippetOrClosePumOrReturnNewline()<CR>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -27,14 +40,11 @@ inoremap <silent><expr> <S-TAB>
       \ coc#refresh()
 
 "" functions
-
 " tab behavior
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-
 
 " Enter key behavior
 function s:ExpandSnippetOrClosePumOrReturnNewline()
@@ -47,10 +57,3 @@ function s:ExpandSnippetOrClosePumOrReturnNewline()
     endif
 endfunction
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<tab>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<s-tab>'
-
-let g:coc_node_path = substitute(system('which node'), '\n', '', '')
