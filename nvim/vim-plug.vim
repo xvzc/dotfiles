@@ -45,8 +45,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 "Plug 'connorholyday/vim-snazzy'
 
-Plug 'justinmk/vim-sneak'
-"Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'justinmk/vim-sneak'
+" Plug 'rafi/awesome-vim-colorschemes'
 Plug 'neoclide/coc-python' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'pappasam/coc-jedi' , {'do': 'yarn install --frozen-lockfile'}
 Plug 'josa42/coc-sh' , {'do': 'yarn install --frozen-lockfile'}

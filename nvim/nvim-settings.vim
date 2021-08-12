@@ -37,3 +37,5 @@ set nostartofline
 
 let g:python3_host_prog = expand('/usr/bin/python3')
 let g:python3_host_skip_check = 1
+
+autocmd FileType * set formatoptions-=o " set this line with autocmd to get it applied at runtime
