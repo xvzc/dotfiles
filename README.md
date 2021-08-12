@@ -36,6 +36,11 @@ $ tmux -f /dev/null -L temp start-server \; list-keys > ./.tmux.reset.conf
 
 ```
 
+# when CocInstall doesn't work with request timeout message
+```
+echo "104.16.17.35\tregistry.npmjs.org" >> /etc/hosts
+```
+
 # nvim
  coc-settings.json in nvim directory is a hard link of coc-settings.json in ~/.config/nvim/coc-settings.json
 
