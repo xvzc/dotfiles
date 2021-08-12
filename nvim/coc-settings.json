@@ -9,6 +9,22 @@
             "filetypes":[
                 "go"
             ]
+        },
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "clang": {
+                "extraArgs": [
+                    "-isystem",
+                    "/usr/local/include"
+                ]
+                }
+            }
         }
     },
     "imselect.defaultInput": "com.apple.keylayout.ABC",
@@ -20,21 +36,21 @@
     "diagnostic.infoSign": "ℹ",
     "diagnostic.hintSign": "➤",
 
-    "suggest.noselect": false,
-    "suggest.echodocSupport": true,
-    "codeLens.enable": true,
+    "codeLens.enable": false,
     "signature.enable": true,
 
     "python.pythonPath": "/usr/local/bin/python3",
     "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
-    "python.jediEnabled": false,
+    "python.jediEnabled": true,
 
-    "suggest.preferCompleteThanJumpPlaceholder": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
     "python.workspaceSymbols.exclusionPatterns": [],
 
+    "suggest.noselect": false,
+    "suggest.echodocSupport": true,
+    "suggest.preferCompleteThanJumpPlaceholder": false,
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",
         "variable": "\ue79b",

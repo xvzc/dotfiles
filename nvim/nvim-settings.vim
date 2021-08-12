@@ -1,13 +1,3 @@
-" Use clipboard copy if possible.
-"if has('clipboard')
-  "if has('unnamedplus')  " When possible use + register for copy-paste
-    "set clipboard=unnamed,unnamedplus
-  "else         " On mac and Windows, use * register for copy-paste
-    "set clipboard=unnamed
-  "endif
-"endif
-
-
 "set spell spelllang=en_us
 
 let mapleader=" " "map backslash to leader and will noremap this to <leader>
@@ -38,6 +28,8 @@ set expandtab
 set tabstop=4
 set hlsearch " Search highlight
 set history=1000
+set updatetime=1000
+set shortmess+=c
 set number
 
 set undodir=~/.config/nvim/undodir

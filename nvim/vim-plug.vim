@@ -45,8 +45,8 @@ Plug 'flazz/vim-colorschemes'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 "Plug 'connorholyday/vim-snazzy'
-Plug 'rrethy/vim-illuminate'
-Plug 'tpope/vim-repeat'
+Plug 'rrethy/vim-illuminate' " hilight matches
+" Plug 'tpope/vim-repeat'
 
 "Plug 'rafi/awesome-vim-colorschemes'
 
