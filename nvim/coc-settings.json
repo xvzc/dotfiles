@@ -27,59 +27,11 @@
                 }
             }
         },
-
-        "python": {
-            "command": "python3",
-            "args": [
-            ],
-            "trace.server": "verbose",
-            "filetypes": [
-                "python"
-            ],
-            "settings": {
-                "pyls": {
-                    "enable": true,
-                    "trace": {
-                        "server": "verbose"
-                    },
-                    "commandPath": "",
-                    "configurationSources": [
-                        "pycodestyle"
-                    ],
-                    "plugins": {
-                        "jedi_completion": {
-                            "enabled": true
-                        },
-                        "jedi_hover": {
-                            "enabled": true
-                        },
-                        "jedi_references": {
-                            "enabled": true
-                        },
-                        "jedi_signature_help": {
-                            "enabled": true
-                        },
-                        "jedi_symbols": {
-                            "enabled": true,
-                            "all_scopes": true
-                        },
-                        "mccabe": {
-                            "enabled": true,
-                            "threshold": 15
-                        },
-                        "preload": {
-                            "enabled": true
-                        },
-                        "pydocstyle": {
-                            "enabled": false,
-                            "match": "(?!test_).*\\.py",
-                            "matchDir": "[^\\.].*"
-                        }
-                    }
-                }
-            }
+        "pyls": {
+            "command": "pyls",
+            "filetypes": ["python"],
+            "settings": {}
         }
-
     },
     "imselect.defaultInput": "com.apple.keylayout.ABC",
     "imselect.enableStatusItem": true,
@@ -91,6 +43,8 @@
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextPrefix": "    |  ",
     "diagnostic.enableSign": true,
+    "snippets.ultisnips.enable": true,
+    "snippets.loadFromExtensions": true,
 
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",
@@ -100,13 +54,7 @@
     "codeLens.enable": false,
     "signature.enable": true,
 
-    "python.formatting.provider": "black",
-
-    "python.linting.pylintEnabled": false,
-    "python.jediEnabled": false,
-
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
-    "python.workspaceSymbols.exclusionPatterns": [],
 
     "suggest.noselect": false,
     "suggest.echodocSupport": true,
