@@ -62,3 +62,7 @@ source $DOT_FILES/nvim/styles.vim
 
 # flake8
  move flake8 file to ~./config/
+
+
+# about coc-jedi settings
+ You need to install coc-python and set python.jedi.enabled to false
