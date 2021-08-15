@@ -21,6 +21,7 @@
                 },
                 "clang": {
                     "extraArgs": [
+                        "-std=c++17",
                         "-isystem",
                         "/usr/local/include"
                     ]
@@ -52,12 +53,26 @@
     "diagnostic.hintSign": "➤",
 
     "codeLens.enable": false,
-    "signature.enable": true,
+    "signature.enable": false,
 
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
 
+    "suggest.snippetIndicator": "~",
+
+    "suggest.defaultSortMethod": "alphabetical",
+
+    "suggest.detailMaxLength": 100,
+    "suggest.detailField": "preview",
+    "suggest.disableKind": false,
+
+    "suggest.removeDuplicateItems": true,
+    "suggest.floatEnable": true,
+    "suggest.enablePreview": true,
+    "suggest.disableMenu": false,
+    "suggest.disableMenuShortcut": false,
+
     "suggest.noselect": false,
-    "suggest.echodocSupport": true,
+    "suggest.echodocSupport": false,
     "suggest.preferCompleteThanJumpPlaceholder": false,
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",

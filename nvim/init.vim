@@ -1,6 +1,7 @@
 "set runtimepath+=~/.vim,~/.vim/after
 "set packpath+=~/.vim
 "source ~/.vimrc
+
 let g:cur_os=$CUR_OS
 
 source $DOT_FILES/nvim/vim-plug.vim

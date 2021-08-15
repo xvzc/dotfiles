@@ -1,5 +1,11 @@
 # Instruction
-intall
+
+# set CUR_OS ENV to ~/profile
+```
+export CUR_OS = "my_os"
+
+```
+# intall
 ```
 node
 coc-nvim

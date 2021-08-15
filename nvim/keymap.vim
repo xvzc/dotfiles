@@ -46,6 +46,9 @@ nnoremap <silent><M-j> m`:m +1<CR>==``
 " select all
 nnoremap <leader>a gg<S-v><S-g>
 
+" use ESC to close pum in insert mode
+inoremap <silent> <expr> <ESC> (pumvisible() ? "\<C-E>" : "\<ESC>")
+
 func! CLEAR()
     " :let @/=""
     call feedkeys("\<M-C-\>")

@@ -5,6 +5,12 @@ let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
 let g:coc_node_path = substitute(system('which node'), '\n', '', '')
+
+let g:python3_host_skip_check = 1
+let g:python3_host_prog = trim(system('which python3')) " trim removes new line
+
+" let g:coc_user_config['languageserver'].ccls.initializationOptions.clang.extraargs = ['-std=c++17']
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use ctrl - space to trigger completion.
@@ -14,7 +20,9 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-nmap <c-space> <Plug>(coc-diagnostic-info)
+let g:node_client_debug = 1
+
+" nmap <c-space> <Plug>(coc-diagnostic-info)
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-e>"
@@ -25,18 +33,21 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-y>"
 endif
 
-"inoremap <silent><CR> <C-r>=<SID>ExpandSnippetOrClosePumOrReturnNewline()<CR>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
-      \ "\<TAB>" 
-      "\ <SID>check_back_space() ? "\<TAB>" :
-      "\ coc#refresh()
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+inoremap <silent><expr> <C-n>
+      \ !pumvisible() ? coc#refresh() : 
+      \ "\<C-n>"
 
 inoremap <silent><expr> <S-TAB>
+      \ UltiSnips#CanJumpBackwards() ? "\<C-r>=UltiSnips#JumpBackwards()\<CR>" :
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
       \ <SID>check_back_space() ? "\<C-d>" :
       \ coc#refresh()
@@ -58,4 +69,3 @@ function s:ExpandSnippetOrClosePumOrReturnNewline()
         return "\<CR>"
     endif
 endfunction
-
