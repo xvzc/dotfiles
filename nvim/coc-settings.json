@@ -67,6 +67,8 @@
     "suggest.labelMaxLength": 80,
     "suggest.detailField": "preview",
     "suggest.disableKind": false,
+    "suggest.autoTrigger": "always",
+    "suggest.highPrioritySourceLimit": 20,
 
     "suggest.removeDuplicateItems": true,
     "suggest.floatEnable": true,

@@ -8,7 +8,7 @@ nmap <silent><expr> <esc> v:hlsearch ?
             \"\<esc>"
 
 " new tab
-nnoremap <silent><leader>t :tabnew<CR>
+" nnoremap <silent><leader>t :tabnew<CR>
 
 " split and move cursor
 nnoremap <silent><leader>- :sp<CR><C-w>j

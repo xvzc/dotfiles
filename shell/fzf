@@ -2,12 +2,13 @@
 alias fcd='cd $(fd --type d | fzf)'
 alias fvi='vi $(fzf)'
 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 #fzf option
 export FZF_DEFAULT_OPTS="--layout=reverse \
                          --inline-info \
                          --height 40%  \
                          --preview 'bat --style=numbers --color=always --line-range :500 {}' \
-                         --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899'
+                         --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
                          "
 
 # Use ~~ as the trigger sequence instead of the default **
