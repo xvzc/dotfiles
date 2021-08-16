@@ -47,7 +47,6 @@ inoremap <silent><expr> <C-n>
       \ "\<C-n>"
 
 inoremap <silent><expr> <S-TAB>
-      \ UltiSnips#CanJumpBackwards() ? "\<C-r>=UltiSnips#JumpBackwards()\<CR>" :
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
       \ <SID>check_back_space() ? "\<C-d>" :
       \ coc#refresh()

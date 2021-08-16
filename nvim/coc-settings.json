@@ -10,7 +10,6 @@
                 "go"
             ]
         },
-
         "ccls": {
             "command": "ccls",
             "filetypes": ["c", "cpp", "objc", "objcpp"],
@@ -25,7 +24,7 @@
                         "-isystem",
                         "/usr/local/include"
                     ]
-                }
+                },
             }
         },
         "pyls": {
@@ -44,8 +43,11 @@
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextPrefix": "    |  ",
     "diagnostic.enableSign": true,
+
     "snippets.ultisnips.enable": true,
+    "snippets.autoTrigger": true,
     "snippets.loadFromExtensions": true,
+    "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
 
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",

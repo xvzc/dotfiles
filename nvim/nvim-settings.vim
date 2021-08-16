@@ -37,6 +37,6 @@ set nostartofline
 
 "gitgutter sign column
 set signcolumn=yes
-set pumheight=15
+set pumheight=10
 
 autocmd FileType * set formatoptions-=o " set this line with autocmd to get it applied at runtime

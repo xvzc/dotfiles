@@ -1,0 +1,411 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+extends c
+
+##
+## Preprocessor
+# #include <...>
+snippet incb
+#include <${1:bits/stdc++.h}>
+endsnippet
+
+snippet incc
+#include <${1:iostream}>
+endsnippet
+
+snippet binc
+#include <boost/${1:shared_ptr}.hpp>
+endsnippet
+##
+
+
+## STL Collections
+# std::array
+snippet array
+array<${1:T}, ${2:N}> ${3:arr};
+endsnippet
+
+# std::vector
+snippet vector
+vector<${1:T}> ${2:v};
+endsnippet
+
+# std::deque
+snippet deque
+deque<${1:T}> ${2:dq};
+endsnippet
+
+# std::forward_list
+snippet flist
+forward_list<${1:T}> ${2:fl};
+endsnippet
+
+# std::list
+snippet list
+list<${1:T}> ${2:li};
+endsnippet
+
+# std::set
+snippet set
+set<${1:T}> ${2:s};
+endsnippet
+
+# std::map
+snippet map
+map<${1:Key}, ${2:T}> ${3:m};
+endsnippet
+
+# std::multiset
+snippet mset
+multiset<${1:T}> ${2:ms};
+endsnippet
+
+# std::multimap
+snippet mmap
+multimap<${1:Key}, ${2:T}> ${3:mm};
+endsnippet
+
+# std::unordered_set
+snippet uset
+unordered_set<${1:T}> ${2:us};
+endsnippet
+
+# std::unordered_map
+snippet umap
+unordered_map<${1:Key}, ${2:T}> ${3:um};
+endsnippet
+
+# std::unordered_multiset
+snippet umset
+unordered_multiset<${1:T}> ${2:ums};
+endsnippet
+
+# std::unordered_multimap
+snippet ummap
+unordered_multimap<${1:Key}, ${2:T}> ${3:umm};
+endsnippet
+
+# std::stack
+snippet stack
+stack<${1:T}> ${2:st};
+endsnippet
+
+# std::queue
+snippet queue
+queue<${1:T}> ${2:q};
+endsnippet
+
+# std::priority_queue
+snippet pqueue
+priority_queue<${1:T}> ${2:pq};
+endsnippet
+## 
+
+
+## STL smart pointers
+# std::shared_ptr
+snippet msp
+shared_ptr<${1:T}> ${2} = make_shared<$1>(${3});
+endsnippet
+
+snippet amsp
+auto ${1} = make_shared<${2:T}>(${3});
+endsnippet
+
+# std::unique_ptr
+snippet mup
+unique_ptr<${1:T}> ${2} = make_unique<$1>(${3});
+endsnippet
+
+snippet amup
+auto ${1} = make_unique<${2:T}>(${3});
+endsnippet
+##
+
+
+## Access Modifiers
+# private
+snippet pri
+private
+endsnippet
+
+# protected
+snippet pro
+protected
+endsnippet
+
+# public
+snippet pub
+public
+endsnippet
+
+# friend
+snippet fr
+friend
+endsnippet
+
+# mutable
+snippet mu
+mutable
+endsnippet
+##
+
+
+## Class
+# class
+snippet cl
+/*! \class $1
+ *  \brief ${3:Brief class description}
+ *
+ *  ${4:Detailed description}
+ */
+class ${1:`vim_snippets#Filename('$1', 'name')`}
+{
+	public:
+		$1(${2});
+		virtual ~$1();
+
+	protected:
+		m_${5}; /*!< ${6:Member description} */
+};
+endsnippet
+
+# member function implementation
+snippet mfun
+${4:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3}) {
+	${0}
+}
+endsnippet
+
+# member function implementation without parameters
+snippet dmfun0
+/*! \brief ${4:Brief function description here}
+ *
+ *  ${5:Detailed description}
+ *
+ * \return ${6:Return parameter description}
+ */
+${3:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}() {
+	${0}
+}
+endsnippet
+
+# member function implementation with one parameter
+snippet dmfun1
+/*! \brief ${6:Brief function description here}
+ *
+ *  ${7:Detailed description}
+ *
+ * \param $4 ${8:Parameter description}
+ * \return ${9:Return parameter description}
+ */
+${5:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3:Type} ${4:Parameter}) {
+	${0}
+}
+endsnippet
+
+# member function implementation with two parameter
+snippet dmfun2
+/*! \brief ${8:Brief function description here}
+ *
+ *  ${9:Detailed description}
+ *
+ * \param $4 ${10:Parameter description}
+ * \param $6 ${11:Parameter description}
+ * \return ${12:Return parameter description}
+ */
+${7:void} ${1:`vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3:Type} ${4:Parameter},${5:Type} ${6:Parameter}) {
+	${0}
+}
+endsnippet
+
+# namespace
+snippet ns
+namespace ${1:`vim_snippets#Filename('', 'my')`} {
+	${0}
+} /* namespace $1 */
+endsnippet
+
+snippet ans
+namespace {
+	${0}
+}
+endsnippet
+##
+
+
+## Input/Output
+# std::cout
+snippet cout
+cout << ${1} << ${2:endl};
+endsnippet
+
+endsnippet
+# std::cin
+snippet cin
+cin >> ${1};
+endsnippet
+##
+
+
+## Casts
+# static
+snippet sca
+static_cast<${1:unsigned}>(${2:expr})${3}
+endsnippet
+# dynamic
+snippet dca
+dynamic_cast<${1:unsigned}>(${2:expr})${3}
+endsnippet
+# reinterpret
+snippet rca
+reinterpret_cast<${1:unsigned}>(${2:expr})${3}
+endsnippet
+# const
+snippet cca
+const_cast<${1:unsigned}>(${2:expr})${3}
+endsnippet
+##
+
+
+## Iteration
+# Default for loop
+# Empty for loop
+snippet for "Empty for loop"
+for (${1}; ${2}; ${3}) {
+	${0}
+} 
+endsnippet
+
+# for i
+snippet fori
+for (int ${1:i} = ${2:0}; ${3:/* condition */}; ${4:++}$1) {
+	${0:/* statements */}
+}
+endsnippet
+
+# foreach
+snippet fore
+for (${1:auto} ${2:i} : ${3:container}) {
+	${0:/* statements */}
+}
+endsnippet
+
+# iterator
+snippet forit
+for (${1:vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4) {
+	${0:/* statements */}
+}
+endsnippet
+
+# auto iterator
+snippet forai
+for (auto ${1:i} = ${2:container}.begin(); $1 != $2.end(); ++$1) {
+	${3:cout << *$1 << endl;}
+}
+endsnippet
+
+snippet forbe "general for loop (general for)"
+for (${6:auto} ${1:i} = ${2:v.begin()}; `!p import re; snip.rv = re.split("[^\w]",t[1])[-1]` ${4:!=} ${3:`!p m = re.search(r'^(?:(.*)(\.|->)begin\(\)|((?:std|boost)::)?begin\((.*)\))$', t[2]); snip.rv = (((m.group(3) if m.group(3) else "") + "end(" + m.group(4) + ")") if m.group(4) else (m.group(1) + m.group(2) + "end()")) if m else ""`}; ${5:++`!p snip.rv = t[1].split(" ")[-1]`}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet while "Empty while loop"
+while(${1:/* condition */}) {
+	${0:/* statements */}
+} 
+endsnippet
+
+snippet dowhile "do while"
+do {
+	${0:/* statements */}
+} while(${1:/* condition */})
+endsnippet
+
+snippet iall "$1.begin(), $1.end() (begin to end)"
+${1:v}.begin(), $1.end()
+endsnippet
+
+snippet irall "$1.rbegin(), $1.rend() (reverse begin to reverse end)"
+${1:v}.rbegin(), $1.rend()
+endsnippet
+
+snippet ib "$1.begin()(begin)"
+${1:v}.begin()
+endsnippet
+
+snippet ie "$1.end() (end)"
+${1:v}.end()
+endsnippet
+
+snippet irb "$1.begin() (reverse begin)"
+${1:v}.rbegin()
+endsnippet
+
+snippet ire "$1.end() (reverse end)"
+${1:v}.rend()
+endsnippet
+
+##
+
+
+## Lambdas
+# lamda (one line)
+snippet ld
+[${1}](${2}){${3}};
+endsnippet
+# lambda (multi-line)
+snippet lld
+[${1}](${2}){
+	${3}
+};
+endsnippet
+
+## Utils
+# snippets exception
+snippet try
+try {
+
+}catch(${1}) {
+
+}
+endsnippet
+
+# auto function
+snippet af 
+auto ${1:name}(${2}) -> ${3:void}
+{
+	${0}
+};
+endsnippet
+
+# main(void)
+snippet mainn "main(void)"
+int main(void) {
+	${0}
+}
+endsnippet

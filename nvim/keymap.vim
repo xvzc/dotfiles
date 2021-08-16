@@ -2,16 +2,10 @@
 " nnoremap <silent><esc> :let @/=""<cr>:<backspace>
 " nmap <silent><esc> :call ESC_ACTION()<CR>
 
-" nohl mapping, don't touch this 
-nnoremap <silent><M-C-\> :nohl<CR>
-" clear mapping
-nnoremap <M-\> <C-l>
-
 " nmap <silent><ESC> :call ESC_ACTION()<CR>
 nmap <silent><expr> <esc> v:hlsearch ? 
             \ "\:nohl<CR>" : 
             \"\<esc>"
-nmap <silent><C-l> :call CLEAR()<CR>
 
 " new tab
 nnoremap <silent><leader>t :tabnew<CR>
@@ -19,9 +13,6 @@ nnoremap <silent><leader>t :tabnew<CR>
 " split and move cursor
 nnoremap <silent><leader>- :sp<CR><C-w>j
 nnoremap <silent><leader>_ :vsp<CR><C-w>l
-nnoremap <silent><M-q> :q<CR>
-nnoremap <silent><M-w> :w<CR>
-nnoremap <silent><M-Q> :q!<CR>
 
 " copy to clip board
 nnoremap <leader>yy "+yy
@@ -30,30 +21,25 @@ vnoremap <leader>y "+y
 vnoremap <leader>d "+d
 nnoremap <leader>p "+p
 
-" indents
-" Visual shifting (does not exit Visual mode)
-vnoremap <M-h> <gv
-vnoremap <M-l> >gv
-nnoremap <silent><M-l> :call Indent(1)<cr>
-nnoremap <silent><M-h> :call Indent(0)<cr>
-inoremap <silent><M-l> <C-o>:call Indent(1)<cr>
-inoremap <silent><M-h> <C-o>:call Indent(0)<cr>
-
-" move line
-nnoremap <silent><M-k> m`:m--<CR>==``
-nnoremap <silent><M-j> m`:m +1<CR>==``
-
 " select all
 nnoremap <leader>a gg<S-v><S-g>
 
-" use ESC to close pum in insert mode
-inoremap <silent> <expr> <ESC> (pumvisible() ? "\<C-E>" : "\<ESC>")
+" indents
+" Visual shifting (does not exit Visual mode)
+" vnoremap <M-h> <gv
+" vnoremap <M-l> >gv
+" nnoremap <silent><M-l> :call Indent(1)<cr>
+" nnoremap <silent><M-h> :call Indent(0)<cr>
+" inoremap <silent><M-l> <C-o>:call Indent(1)<cr>
+" inoremap <silent><M-h> <C-o>:call Indent(0)<cr>
 
-func! CLEAR()
-    " :let @/=""
-    call feedkeys("\<M-C-\>")
-    call feedkeys("\<M-\>")
-endfunc
+" move line
+" nnoremap <silent><M-k> m`:m--<CR>==``
+" nnoremap <silent><M-j> m`:m +1<CR>==``
+
+" nnoremap <silent><M-q> :q<CR>
+" nnoremap <silent><M-w> :w<CR>
+" nnoremap <silent><M-Q> :q!<CR>
 
 func! Indent(ind)
     if &sol
