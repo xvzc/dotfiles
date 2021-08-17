@@ -3,7 +3,7 @@ au BufRead,BufNewFile */etc/nginx/* set ft=nginx
 au BufRead,BufNewFile nginx.conf set ft=nginx
 au BufRead,BufNewFile *.nginx set ft=nginx
 
-au BufRead,BufNewFile ~/_jry/algorithms/cpp/*.cpp nnoremap <silent><M-C-t> :0r ~/_jry/algorithms/cpp/template.cpp<CR>
+au BufRead,BufNewFile ~/_jry/algorithms/cpp/*.cpp nnoremap <silent><C-M-t> :0r ~/_jry/algorithms/cpp/template.cpp<CR>
 
 autocmd filetype python nnoremap <silent><M-C-r> :call RUN_PYTHON()<CR>
 autocmd filetype cpp nnoremap <silent><M-C-r> :call RUN_CPP()<CR>
@@ -38,4 +38,5 @@ function! RUN_CPP()
     echo ' '
     echo run_out 
     echo ' '
+    let run_out=system(expand('rm -rf ').getcwd().expand('/a.out')) " remove out file
 endfunction
