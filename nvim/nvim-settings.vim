@@ -24,8 +24,11 @@ set cindent " C sytle auto indent
 
 set scrolloff=2 
 set shiftwidth=4
+autocmd FileType vim set shiftwidth=2
 set expandtab
+
 set tabstop=4
+
 set hlsearch " Search highlight
 set history=1000
 set updatetime=300

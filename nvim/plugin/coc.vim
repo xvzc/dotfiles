@@ -9,20 +9,25 @@ let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 let g:python3_host_skip_check = 1
 let g:python3_host_prog = trim(system('which python3')) " trim removes new line
 
-" let g:coc_user_config['languageserver'].ccls.initializationOptions.clang.extraargs = ['-std=c++17']
+let g:node_client_debug = 1
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use ctrl - space to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  " coc.nvim trigger option
+  if cur_os == 'mac'
+    " use <c-space> for trigger completion
+    inoremap <silent><expr> <C-space> coc#refresh()
+    echo "mac"
+  else
+    " use <c-space>for trigger completion <c-space> sends <NUL> on wsl
+    inoremap <silent><expr> <NUL> coc#refresh()
+  endif
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-let g:node_client_debug = 1
-
-" nmap <c-space> <Plug>(coc-diagnostic-info)
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-e>"
@@ -33,13 +38,18 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-y>"
 endif
 
+
+if exists('*complete_info')
+  inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
+inoremap <silent><expr> <Tab>
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
 inoremap <silent><expr> <C-n>
@@ -48,8 +58,8 @@ inoremap <silent><expr> <C-n>
 
 inoremap <silent><expr> <S-TAB>
       \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
-      \ <SID>check_back_space() ? "\<C-d>" :
-      \ coc#refresh()
+      \ pumvisible() ? "\<C-p>" : 
+      \ "\<C-d>"
 
 "" functions
 " tab behavior

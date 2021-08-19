@@ -6,7 +6,7 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " Plug 'SirVer/ultisnips'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'vim-scripts/Vimball'

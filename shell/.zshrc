@@ -41,7 +41,7 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v # vim keymapping on shell
 
-fpath+=$HOME/.pure
+fpath+=$HOME/.zsh
 zmodload zsh/nearcolor
 
 autoload -U promptinit; promptinit
