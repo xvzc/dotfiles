@@ -45,7 +45,6 @@
     "diagnostic.enableSign": true,
 
     "snippets.ultisnips.enable": true,
-    "snippets.autoTrigger": true,
     "snippets.loadFromExtensions": true,
     "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
 
@@ -60,25 +59,36 @@
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
 
     "suggest.snippetIndicator": "~",
-
     "suggest.defaultSortMethod": "alphabetical",
-
     "suggest.detailMaxLength": 100,
     "suggest.labelMaxLength": 80,
     "suggest.detailField": "preview",
     "suggest.disableKind": false,
     "suggest.autoTrigger": "always",
     "suggest.highPrioritySourceLimit": 20,
-
     "suggest.removeDuplicateItems": true,
     "suggest.floatEnable": true,
     "suggest.enablePreview": true,
     "suggest.disableMenu": false,
     "suggest.disableMenuShortcut": false,
-
-    "suggest.noselect": false,
+    "suggest.minTriggerInputLength": 0,
+    "suggest.acceptSuggestionOnCommitCharacter": false,
+    "suggest.enablePreselect": false,
+    "suggest.noselect": true,
     "suggest.echodocSupport": false,
-    "suggest.preferCompleteThanJumpPlaceholder": false,
+    "suggest.preferCompleteThanJumpPlaceholder": true,
+
+    "suggest.invalidInsertCharacters": [
+        " ",
+        "(",
+        "<",
+        "{",
+        "[",
+        ";",
+        "\r",
+        "\n"
+    ],
+
     "suggest.completionItemKindLabels": {
         "keyword": "[key]",
         "variable": "[var]",
