@@ -76,7 +76,7 @@
     "suggest.enablePreselect": false,
     "suggest.noselect": true,
     "suggest.echodocSupport": false,
-    "suggest.preferCompleteThanJumpPlaceholder": true,
+    "suggest.preferCompleteThanJumpPlaceholder": false,
 
     "suggest.invalidInsertCharacters": [
         " ",

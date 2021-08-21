@@ -10,10 +10,10 @@ let g:coc_global_extensions = [ 'coc-snippets',
 
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = ''
+let g:coc_snippet_next = '<Tab>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = ''
+let g:coc_snippet_prev = '<S-Tab>'
 
 let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 
@@ -57,40 +57,17 @@ endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" works
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-inoremap <silent><expr> <C-n>
-      \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
-      \ "\<C-n>"
-
-inoremap <silent><expr> <S-TAB> <C-d>
-
-inoremap <silent><expr> <C-p>
-      \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
-      \ "\<C-n>"
-"""
-
-"imap <C-l> <Plug>(coc-snippets-expand)
-" \<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>"
-  
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? complete_info(['selected'])['selected'] != -1 ?
                      \ "\<C-y>" :
-                     \ coc#jumpable() ? "\<C-e>\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
                      \ coc#_select_confirm() :
       \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])\<CR>" :
-      \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+inoremap <silent><expr> <S-TAB>
+      \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
 
-" inoremap <silent><expr> <C-n>
-" inoremap <silent><expr> <S-TAB> <C-d>
-" inoremap <silent><expr> <C-p>
 
 "" functions
 " tab behavior

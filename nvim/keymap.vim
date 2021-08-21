@@ -26,20 +26,19 @@ nnoremap <leader>a gg<S-v><S-g>
 
 " indents
 " Visual shifting (does not exit Visual mode)
-" vnoremap <M-h> <gv
-" vnoremap <M-l> >gv
-" nnoremap <silent><M-l> :call Indent(1)<cr>
-" nnoremap <silent><M-h> :call Indent(0)<cr>
-" inoremap <silent><M-l> <C-o>:call Indent(1)<cr>
-" inoremap <silent><M-h> <C-o>:call Indent(0)<cr>
+vnoremap <C-h> <gv
+vnoremap <C-l> >gv
+nnoremap <silent><C-l> :call Indent(1)<cr>
+nnoremap <silent><C-h> :call Indent(0)<cr>
+inoremap <silent><C-l> <C-o>:call Indent(1)<cr>
+inoremap <silent><C-h> <C-o>:call Indent(0)<cr>
 
 " move line
-" nnoremap <silent><M-k> m`:m--<CR>==``
-" nnoremap <silent><M-j> m`:m +1<CR>==``
+nnoremap <silent><C-k> m`:m--<CR>==``
+nnoremap <silent><C-j> m`:m +1<CR>==``
 
-" nnoremap <silent><M-q> :q<CR>
-" nnoremap <silent><M-w> :w<CR>
-" nnoremap <silent><M-Q> :q!<CR>
+nnoremap <silent><C-q> :q<CR>
+nnoremap <silent><C-w> :w<CR>
 
 func! Indent(ind)
     if &sol
