@@ -1,4 +1,5 @@
 let g:EasyMotion_keys='hklyuiopnm,qwertzxcvbasdgjf;'
+let g:EasyMotion_smartcase = 1
 
 " within line easymotion
 map f <Plug>(easymotion-fl)

@@ -1,0 +1,371 @@
+snippet #!
+#!/usr/bin/env python3
+endsnippet
+snippet #!2
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+endsnippet
+snippet #!3
+#!/usr/bin/env python3
+endsnippet
+snippet imp
+import ${0:module}
+endsnippet
+snippet uni
+def __unicode__(self):
+	${0:representation}
+endsnippet
+snippet from
+from ${1:package} import ${0:module}
+endsnippet
+# Module Docstring
+snippet docs
+"""
+File: ${1:`vim_snippets#Filename('$1.py', 'foo.py')`}
+Author: `g:snips_author`
+Email: `g:snips_email`
+Github: `g:snips_github`
+Description: ${0}
+"""
+endsnippet
+
+# Unittest skip
+snippet sk "skip unittests" b
+@unittest.skip(${1:skip_reason})
+endsnippet
+
+snippet wh
+while ${1:condition}:
+	${0:${VISUAL}}
+endsnippet
+# dowh - does the same as do...while in other languages
+snippet dowh
+while True:
+	${1}
+	if ${0:condition}:
+		break
+endsnippet
+snippet with
+with ${1:expr} as ${2:var}:
+	${0:${VISUAL}}
+endsnippet
+snippet awith
+async with ${1:expr} as ${2:var}:
+	${0:${VISUAL}}
+endsnippet
+# New Class
+snippet cl
+class ${1:ClassName}(${2:object}):
+	"""${3:docstring for $1}"""
+	def __init__(self, ${4:arg}):
+		${5:super($1, self).__init__()}
+		self.$4 = $4
+		${0}
+endsnippet
+snippet cla
+class ${1:class_name}:
+	"""${0:description}"""
+endsnippet
+snippet clai
+class ${1:class_name}:
+	"""${2:description}"""
+	def __init__(self, ${3:args}):
+		${0}
+endsnippet
+# New Function
+snippet def
+def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+	"""${3:docstring for $1}"""
+	${0}
+endsnippet
+snippet deff
+def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+	${0}
+endsnippet
+snippet adef
+async def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+	"""${3:docstring for $1}"""
+	${0}
+endsnippet
+snippet adeff
+async def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+	${0}
+endsnippet
+# New Method
+snippet defi
+def __init__(self, ${1:args}):
+	${0}
+endsnippet
+snippet defm
+def ${1:mname}(self, ${2:arg}):
+	${0}
+endsnippet
+snippet adefm
+async def ${1:mname}(self, ${2:arg}):
+	${0}
+endsnippet
+
+snippet if
+if ${1:condition}:
+	${0:${VISUAL}}
+endsnippet
+snippet el
+else:
+	${0:${VISUAL}}
+endsnippet
+snippet ei
+elif ${1:condition}:
+	${0:${VISUAL}}
+endsnippet
+# For
+snippet for
+for ${1:item} in ${2:items}:
+	${0}
+endsnippet
+# Encodes
+snippet cutf8
+# -*- coding: utf-8 -*-
+endsnippet
+snippet clatin1
+# -*- coding: latin-1 -*-
+endsnippet
+snippet cascii
+# -*- coding: ascii -*-
+endsnippet
+# Lambda
+snippet ld
+${1:var} = lambda ${2:vars} : ${0:action}
+endsnippet
+snippet ret
+return ${0}
+endsnippet
+snippet .
+self.
+endsnippet
+snippet sa self.attribute = attribute
+self.${1:attribute} = $1
+endsnippet
+snippet try Try/Except
+try:
+	${1:${VISUAL}}
+except ${2:Exception} as ${3:e}:
+	${0:raise $3}
+endsnippet
+snippet trye Try/Except/Else
+try:
+	${1:${VISUAL}}
+except ${2:Exception} as ${3:e}:
+	${4:raise $3}
+else:
+	${0}
+endsnippet
+snippet tryf Try/Except/Finally
+try:
+	${1:${VISUAL}}
+except ${2:Exception} as ${3:e}:
+	${4:raise $3}
+finally:
+	${0}
+endsnippet
+snippet tryef Try/Except/Else/Finally
+try:
+	${1:${VISUAL}}
+except ${2:Exception} as ${3:e}:
+	${4:raise $3}
+else:
+	${5}
+finally:
+	${0}
+endsnippet
+# if __name__ == '__main__':
+snippet ifmain
+if __name__ == '__main__':
+	${0:main()}
+endsnippet
+# __magic__
+snippet _
+__${1:init}__
+endsnippet
+# python debugger (pdb)
+snippet pdb
+__import__('pdb').set_trace()
+endsnippet
+# bpython debugger (bpdb)
+snippet bpdb
+__import__('bpdb').set_trace()
+endsnippet
+# ipython debugger (ipdb)
+snippet ipdb
+__import__('ipdb').set_trace()
+endsnippet
+# embed ipython itself
+snippet iem
+__import__('IPython').embed()
+endsnippet
+# remote python debugger (rpdb)
+snippet rpdb
+__import__('rpdb').set_trace()
+endsnippet
+# web python debugger (wdb)
+snippet wdb
+__import__('wdb').set_trace()
+endsnippet
+# ptpython
+snippet ptpython
+__import__('ptpython.repl', fromlist=('repl')).embed(globals(), locals(), vi_mode=${1:False}, history_filename=${2:None})
+endsnippet
+# python console debugger (pudb)
+snippet pudb
+__import__('pudb').set_trace()
+endsnippet
+# python console debugger remote (pudb)
+snippet pudbr
+from pudb.remote import set_trace
+set_trace()
+endsnippet
+# pdb in nosetests
+snippet nosetrace
+__import__('nose').tools.set_trace()
+endsnippet
+snippet pprint
+__import__('pprint').pprint(${1})
+endsnippet
+snippet "
+"""${0:doc}
+"""
+endsnippet
+# assertions
+snippet a=
+self.assertEqual(${0}, ${1})
+endsnippet
+# test function/method
+snippet test
+def test_${1:description}(${2:`indent('.') ? 'self' : ''`}):
+	${0}
+endsnippet
+# test case
+snippet testcase
+class ${1:ExampleCase}(unittest.TestCase):
+
+	def test_${2:description}(self):
+		${0}
+endsnippet
+# test given when then
+snippet tgwt
+# given: ${1}
+# when: ${2}
+# then: ${3}
+endsnippet
+snippet fut
+from __future__ import ${0}
+endsnippet
+#getopt
+snippet getopt
+try:
+	# Short option syntax: "hv:"
+	# Long option syntax: "help" or "verbose="
+	opts, args = getopt.getopt(sys.argv[1:], "${1:short_options}", [${2:long_options}])
+
+except getopt.GetoptError, err:
+	# Print debug info
+	print str(err)
+	${3:error_action}
+
+for option, argument in opts:
+	if option in ("-h", "--help"):
+		${0}
+	elif option in ("-v", "--verbose"):
+		verbose = argument
+endsnippet
+# argparse
+snippet addp
+parser = ${VISUAL:argparse.}ArgumentParser()
+endsnippet
+snippet addsp
+${0:sub_parser} = parser.add_subparsers().add_parser("${1:name}")
+endsnippet
+snippet addarg
+parser.add_argument("${0:short_arg}", "${1:long_arg}", default=${2:None}, help="${3:Help text}")
+endsnippet
+snippet addnarg
+parser.add_argument("${0:arg}", nargs="${1:*}", default=${2:None}, help="${3:Help text}")
+endsnippet
+snippet addaarg
+parser.add_argument("${0:arg}", "${1:long_arg}", action="${2:store_true}", default=${3:False}, help="${4:Help text}")
+endsnippet
+snippet pargs
+"${VISUAL:return }"parser.parse_args()
+endsnippet
+
+# logging
+# glog = get log
+snippet glog
+import logging
+LOGGER = logging.getLogger(${0:__name__})
+endsnippet
+snippet le
+LOGGER.error(${0:msg})
+# conflict with lambda=ld, therefor we change into Logger.debuG
+endsnippet
+snippet lg
+LOGGER.debug(${0:msg})
+endsnippet
+snippet lw
+LOGGER.warning(${0:msg})
+endsnippet
+snippet lc
+LOGGER.critical(${0:msg})
+endsnippet
+snippet li
+LOGGER.info(${0:msg})
+endsnippet
+snippet epydoc
+"""${1:Description}
+
+@param ${2:param}: ${3: Description}
+@type  $2: ${4: Type}
+
+@return: ${5: Description}
+@rtype : ${6: Type}
+
+@raise e: ${0: Description}
+"""
+endsnippet
+snippet dol
+def ${1:__init__}(self, *args, **kwargs):
+	super(${0:ClassName}, self).$1(*args, **kwargs)
+endsnippet
+snippet kwg
+self.${1:var_name} = kwargs.get('$1', ${2:None})
+endsnippet
+snippet lkwg
+${1:var_name} = kwargs.get('$1', ${2:None})
+endsnippet
+snippet args
+*args${1:,}${0}
+endsnippet
+snippet kwargs
+**kwargs${1:,}${0}
+endsnippet
+snippet akw
+*args, **kwargs${1:,}${0}
+endsnippet
+
+# comprehensions
+snippet lcp list comprehension
+[${1} for ${2} in ${3:${VISUAL}}]${0}
+endsnippet
+
+snippet dcp dict comprehension
+{${1}: ${2} for ${3} in ${4:${VISUAL}}}${0}
+endsnippet
+
+snippet scp set comprehension
+{${1} for ${2} in ${3:${VISUAL}}}${0}
+endsnippet
+
+## CUSTOM
+snippet pr
+print(${1})
+endsnippet
+

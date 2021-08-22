@@ -38,7 +38,7 @@ nnoremap <silent><C-k> m`:m--<CR>==``
 nnoremap <silent><C-j> m`:m +1<CR>==``
 
 nnoremap <silent><C-q> :q<CR>
-nnoremap <silent><C-w> :w<CR>
+nnoremap <silent><C-s> :w<CR>
 
 func! Indent(ind)
     if &sol

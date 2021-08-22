@@ -61,9 +61,9 @@ endif
 "       \ coc#refresh()
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<NUL>'
+let g:coc_snippet_next = '<nop>'
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<NUL>'
+let g:coc_snippet_prev = '<nop>'
 
 inoremap <silent><nowait><expr> <Tab>
       \ pumvisible() ? coc#_select_confirm() :
