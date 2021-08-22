@@ -20,18 +20,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use ctrl - space to trigger completion.
 if has('nvim')
-  " coc.nvim trigger option
-  if cur_os == 'mac'
-    " use <c-space> for trigger completion
-    inoremap <silent><expr> <C-space> coc#refresh()
-  else
-    " use <c-space>for trigger completion <c-space> sends <NUL> on wsl
-    inoremap <silent><expr> <NUL> coc#refresh()
-  endif
+  inoremap <silent><expr> <C-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-e>"
@@ -48,18 +40,33 @@ if exists('*complete_info')
 endif
 
 
+
+""" works
+" inoremap <silent><nowait><expr> <Tab>
+"       \ pumvisible() ? complete_info(['selected'])['selected'] != -1 ?
+"                      \ "\<C-y>" :
+"                      \ coc#jumpable() ? "\<C-E>\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
+"                      \ coc#_select_confirm() :
+"       \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
+"       \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])<CR>" :
+"       \ <SID>check_back_space() ? "\<Tab>" :
+"       \ coc#refresh()
+
+" inoremap <silent><expr> <S-TAB>
+"       \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetPrev', [])<cr>" :
+"       \ "\<C-d>"
+
+" inoremap <silent><expr> <C-n>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ coc#refresh()
+
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<NUL>'
-
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<NUL>'
 
-""" works
 inoremap <silent><nowait><expr> <Tab>
-      \ pumvisible() ? complete_info(['selected'])['selected'] != -1 ?
-                     \ "\<C-y>" :
-                     \ coc#jumpable() ? "\<C-E>\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
-                     \ coc#_select_confirm() :
+      \ pumvisible() ? coc#_select_confirm() :
       \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
       \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])<CR>" :
       \ <SID>check_back_space() ? "\<Tab>" :
@@ -68,10 +75,6 @@ inoremap <silent><nowait><expr> <Tab>
 inoremap <silent><expr> <S-TAB>
       \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetPrev', [])<cr>" :
       \ "\<C-d>"
-
-inoremap <silent><expr> <C-n>
-      \ pumvisible() ? "\<C-n>" :
-      \ coc#refresh()
 
 snoremap <buffer><nowait><silent><TAB> <Esc>:call coc#rpc#request('snippetNext', [])<cr>
 snoremap <buffer><nowait><silent><S-TAB> <Esc>:call coc#rpc#request('snippetPrev', [])<cr>
