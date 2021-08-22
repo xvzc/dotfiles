@@ -24,7 +24,7 @@
                         "-isystem",
                         "/usr/local/include"
                     ]
-                },
+                }
             }
         },
         "pyls": {
@@ -35,27 +35,26 @@
     },
     "imselect.defaultInput": "com.apple.keylayout.ABC",
     "imselect.enableStatusItem": true,
-    "snippets.priority": 200,
 
-    "diagnostic.enableMessage": "never",
-    "diagnostic.virtualTextLines": 5,
+    "diagnostic.enableMessage": "always",
     "diagnostic.enableHighlightLineNumber": true,
-    "diagnostic.virtualText": true,
-    "diagnostic.virtualTextPrefix": "    |  ",
     "diagnostic.enableSign": true,
-
-    "snippets.ultisnips.enable": true,
-    "snippets.loadFromExtensions": true,
-    "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
-    "snippets.autoTrigger": true,
-
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "ℹ",
     "diagnostic.hintSign": "➤",
 
-    "codeLens.enable": false,
-    "signature.enable": false,
+
+    "snippets.ultisnips.enable": true,
+    "snippets.loadFromExtensions": true,
+    "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
+    "snippets.autoTrigger": true,
+    "snippets.priority": 200,
+
+    "codeLens.enable": true,
+    "ccls.codeLens.renderInline": true,
+    "signature.enable": true,
+    "coc.preferences.enableFloatHighlight": true,
 
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
 
@@ -79,6 +78,10 @@
     "suggest.noselect": true,
     "suggest.echodocSupport": false,
     "suggest.preferCompleteThanJumpPlaceholder": false,
+
+    "coc.preferences.enableMessageDialog": true,
+    "coc.preferences.floatActions": true,
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
 
     "suggest.invalidInsertCharacters": [
         " ",
