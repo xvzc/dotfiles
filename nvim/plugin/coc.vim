@@ -9,12 +9,6 @@ let g:coc_global_extensions = [ 'coc-snippets',
                               \ ]
 
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<Tab>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<S-Tab>'
-
 let g:coc_node_path = substitute(system('which node'), '\n', '', '')
 
 let g:python3_host_skip_check = 1
@@ -30,7 +24,6 @@ if has('nvim')
   if cur_os == 'mac'
     " use <c-space> for trigger completion
     inoremap <silent><expr> <C-space> coc#refresh()
-    echo "mac"
   else
     " use <c-space>for trigger completion <c-space> sends <NUL> on wsl
     inoremap <silent><expr> <NUL> coc#refresh()
@@ -54,22 +47,36 @@ if exists('*complete_info')
   inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-inoremap <silent><expr> <Tab>
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<NUL>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<NUL>'
+
+""" works
+inoremap <silent><nowait><expr> <Tab>
       \ pumvisible() ? complete_info(['selected'])['selected'] != -1 ?
                      \ "\<C-y>" :
+                     \ coc#jumpable() ? "\<C-E>\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
                      \ coc#_select_confirm() :
-      \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])\<CR>" :
+      \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
+      \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])<CR>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
 inoremap <silent><expr> <S-TAB>
-      \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
+      \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetPrev', [])<cr>" :
+      \ "\<C-d>"
 
+inoremap <silent><expr> <C-n>
+      \ pumvisible() ? "\<C-n>" :
+      \ coc#refresh()
 
-"" functions
+snoremap <buffer><nowait><silent><TAB> <Esc>:call coc#rpc#request('snippetNext', [])<cr>
+snoremap <buffer><nowait><silent><S-TAB> <Esc>:call coc#rpc#request('snippetPrev', [])<cr>
+
+" functions
 " tab behavior
 function! s:check_back_space() abort
   let col = col('.') - 1
