@@ -12,8 +12,11 @@ coc-nvim
 vim-plug
 tmux
 tpm
+oh-my-tmux
 fzf
 ripgrep
+hack nerd font
+ccls
 ```
 
 # dotfiles

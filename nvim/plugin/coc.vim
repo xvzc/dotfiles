@@ -16,6 +16,13 @@ let g:python3_host_prog = trim(system('which python3')) " trim removes new line
 
 let g:node_client_debug = 1
 
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = ''
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = ''
+
+let g:coc_config_home = '~/dotfiles/nvim'
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use ctrl - space to trigger completion.
@@ -38,32 +45,6 @@ endif
 if exists('*complete_info')
   inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-
-
-
-""" works
-" inoremap <silent><nowait><expr> <Tab>
-"       \ pumvisible() ? complete_info(['selected'])['selected'] != -1 ?
-"                      \ "\<C-y>" :
-"                      \ coc#jumpable() ? "\<C-E>\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
-"                      \ coc#_select_confirm() :
-"       \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
-"       \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])<CR>" :
-"       \ <SID>check_back_space() ? "\<Tab>" :
-"       \ coc#refresh()
-
-" inoremap <silent><expr> <S-TAB>
-"       \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetPrev', [])<cr>" :
-"       \ "\<C-d>"
-
-" inoremap <silent><expr> <C-n>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ coc#refresh()
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<nop>'
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<nop>'
 
 inoremap <silent><nowait><expr> <Tab>
       \ pumvisible() ? coc#_select_confirm() :
