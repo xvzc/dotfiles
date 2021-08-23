@@ -5,6 +5,8 @@ call plug#begin()
 Plug 'bfrg/vim-cpp-modern'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'honza/vim-snippets'
 " Plug 'jerry901/vim-snippets'
@@ -27,24 +29,25 @@ Plug 'vim-scripts/nginx.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-syntastic/syntastic'
-Plug 'Shougo/neocomplcache.vim'
+" Plug 'Shougo/neocomplcache.vim'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tmhedberg/SimpylFold'
+" Plug 'tmhedberg/SimpylFold'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify' " fancy start screen
 Plug 'vim-scripts/nginx.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimproc.vim' " proc syntax
 Plug 'fatih/vim-go', { 'tag': '*'  }
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim'  }
-Plug 'flazz/vim-colorschemes'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'flazz/vim-colorschemes'
+Plug 'ryanoasis/vim-devicons' " Nerd tree icon
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 " Plug 'haya14busa/incsearch.vim'
 " Plug 'haya14busa/incsearch-easymotion.vim'
 "Plug 'connorholyday/vim-snazzy'

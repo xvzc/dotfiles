@@ -42,4 +42,7 @@ set nostartofline
 set signcolumn=yes
 set pumheight=10
 
+set noshowmode
+set showtabline=2
+
 autocmd FileType * set formatoptions-=o " set this line with autocmd to get it applied at runtime

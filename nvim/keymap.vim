@@ -20,6 +20,7 @@ nnoremap <leader>dd "+dd
 vnoremap <leader>y "+y
 vnoremap <leader>d "+d
 nnoremap <leader>p "+p
+nnoremap <F5> <C-l>
 
 " select all
 nnoremap <leader>a gg<S-v><S-g>

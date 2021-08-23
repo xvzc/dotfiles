@@ -40,7 +40,7 @@
     "imselect.defaultInput": "com.apple.keylayout.ABC",
     "imselect.enableStatusItem": true,
 
-    "codeLens.enable": true,
+    "codeLens.enable": false,
 
     "signature.enable": true,
 

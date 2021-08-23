@@ -33,10 +33,10 @@ source $HOME/dotfiles/styles
 
 # add following to ~/.tmux.conf
 ```tmux
-source-file $DOT_FILES/tmux/tmux.tpm.conf
 source-file $DOT_FILES/tmux/tmux.bindkey.conf
 source-file $DOT_FILES/tmux/tmux.options.conf
-
+source-file $DOT_FILES/tmux/tmux.tpm.conf
+source-file $DOT_FILES/tmux/tmux.style.conf
 ```
 
 # get .tmux.reset.conf

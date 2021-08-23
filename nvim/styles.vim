@@ -1,4 +1,4 @@
-colorscheme gruvbox
+colorscheme onedark
 
 " set visual mode color to grey
 " highlight visual ctermbg=black ctermfg=grey
