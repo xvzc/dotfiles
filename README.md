@@ -7,6 +7,8 @@ export CUR_OS = "my_os"
 ```
 # intall
 ```
+zsh
+oh-my-zsh
 node
 coc-nvim
 vim-plug
@@ -15,8 +17,9 @@ tpm
 oh-my-tmux
 fzf
 ripgrep
-hack nerd font
+d2coding nerd font
 ccls
+sdkman
 ```
 
 # dotfiles

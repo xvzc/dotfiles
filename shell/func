@@ -9,62 +9,6 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo "%{\$fg[white]%}[$(basename $VIRTUAL_ENV)]%{$reset_color%}";
 }
 
-# conda
-function init-conda(){
-     __conda_setup="$('$HOME/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-     if [ $? -eq 0 ]; then
-         eval "$__conda_setup"
-     else
-         if [ -f "$HOME/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-             . "$HOME/opt/anaconda3/etc/profile.d/conda.sh"
-         else
-             export PATH="$HOME/opt/anaconda3/bin:$PATH"
-         fi
-     fi
-     unset __conda_setup
-}
-
-# rbenv
-function init-rbenv(){
-    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-    eval "$(rbenv init -)" #changed this to below because of slow startup
-}
-
-# jenv
-function init-jenv(){
-    #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
-    export PATH=${PATH}:$JAVA_HOME/bin
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
-}
-
-# virtualenv
-function init-virtualenv(){
-    ## virtualEnv Wrapper
-    export WORKON_HOME=~/.virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-    export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
-    source /usr/local/bin/virtualenvwrapper.sh
-}
-
-# gvm
-function init-gvm(){
-    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-}
-
-# nvm 
-function init-nvm(){
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
-
-# yvm
-function init-yvm(){
-    export YVM_DIR=$HOME/.yvm
-    [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
-}
 
 function fif() {
   if [ ! "$#" -gt 0 ]; then echo "patterns"; return 1; fi

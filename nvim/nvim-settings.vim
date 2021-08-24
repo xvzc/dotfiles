@@ -31,7 +31,7 @@ set tabstop=4
 
 set hlsearch " Search highlight
 set history=1000
-set updatetime=300
+set updatetime=1000
 set shortmess+=c
 set number
 

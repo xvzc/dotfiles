@@ -10,44 +10,25 @@
                 "go"
             ]
         },
-        "ccls": {
-            "command": "ccls",
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
-            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                },
-                "clang": {
-                    "extraArgs": [
-                        "-std=c++17",
-                        "-isystem",
-                        "/usr/local/include"
-                    ]
-                }
-            }
-        },
         "pyls": {
             "command": "pyls",
             "filetypes": ["python"],
             "settings": {}
         }
     },
-    "ccls.codeLens.enabled": true,
+
+    "codeLens.enable": true,
 
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
 
     "imselect.defaultInput": "com.apple.keylayout.ABC",
     "imselect.enableStatusItem": true,
 
-    "codeLens.enable": false,
-
     "signature.enable": true,
 
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.enableMessageDialog": true,
     "coc.preferences.floatActions": true,
-    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
 
     "diagnostic.enableMessage": "always",
     "diagnostic.enableHighlightLineNumber": true,
@@ -57,10 +38,11 @@
     "diagnostic.infoSign": "ℹ",
     "diagnostic.hintSign": "➤",
 
+    "diagnostic.highlighLimit": 1000,
+
     "snippets.ultisnips.enable": true,
     "snippets.loadFromExtensions": true,
     "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
-    "snippets.autoTrigger": true,
     "snippets.priority": 200,
 
     "suggest.snippetIndicator": "~",
@@ -68,7 +50,7 @@
     "suggest.defaultSortMethod": "alphabetical",
     "suggest.detailMaxLength": 100,
     "suggest.labelMaxLength": 80,
-    "suggest.detailField": "preview",
+    "suggest.detailField": "menu",
     "suggest.disableKind": false,
     "suggest.autoTrigger": "trigger",
     "suggest.highPrioritySourceLimit": 20,
@@ -77,12 +59,17 @@
     "suggest.enablePreview": true,
     "suggest.disableMenu": false,
     "suggest.disableMenuShortcut": false,
-    "suggest.minTriggerInputLength": 0,
     "suggest.acceptSuggestionOnCommitCharacter": false,
     "suggest.enablePreselect": true,
     "suggest.noselect": true,
     "suggest.echodocSupport": false,
     "suggest.preferCompleteThanJumpPlaceholder": false,
+
+    "list.height": 10,
+    "list.previewSplitRight": true,
+
+    "java.completion.enabled": true,
+    "java.referencesCodeLens.enabled": true,
 
     "suggest.invalidInsertCharacters": [
         " ",
@@ -121,5 +108,6 @@
         "snippet": "[snip]",
         "typeParameter": "[tparam]",
         "default": "[none]"
-    }
+    },
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
 }

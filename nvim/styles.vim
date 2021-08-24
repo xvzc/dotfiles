@@ -1,4 +1,4 @@
-colorscheme onedark
+colorscheme gruvbox
 
 " set visual mode color to grey
 " highlight visual ctermbg=black ctermfg=grey
@@ -11,11 +11,16 @@ highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 " highlight SpellBad term=standout term=underline cterm=underline
 highlight clear SpellCap
 highlight SpellCap term=underline cterm=underline
+
 highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
+
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
 highlight clear Error " red-backgroud 
+
+highlight gruvboxRed guifg=#eb503f
 
 highlight Search cterm=NONE ctermfg=black ctermbg=225 guifg=#0f0f0f guibg=#BBCDEB gui=none
 highlight IncSearch cterm=NONE ctermfg=black ctermbg=225 guifg=#0f0f0f guibg=#e7f20a gui=none
@@ -23,3 +28,5 @@ highlight EasyMotionTarget guibg=none guifg=#6FEF78
 highlight EasyMotionShade  guibg=none guifg=#646466
 highlight Cursor cterm=none gui=none guifg=#646466 ctermfg=black
 
+command! -bang -nargs=? -complete=dir HiGroup
+      \ echo synIDattr(synID(line("."), col("."), 1), "name")
