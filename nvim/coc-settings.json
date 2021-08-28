@@ -43,6 +43,9 @@
     "snippets.ultisnips.enable": true,
     "snippets.loadFromExtensions": true,
     "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
+    "snippets.ultisnips.directories": [
+        "~/dotfiles/nvim/snippets"
+    ],
     "snippets.priority": 200,
 
     "suggest.snippetIndicator": "~",
@@ -67,9 +70,6 @@
 
     "list.height": 10,
     "list.previewSplitRight": true,
-
-    "java.completion.enabled": true,
-    "java.referencesCodeLens.enabled": true,
 
     "suggest.invalidInsertCharacters": [
         " ",

@@ -5,7 +5,9 @@ let g:coc_global_extensions = [ 'coc-snippets',
                               \ 'coc-sh', 
                               \ 'coc-json', 
                               \ 'coc-go',
-                              \ 'coc-clangd'
+                              \ 'coc-clangd',
+                              \ 'coc-ultisnips',
+                              \ 'coc-snippets',
                               \ ]
 
 
@@ -68,7 +70,7 @@ endif
 inoremap <silent><nowait><expr> <Tab>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#jumpable() ? "\<C-R>=coc#rpc#request('snippetNext', [])<cr>" :
-      \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])<CR>" :
+      \ coc#expandable() ? "\<C-R>=coc#rpc#request('doKeymap', ['snippets-expand',''])<CR>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 

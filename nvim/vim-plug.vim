@@ -21,9 +21,9 @@ Plug 'ryanoasis/vim-devicons' " Nerd tree icon
 Plug 'morhetz/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " Plug 'jerry901/vim-snippets'
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Plug 'vim-scripts/Vimball'
 
 " Plug 'rrethy/vim-illuminate' " hilight matches

@@ -1,2 +1,2 @@
-nnoremap <silent><leader>b :NERDTreeToggle<CR>
+nnoremap <silent><leader>n :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
