@@ -67,7 +67,6 @@ function init_sdkman(){
 function run_tmux_if_tilda(){
     if [[ "$(ps -p $(ps -p $$ -o ppid=) o args=)" == "/usr/bin/tilda" ]]
     then
-        echo "hello"
         if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
             [[ $TERM != "screen" ]] && tmux new-session -A -s tilda
         fi
