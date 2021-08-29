@@ -1,5 +1,6 @@
 #!/bin/sh
 
+echo ""
 echo "[HOOKS]"
 
 echo "  Running ln -f ~/dotfiles/shell/zshrc ~/.zshrc"
