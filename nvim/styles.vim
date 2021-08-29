@@ -2,9 +2,14 @@ colorscheme gruvbox
 
 " set visual mode color to grey
 " highlight visual ctermbg=black ctermfg=grey
-highlight visual guifg=#0F0F0F guibg=#959595 gui=none
 
-"red background issue 
+" Set backgorund transparent
+hi Normal guibg=NONE ctermbg=NONE 
+
+" Visual background color
+highlight visual guifg=#0F0F0F guibg=#959595 gui=none 
+
+" Red background issue 
 " Use :highlight to see all the settings of highlight
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
@@ -18,10 +23,11 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
-highlight clear Error " red-backgroud 
+highlight clear Error 
 
 highlight gruvboxRed guifg=#eb503f
 
+" Search highlight
 highlight Search cterm=NONE ctermfg=black ctermbg=225 guifg=#0f0f0f guibg=#BBCDEB gui=none
 highlight IncSearch cterm=NONE ctermfg=black ctermbg=225 guifg=#0f0f0f guibg=#e7f20a gui=none
 highlight EasyMotionTarget guibg=none guifg=#6FEF78
