@@ -1,7 +1,16 @@
 #!/bin/sh
 
-echo " Running git hooks [ Create links ]"
+echo "[HOOKS]"
+echo ""
+
+echo "Running ln -f ~/dotfiles/shell/zshrc ~/.zshrc"
 ln -f ~/dotfiles/shell/zshrc ~/.zshrc
+
+echo "Running ln -f ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim"
 ln -f ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+
+echo "Running ln -f ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local"
 ln -f ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local
-echo " Git hooks [ Done ] "
+
+echo ""
+echo "[DONE]"
