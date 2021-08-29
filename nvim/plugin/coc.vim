@@ -1,14 +1,14 @@
 let g:coc_global_extensions = [ 'coc-snippets', 
-                              \ 'coc-imselect', 
-                              \ 'coc-html', 
-                              \ 'coc-tsserver', 
-                              \ 'coc-sh', 
-                              \ 'coc-json', 
-                              \ 'coc-go',
-                              \ 'coc-clangd',
-                              \ 'coc-ultisnips',
-                              \ 'coc-snippets',
-                              \ ]
+      \ 'coc-imselect', 
+      \ 'coc-html', 
+      \ 'coc-tsserver', 
+      \ 'coc-sh', 
+      \ 'coc-json', 
+      \ 'coc-go',
+      \ 'coc-clangd',
+      \ 'coc-ultisnips',
+      \ 'coc-snippets',
+      \ ]
 
 
 let g:coc_node_path = substitute(system('which node'), '\n', '', '')
@@ -90,13 +90,13 @@ endfunction
 
 " Enter key behavior
 function s:ExpandSnippetOrClosePumOrReturnNewline()
-    if pumvisible()
-        if !empty(v:completed_item)
-            return "\<C-y>"
-        endif
-    else
-        return "\<CR>"
+  if pumvisible()
+    if !empty(v:completed_item)
+      return "\<C-y>"
     endif
+  else
+    return "\<CR>"
+  endif
 endfunction
 
 function! s:show_documentation()
