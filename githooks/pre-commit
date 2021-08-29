@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo " Running git hooks [ Create links ]"
+
+ln -f ~/dotfiles/shell/zshrc ~/.zshrc
+ln -f ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+ln -f ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local
+touch ~/githooktest
+
+echo " Git hooks [ Done ] "
