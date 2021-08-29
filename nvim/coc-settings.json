@@ -17,18 +17,19 @@
         }
     },
 
-    "codeLens.enable": true,
 
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
 
     "imselect.defaultInput": "com.apple.keylayout.ABC",
     "imselect.enableStatusItem": true,
 
+    "codeLens.enable": true,
     "signature.enable": true,
 
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.enableMessageDialog": true,
     "coc.preferences.floatActions": true,
+    "coc.source.ultisnips.priority": 1,
 
     "diagnostic.enableMessage": "always",
     "diagnostic.enableHighlightLineNumber": true,
@@ -46,6 +47,7 @@
     "snippets.ultisnips.directories": [
         "~/dotfiles/nvim/snippets"
     ],
+
     "snippets.priority": 200,
 
     "suggest.snippetIndicator": "~",

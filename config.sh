@@ -11,3 +11,4 @@ read token
 git config --global user.email $email
 git config --global user.name $name
 git config --global credential.helper store $token
+git config --local core.hooksPath .githooks/
