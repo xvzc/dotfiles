@@ -17,7 +17,7 @@ autocmd BufEnter * lcd %:p:h
 " functions
 function! RUN_PYTHON()
     silent w
-    :let output=system('python3 '.expand('%:p'))
+    let output=system('python3 '.expand('%:p'))
     echo ' '
     echo '-------OUTPUT--------'
     echo ' '
@@ -44,7 +44,7 @@ endfunction
 
 function! RUN_SHELL()
     silent w
-    :let output=system('zsh '.expand('%:p'))
+    let output=system('zsh '.expand('%:p'))
     echo ' '
     echo '-------OUTPUT--------'
     echo ' '

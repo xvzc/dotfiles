@@ -2,8 +2,18 @@
 "set packpath+=~/.vim
 "source ~/.vimrc
 
-let g:cur_os=$CUR_OS
-
+let uname = system('uname -a')
+if uname =~ 'Linux'
+  echo 'Running on linux ..'
+  let g:cur_os='linux'
+elseif uname =~ 'WSL'
+  echo 'Running on WSL ..'
+  let g:cur_os='wsl'
+elseif uname =~ 'Darwin'
+  echo 'Runing on MacOS ..'
+  let g:cur_os='mac'
+endif
+  
 source $DOT_FILES/nvim/vim-plug.vim
 
 source $DOT_FILES/nvim/clipboard.vim

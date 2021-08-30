@@ -1,3 +1,3 @@
-let g:UltiSnipsExpandTrigger="<nop>"
-let g:UltiSnipsJumpForwardTrigger="<nop>"
-let g:UltiSnipsJumpBackwardTrigger="<nop>"
+let g:UltiSnipsExpandTrigger="<C-F19>"
+let g:UltiSnipsJumpForwardTrigger="<C-F19>"
+let g:UltiSnipsJumpBackwardTrigger="<C-F19>"

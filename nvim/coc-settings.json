@@ -18,6 +18,7 @@
     },
 
 
+    "clangd.arguments": ["-header-insertion=never"],
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
 
     "imselect.defaultInput": "com.apple.keylayout.ABC",
