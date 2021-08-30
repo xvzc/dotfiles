@@ -1,6 +1,5 @@
 #!/bin/zsh
-alias fcd='cd $(fd --type d | fzf)'
-alias fvi='vi $(fzf)'
+# alias fcd='cd $(fd --type d --search-path=$HOME/_jry | fzf)'
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 #fzf option
@@ -44,4 +43,21 @@ _fzf_comprun() {
     ssh)          fzf "$@" --preview 'dig {}' ;;
     *)            fzf "$@" ;;
   esac
+}
+function test_f() {
+  echo $1
+}
+
+function fvi() {
+  OUTPUT=$(fd --type f --hidden --follow --exclude .git $1 | fzf)
+  if [[ ! -z $OUTPUT ]]; then
+    vi $OUTPUT
+  fi
+}
+
+function fcd() {
+  OUTPUT=$(fd --type d --hidden --search-path=$HOME $1 | fzf)
+  if [[ ! -z $OUTPUT ]]; then
+    cd $OUTPUT
+  fi
 }

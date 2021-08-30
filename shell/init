@@ -73,8 +73,23 @@ function run_tmux_if_tilda(){
     fi
 }
 
+function set_cur_os() {
+    OUTPUT=$(uname -a)
+
+    if [[ $OUTPUT =~ 'Darwin' ]]; then
+        export CUR_OS='mac'
+    elif [[ $OUTPUT =~ 'WSL' ]]; then
+        export CUR_OS='wsl'
+    elif [[ $OUTPUT =~ 'Linux' ]]; then
+        export CUR_OS='linux'
+    fi
+}
 
 ########## favorites
+set_cur_os
+if [[ $CUR_OS == 'linux' ]]; then
+    run_tmux_if_tilda
+fi
+
 init_sdkman
-run_tmux_if_tilda
 
