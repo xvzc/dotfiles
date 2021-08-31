@@ -33,6 +33,8 @@ highlight IncSearch cterm=NONE ctermfg=black ctermbg=225 guifg=#0f0f0f guibg=#e7
 highlight EasyMotionTarget guibg=none guifg=#6FEF78
 highlight EasyMotionShade  guibg=none guifg=#646466
 highlight Cursor cterm=none gui=none guifg=#646466 ctermfg=black
+highlight SpecialKey guibg=none guifg=#6FEF78
 
 command! -bang -nargs=? -complete=dir HiGroup
       \ echo synIDattr(synID(line("."), col("."), 1), "name")
+

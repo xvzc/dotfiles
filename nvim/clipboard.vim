@@ -1,29 +1,35 @@
 if cur_os == "wsl"
-    let g:clipboard = {
-                \   'name': 'win32yank',
-                \   'copy': {
-                \      '+': '/usr/local/bin/win32yank.exe -i --crlf',
-                \      '*': '/usr/local/bin/win32yank.exe-i --crlf',
-                \    },
-                \   'paste': {
-                \      '+': '/usr/local/bin/win32yank.exe -o --lf',
-                \      '*': '/usr/local/bin/win32yank.exe -o --lf',
-                \   },
-                \   'cache_enabled': 1,
-                \ }
+  let g:clipboard = {
+        \     'name': 'win32yank',
+        \     'copy': {
+          \        '+': '/usr/local/bin/win32yank.exe -i --crlf',
+          \        '*': '/usr/local/bin/win32yank.exe-i --crlf',
+          \    },
+          \   'paste': {
+            \      '+': '/usr/local/bin/win32yank.exe -o --lf',
+            \      '*': '/usr/local/bin/win32yank.exe -o --lf',
+            \   },
+            \   'cache_enabled': 1,
+            \ }
 endif
 
 if cur_os == "linux"
-    let g:clipboard = {
-                \   'name': 'xclip',
-                \   'copy': {
-                \      '+': 'xclip -selection clipboard -i',
-                \      '*': 'xclip -selection clipboard -i',
-                \    },
-                \   'paste': {
-                \      '+': 'xclip -o',
-                \      '*': 'xclip -o',
-                \   },
-                \   'cache_enabled': 1,
-                \ }
+  let g:clipboard = {
+        \     'name': 'xclip',
+        \     'copy': {
+          \        '+': 'xclip -selection clipboard -i',
+          \        '*': 'xclip -selection clipboard -i',
+          \    },
+          \   'paste': {
+            \      '+': 'xclip -o',
+            \      '*': 'xclip -o',
+            \  },
+            \ 'cache_enabled': 1,
+            \ }
 endif
+
+if cur_os == "mac"
+  " Nothing to set
+
+endif
+

@@ -1,24 +1,12 @@
 font:
   normal:
     family: D2Coding NF
-
-  # Point size
   size: 12.5
-
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
   offset:
    x: 1
    y: 0
 
-
 window:
-  # Window dimensions (changes require restart)
-  #
-  # Number of lines/columns (not pixels) in the terminal. The number of columns
-  # must be at least `2`, while using a value of `0` for columns and lines will
-  # fall back to the window manager's recommended size.
   dimensions:
    columns: 125
    lines: 35
@@ -27,50 +15,46 @@ window:
    x: 3
    y: 0
 
+background_opacity: 0.85
+
 colors:
-  # Default colors
+
   primary:
    background: '#1d1f21'
    foreground: '#c5c8c6'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not
-    # present. If the bright foreground color is not set, or
-    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-    # color will be used.
-    # dim_foreground: '#828482'
-    # bright_foreground: '#eaeaea'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor.
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
   cursor:
    text: CellBackground
    cursor: '#f6f6f6' 
 
-  # Vi mode cursor colors
-  #
-  # Colors for the cursor when the vi mode is active.
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
   vi_mode_cursor:
    text: CellBackground
    cursor: CellForeground
 
-  # Vi mode cursor colors
-  #
-  # Colors for the cursor when the vi mode is active.
-  #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
   vi_mode_cursor:
    text: CellBackground
    cursor: CellForeground
+
+  selection:
+   text: CellBackground
+   background: '#f6f6f6'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
@@ -141,7 +125,7 @@ colors:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  #opacity: 1.0
+  # opacity: 1.0
 
   # Startup Mode (changes require restart)
   #
@@ -342,7 +326,7 @@ colors:
   #
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  #selection:
+  # selection:
   #  text: CellBackground
   #  background: CellForeground
 

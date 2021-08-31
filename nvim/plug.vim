@@ -26,7 +26,7 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 " Plug 'vim-scripts/Vimball'
 
-Plug 'rrethy/vim-illuminate' " hilight matches
+" Plug 'rrethy/vim-illuminate' " hilight matches
 " Plug 'tpope/vim-repeat'
 " Plug 'rust-lang/rust.vim'
 " Plug 'groenewege/vim-less'
