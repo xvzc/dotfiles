@@ -12,4 +12,9 @@ ln -f ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 echo "  Running ln -f ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local"
 ln -f ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local
 
+if [[ $CUR_OS == 'mac' ]]
+    echo "  Running ln -f ~/dotfiles/alacritty.yml ~/.alacritty.yml"
+    ln -f ~/dotfiles/alacritty.yml ~/.alacritty.yml
+fi
+
 echo "[DONE]"
