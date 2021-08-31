@@ -64,32 +64,35 @@ function init_sdkman(){
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
 
-function run_tmux_if_tilda(){
-    if [[ "$(ps -p $(ps -p $$ -o ppid=) o args=)" == "/usr/bin/tilda" ]]
-    then
+function run_tmux_on_cases(){
+    GOGOSING=$(ps -p $(ps -p $$ -o ppid=) -o args=)
+    if [[ $CUR_OS == 'linux' ]] && [[ $GOGOSING =~ 'tilda' ]]; then
         if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-            [[ $TERM != "screen" ]] && tmux new-session -A -s tilda
+            tmux new-session -A -s tilda
+        else
+            return
+        fi
+    elif [[ $CUR_OS == 'mac' ]] && [[ $GOGOSING =~ 'alacritty' ]]; then
+        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+            tmux new-session -A -s tilda
+        else
+            return
         fi
     fi
 }
 
 function set_cur_os() {
-    OUTPUT=$(uname -a)
-
-    if [[ $OUTPUT =~ 'Darwin' ]]; then
+    GOGOSING=$(uname -a)
+    if [[ $GOGOSING =~ 'Darwin' ]]; then
         export CUR_OS='mac'
-    elif [[ $OUTPUT =~ 'WSL' ]]; then
+    elif [[ $GOGOSING =~ 'WSL' ]]; then
         export CUR_OS='wsl'
-    elif [[ $OUTPUT =~ 'Linux' ]]; then
+    elif [[ $GOGOSING =~ 'Linux' ]]; then
         export CUR_OS='linux'
     fi
 }
 
 ########## favorites
 set_cur_os
-if [[ $CUR_OS == 'linux' ]]; then
-    run_tmux_if_tilda
-fi
-
+run_tmux_on_cases
 init_sdkman
-
