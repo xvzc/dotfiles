@@ -46,6 +46,5 @@ set pumheight=10
 
 set noshowmode
 set showtabline=2
-lang ko_KR
 
 autocmd FileType * set formatoptions-=o " set this line with autocmd to get it applied at runtime
