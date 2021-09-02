@@ -12,7 +12,7 @@ autocmd filetype sh nnoremap <silent><M-C-r> :call RUN_SHELL()<CR>
 " go to the last position that I was editing the file on
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
-autocmd BufEnter * lcd %:p:h
+" autocmd BufEnter * lcd %:p:h
 
 " functions
 function! RUN_PYTHON()

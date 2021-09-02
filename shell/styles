@@ -39,7 +39,8 @@ zstyle :prompt:pure:git:branch color '#739e8c'
 #zstyle :prompt:pure:virtualenv color '#5e5d49'
 zstyle :prompt:pure:virtualenv color '#739e8c'
 
-zstyle ':prompt:pure:prompt:error' color red
+zstyle :prompt:pure:prompt:error color red
+zstyle :prompt:pure:prompt:success color '#f5b5f4'
 
 # turn on git stash status
 zstyle :prompt:pure:virtualenv show yes
