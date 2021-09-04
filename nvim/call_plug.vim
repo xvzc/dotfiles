@@ -1,32 +1,35 @@
 filetype plugin indent on
 
 call plug#begin()
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'antoinemadec/coc-fzf'
-Plug 'easymotion/vim-easymotion'
-Plug 'godlygeek/tabular' " text align plugin
-" Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+" Completions
+Plug 'neoclide/coc.nvim', {'branch': 'release'} | Plug 'antoinemadec/coc-fzf'
+Plug 'honza/vim-snippets' | Plug 'SirVer/ultisnips'
+
+" Extra feature
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-markdown'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify' " fancy start screen
+Plug 'jiangmiao/auto-pairs'
+Plug 'godlygeek/tabular' " text align plugin
+Plug 'scrooloose/nerdcommenter'
+
+" Language support
+Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go', { 'tag': '*'  }
+
+" Styles
+Plug 'junegunn/goyo.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'ryanoasis/vim-devicons' " Nerd tree icon
 Plug 'morhetz/gruvbox'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
-Plug 'honza/vim-snippets'
-" Plug 'jerry901/vim-snippets'
-Plug 'SirVer/ultisnips'
 " Plug 'vim-scripts/Vimball'
-
+" Plug 'jerry901/vim-snippets'
+" Plug 'scrooloose/nerdtree'
 " Plug 'rrethy/vim-illuminate' " hilight matches
 " Plug 'tpope/vim-repeat'
 " Plug 'rust-lang/rust.vim'
@@ -43,4 +46,3 @@ Plug 'SirVer/ultisnips'
 " Plug 'vim-scripts/nginx.vim'
 
 call plug#end()
-

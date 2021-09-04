@@ -1,16 +1,20 @@
-au BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
-au BufRead,BufNewFile */etc/nginx/* set ft=nginx
-au BufRead,BufNewFile nginx.conf set ft=nginx
-au BufRead,BufNewFile *.nginx set ft=nginx
+autocmd BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
+autocmd BufRead,BufNewFile */etc/nginx/* set ft=nginx
+autocmd BufRead,BufNewFile nginx.conf set ft=nginx
+autocmd BufRead,BufNewFile *.nginx set ft=nginx
 
-au BufRead,BufNewFile ~/_jry/algorithms/cpp/*.cpp nnoremap <silent><C-M-t> :0r ~/_jry/algorithms/cpp/template.cpp<CR>
+autocmd BufRead,BufNewFile ~/_jry/algorithms/cpp/*.cpp 
+      \ nnoremap <silent><C-M-t> :0r ~/_jry/algorithms/cpp/template.cpp<CR>
 
-autocmd filetype python nnoremap <silent><M-C-r> :call RUN_PYTHON()<CR>
-autocmd filetype cpp nnoremap <silent><M-C-r> :call RUN_CPP()<CR>
-autocmd filetype sh nnoremap <silent><M-C-r> :call RUN_SHELL()<CR>
+autocmd filetype python 
+      \ nnoremap <silent><M-C-r> :call RUN_PYTHON()<CR>
+autocmd filetype cpp 
+      \ nnoremap <silent><M-C-r> :call RUN_CPP()<CR>
+autocmd filetype sh 
+      \ nnoremap <silent><M-C-r> :call RUN_SHELL()<CR>
 
 " go to the last position that I was editing the file on
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
 " autocmd BufEnter * lcd %:p:h
 
