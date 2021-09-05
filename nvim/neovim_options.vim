@@ -17,7 +17,9 @@ set mousehide               " Hide the mouse cursor while typing
 set mouse-=a                 " Automatically enable mouse usage
 
 set termguicolors
-" set notermguicolors
+if cur_os == 'linux'
+  set notermguicolors
+endif
 set conceallevel=1
 set background=dark
 

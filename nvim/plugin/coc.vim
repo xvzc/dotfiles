@@ -8,6 +8,7 @@ let g:coc_global_extensions = [ 'coc-snippets',
       \ 'coc-clangd',
       \ 'coc-ultisnips',
       \ 'coc-snippets',
+      \ 'coc-explorer',
       \ ]
 
 
