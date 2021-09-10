@@ -1,14 +1,12 @@
 # dotfiles
-a repository for dotfiles
+A repository for dotfiles
 
 # Instruction
 
 ## Cross platform setting
-```
-A variable which indicates the OS is set dynamically on sehll startup. See echo ```$CUR_OS```
+A variable which indicates the OS is set dynamically on shell startup. See echo ```$CUR_OS```
 
-```
-## Intall
+## Dependencies
 ```
 zsh
 oh-my-zsh
@@ -37,5 +35,5 @@ Especailly on WSL, There is an issue that the DNS server is set to a wrong desti
 echo "104.16.17.35\tregistry.npmjs.org" >> /etc/hosts
 ```
 
-# Make hard links of main dotfiles wiht githooks
+# Make hard links of main dotfiles with githooks
 Make dotfiles like .zshrc, .tmux.conf.local etc .. hard links of files in this repository with git hook. See ```config.sh```

@@ -33,7 +33,7 @@ source $DOT_FILES/shell/init
 source $DOT_FILES/shell/func
 source $DOT_FILES/shell/fzf
 source $DOT_FILES/shell/aliases
-source $DOT_FILES/shell/variables
+source $DOT_FILES/shell/env
 source $DOT_FILES/shell/styles
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

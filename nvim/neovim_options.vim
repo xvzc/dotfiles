@@ -4,9 +4,8 @@ filetype indent on
 let mapleader=" " "map backslash to leader and will noremap this to <leader>
 
 set undofile
-set encoding=utf-8
-set fencs=ucs-bom,utf-8,euc-kr.latin1 " euc-kr if Korean, Unicode when unicode 
-set tenc=utf-8      " terminal's encoding 
+set encoding=UTF-8
+set tenc=UTF-8      " terminal's encoding 
 
 set foldmethod=indent
 set foldlevel=99
@@ -17,7 +16,7 @@ set mousehide               " Hide the mouse cursor while typing
 set mouse-=a                 " Automatically enable mouse usage
 
 set termguicolors
-if cur_os == 'linux'
+if g:cur_os == 'linux'
   set notermguicolors
 endif
 set conceallevel=1

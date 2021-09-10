@@ -27,6 +27,18 @@
     "codeLens.enable": true,
     "signature.enable": true,
 
+    "explorer.icon.enableNerdfont": true,
+    "explorer.git.enable" : true,
+    "explorer.git.icon.status.modified" : "~",
+    "explorer.git.icon.status.added": "+",
+    "explorer.git.icon.rootStatus.ahead": "⇡",
+    "explorer.git.icon.status.untracked": "?",
+    "explorer.git.icon.status.copied": "C",
+    "explorer.git.icon.status.deleted": "-",
+    "explorer.git.icon.status.unmerged": "⇡",
+    "explorer.git.icon.status.mixed": "*",
+    "explorer.git.icon.status.renamed": "R",
+
     "coc.preferences.enableFloatHighlight": true,
     "coc.preferences.enableMessageDialog": true,
     "coc.preferences.floatActions": true,
