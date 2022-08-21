@@ -1,0 +1,23 @@
+nnoremap <SPACE> <Nop>
+nnoremap <ESC> <C-c>
+
+set keep-english-in-normal
+set surround
+
+let mapleader=" "
+set easymotion
+
+let g:EasyMotion_override_acejump = 0
+let g:EasyMotion_use_upper = 0
+
+nmap <leader>f <Plug>(easymotion-s)
+nmap <leader><leader>f <Plug>(easymotion-s2)
+
+nmap <leader>s ysiw
+vmap <leader>s S
+
+nmap <leader>yy "*yy
+vmap <leader>y "*y
+nmap <leader>p "*p
+
+nmap <leader>a ggVG

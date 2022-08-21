@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+if [[ $(ibus engine) == 'xkb:us::eng' ]]; then
+    ibus engine hangul;
+else
+    ibus engine 'xkb:us::eng';
+fi
+  

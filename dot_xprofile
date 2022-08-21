@@ -1,0 +1,21 @@
+#!/bin/sh
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+ibus-daemon -drx
+
+# Stop screen from going blank
+# xset s off
+# xset s noblank
+
+xset +dpms
+xset dpms 7200 0 0
+xset s blank
+xset s on
+xset s 3600
+
+# Faster key repeat and delay
+xset r rate 300 30
+xsetroot -cursor_name left_ptr
