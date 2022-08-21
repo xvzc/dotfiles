@@ -1,0 +1,3 @@
+#!/bin/sh
+
+fpath+=$HOME/.zsh/pure

@@ -1,0 +1,7 @@
+
+.config/nvim/backup
+.config/nvim/backup/**
+.config/nvim/undo
+.config/nvim/undo/**
+
+.DS_Store

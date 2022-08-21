@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+export ZSH=~/.oh-my-zsh
+
+plugins=(
+    fzf
+    git
+    docker
+    docker-compose
+    vi-mode
+)
+
+ZSH_DISABLE_COMPFIX="true"
+
+source $ZSH/oh-my-zsh.sh
+source ~/.zsh/env
+source ~/.zsh/func
+source ~/.zsh/aliases
+source ~/.zsh/fzf
+source ~/.zsh/opt
+source ~/.zsh/styles
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source ~/.zsh/fpath
+source ~/.zsh/load
+source ~/.zsh/keymaps
+
+source $HOME/.profile
+
+zmodload zsh/zprof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+prompt pure

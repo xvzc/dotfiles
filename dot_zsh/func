@@ -1,0 +1,210 @@
+#!/bin/sh
+
+# utils
+function timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo "%{\$fg[white]%}[$(basename $VIRTUAL_ENV)]%{$reset_color%}";
+}
+
+
+# init functions
+# conda
+function init_conda(){
+    __conda_setup="$('$HOME/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "$HOME/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "$HOME/opt/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="$HOME/opt/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+}
+
+# rbenv
+function init_rbenv(){
+    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+    eval "$(rbenv init -)" #changed this to below because of slow startup
+}
+
+# jenv
+function init_jenv(){
+    # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home
+    export PATH=${PATH}:$JAVA_HOME/bin
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+}
+
+# virtualenv
+function init_virtualenv(){
+    ## virtualEnv Wrapper
+    export WORKON_HOME=~/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+    export VIRTUALENVWRAPPER_VIRTUALENV=$(which virtualenv)
+    source /usr/local/bin/virtualenvwrapper.sh
+}
+
+# gvm
+function init_gvm(){
+    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+}
+
+# nvm 
+function init_nvm(){
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+# yvm
+function init_yvm(){
+    export YVM_DIR=$HOME/.yvm
+    [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+}
+
+# sdkman
+function init_sdkman(){
+    #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+}
+
+# git
+function init_git_settings(){
+    git config --global commit.template ~/git/.gitmessage.txt
+    git config --global hub.protocol https
+}
+
+function git_login(){
+  echo -n "github user.email : "
+  read email
+  echo -n "github user.name : "
+  read name 
+
+  if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+    GITHUB_TOKEN_TEMP=$GITHUB_PERSONAL_TOKEN
+  elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+    GITHUB_TOKEN_TEMP=$GITHUB_WORK_TOKEN
+  else
+    echo "Invalid option."
+    echo "Usage: $0 [option]"
+    return 1
+  fi
+
+  git config --local user.email $email
+  git config --local user.name $name
+  git config --local credential.helper store $GITHUB_TOKEN_TEMP
+
+  unset GITHUB_TOKEN_TEMP
+}
+
+function hub_make_pr() {
+    if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+        GITHUB_TOKEN=$GITHUB_PERSONAL_TOKEN hub pull-request -b $2 -h $(git rev-parse --abbrev-ref HEAD)
+    elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+        GITHUB_TOKEN=$GITHUB_WORK_TOKEN hub pull-request -b $2 -h $(git rev-parse --abbrev-ref HEAD)
+    else
+        echo "Invalid option."
+        echo "Usage: [option] [destination-branch]"
+        return 1
+    fi
+}
+
+function hub_list_pr() {
+    if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+        GITHUB_TOKEN=$GITHUB_PERSONAL_TOKEN hub pr list
+    elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+        GITHUB_TOKEN=$GITHUB_WORK_TOKEN hub pr list
+    else
+        echo "Invalid option."
+        echo "Usage: $0 [option]"
+        return 1
+    fi
+}
+
+function hub_merge_pr() {
+    REMOTE_URL=$(git remote get-url origin)
+    echo "Remote URL: $REMOTE_URL" 
+
+    END_IDX=0
+    for ((i=${#REMOTE_URL}-1; i>=0; i--)); do
+        if [ "${REMOTE_URL:$i:1}" = "." ]; then
+            END_IDX=$i
+            break
+        fi
+    done
+
+    START_IDX=0
+    for ((i=$END_IDX-1; i>=0; i--)); do
+        if [ "${REMOTE_URL:$i:1}" = "/" ]; then
+            START_IDX=$i
+            break
+        fi
+    done
+
+    for ((i=$START_IDX-1; i>=0; i--)); do
+        if [ "${REMOTE_URL:$i:1}" = "/" ]; then
+            START_IDX=$i
+            break
+        fi
+    done
+
+    MERGE_ENDPOINT="repos/${REMOTE_URL:$START_IDX + 1:$END_IDX - $START_IDX - 1}/pulls/$2/merge"
+    echo "Merging pull request: $MERGE_ENDPOINT\n"
+
+    if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+        GITHUB_TOKEN=$GITHUB_PERSONAL_TOKEN hub api -XPUT $MERGE_ENDPOINT $3
+    elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+        GITHUB_TOKEN=$GITHUB_WORK_TOKEN hub api -XPUT $MERGE_ENDPOINT $3
+    else
+        echo "Invalid option."
+        echo "Usage: $0 [option] [pull-request-id]"
+        return 1
+    fi
+}
+
+function run_tmux_on_cases(){
+    GOGOSING=$(ps -p $(ps -p $$ -o ppid=) -o args=)
+    if [[ $CUR_OS == 'linux' ]] && [[ $GOGOSING =~ 'tilda' ]]; then
+        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+            tmux new-session -A -s tilda
+        else
+            return
+        fi
+    elif [[ $CUR_OS == 'mac' ]] && [[ $GOGOSING =~ 'alacritty' ]]; then
+        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+            tmux new-session -A -s alacritty
+        else
+            return
+        fi
+    fi
+}
+
+function set_cur_os() {
+    GOGOSING=$(uname -a)
+
+    if [[ $GOGOSING =~ 'Darwin' ]]; then
+        export CUR_OS='mac'
+    elif [[ $GOGOSING =~ 'WSL' ]]; then
+        export CUR_OS='wsl'
+    elif [[ $GOGOSING =~ 'Linux' ]]; then
+        export CUR_OS='linux'
+    fi
+
+    unset GOGOSING
+}
+
+function bojlogin() {
+    mkdir -p $HOME/.boj-cli
+    touch $HOME/boj-handle
+    touch $HOME/boj-token
+    echo "jry9913" > $HOME/.boj-cli/boj-handle
+    echo "$1" > $HOME/.boj-cli/boj-token
+}

@@ -1,0 +1,174 @@
+{
+    "languageserver":{
+        "python": {
+            "command": "pyls",
+            "filetypes": ["python"],
+            "settings": {
+                "pyls" : {
+                    "plugins" : {
+                        "pycodestyle": {
+                            "ignore": [
+                                "E201",
+                                "E501",
+                                "E303"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "go": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod"],
+            "trace.server": "verbose",
+            "filetypes": ["go"]
+        }
+    },
+
+    "go.checkForUpdates": "ask" ,
+
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd",
+    "clangd.arguments": [
+        "-header-insertion=never"
+    ],
+    "tsserver.implicitProjectConfig.experimentalDecorators": true,
+
+    "typescript.suggestionActions.enabled" : true,
+    "javascript.suggestionActions.enabled" : true,
+
+    "emmet.includeLanguages": {"javascript": "javascriptreact"},
+
+    "imselect.defaultInput": "com.apple.keylayout.ABC",
+    "imselect.enableStatusItem": true,
+
+    "codeLens.enable": true,
+    "signature.enable": false,
+
+    "explorer.icon.enableNerdfont": true,
+    "explorer.git.enable" : true,
+    "explorer.git.icon.status.modified" : "~",
+    "explorer.git.icon.status.added": "+",
+    "explorer.git.icon.rootStatus.ahead": "⇡",
+    "explorer.git.icon.status.untracked": "?",
+    "explorer.git.icon.status.copied": "C",
+    "explorer.git.icon.status.deleted": "-",
+    "explorer.git.icon.status.unmerged": "⇡",
+    "explorer.git.icon.status.mixed": "*",
+    "explorer.git.icon.status.renamed": "R",
+
+    "coc.preferences.enableFloatHighlight": true,
+    "coc.preferences.enableMessageDialog": true,
+    "coc.preferences.floatActions": true,
+    "coc.source.ultisnips.priority": 1,
+
+    "diagnostic.enableMessage": "always",
+    "diagnostic.enableHighlightLineNumber": true,
+    "diagnostic.enableSign": true,
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+
+    "diagnostic.highlighLimit": 1000,
+
+    "snippets.ultisnips.enable": true,
+    "snippets.loadFromExtensions": true,
+
+    "snippets.ultisnips.directories": [
+        "~/.config/nvim/snippet"
+    ],
+
+    "snippets.priority": 9999,
+
+    "suggest.snippetIndicator": "~",
+    "suggest.snippetsSupport": true,
+    "suggest.defaultSortMethod": "alphabetical",
+    "suggest.detailMaxLength": 100,
+    "suggest.labelMaxLength": 80,
+    "suggest.detailField": "menu",
+    "suggest.disableKind": false,
+    "suggest.autoTrigger": "always",
+    "suggest.minTriggerInputLength": 2,
+    "suggest.highPrioritySourceLimit": 20,
+    "suggest.removeDuplicateItems": true,
+    "suggest.floatEnable": true,
+    "suggest.enablePreview": true,
+    "suggest.disableMenu": false,
+    "suggest.disableMenuShortcut": false,
+    "suggest.acceptSuggestionOnCommitCharacter": false,
+    "suggest.noselect": true,
+    "suggest.echodocSupport": false,
+    "suggest.preferCompleteThanJumpPlaceholder": false,
+    "suggest.languageSourcePriority": 99,
+    "suggest.enablePreselect": false,
+    "suggest.pumFloatConfig": {
+        "title": "suggest",
+        "border": true,
+        "highlight": "CocFloating"
+    },
+
+    "diagnostic.floatConfig": {
+        "border" : true,
+        "title" : " diagnostic",
+        "winblend": 0
+    },
+    "hover.floatConfig": {
+        "border" : true,
+        "title" : " hover",
+        "winblend": 0
+    },
+    "dialog.floatHighlight": null,
+    "signature.floatConfig": {
+        "border" : true,
+        "title" : " signature",
+        "winblend": 0
+    },
+    "suggest.floatConfig": {
+        "title" : " float",
+        "border" : true,
+        "winblend": 0
+    },
+
+
+    "list.height": 10,
+    "list.previewSplitRight": true,
+
+    "suggest.invalidInsertCharacters": [
+        " ",
+        "(",
+        "<",
+        "{",
+        "[",
+        ";",
+        "\r",
+        "\n"
+    ],
+
+    "suggest.completionItemKindLabels": {
+        "keyword": "[key]",
+        "variable": "[var]",
+        "value": "[val]",
+        "operator": "[op]",
+        "constructor": "[new]",
+        "function": "[func]",
+        "reference": "[ref]",
+        "constant": "[cons]",
+        "method": "[me]",
+        "struct": "[st]",
+        "class": "[cls]",
+        "text": "[txt]",
+        "enum": "[enum]",
+        "enumMember": "[emem]",
+        "module": "[modl]",
+        "color": "[colr]",
+        "property": "[prop]",
+        "field": "[fild]",
+        "unit": "[unit]",
+        "event": "[evnt]",
+        "file": "[file]",
+        "folder": "[dir]",
+        "snippet": "[snip]",
+        "typeParameter": "[tparam]",
+        "default": "[none]"
+    }
+}

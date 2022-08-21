@@ -1,0 +1,5 @@
+#!/bin/sh
+
+setopt AUTO_PUSHD
+setopt pushdsilent # Omit printing directory stack
+setopt pushdminus  # Invert meanings of +N and -N arguments to pushd
