@@ -6,8 +6,33 @@
     refreshPeriod = "168h"
 
 [".zsh/zsh-syntax-highlighting"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+
+[".fzf"]
+    type = "git-repo"
+    url = "https://github.com/junegunn/fzf.git"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    [".fzf".clone]
+        args = ["--depth", "1"]
+
+[".tmux"]
+    type = "git-repo"
+    url = "https://github.com/gpakosz/.tmux.git"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".local/share/nvim/site/pack/packer/start/packer.nvim"]
+    type = "git-repo"
+    url = "https://github.com/wbthomason/packer.nvim"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    [".local/share/nvim/site/pack/packer/start/packer.nvim".clone]
+        args = ["--depth", "1"]
