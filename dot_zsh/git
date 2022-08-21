@@ -1,0 +1,3 @@
+#!/bin/sh
+
+git config --global commit.template ~.templates/.gitmessage.txt

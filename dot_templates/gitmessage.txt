@@ -1,0 +1,29 @@
+
+#################################################################
+## COMMIT MESSAGE FORMAT                                        #
+#################################################################
+# ISSUE-123 {type}: {subject}                                   #
+#                                                               #
+# {content}                                                     #
+#                                                               #
+# {footer} // optional                                          #
+#################################################################
+## TYPE                                                         #
+#################################################################
+# feat    : New feature                                         #
+# fix     : Bug fix                                             #
+# docs    : Edit documents                                      #
+# style   : Code formatting, When there is no logical change    #
+# refactor: Refactoring                                         #
+# test    : Adding test code, test code refactoring             #
+# chore   : Editing build script, package manager, etc..        #
+#################################################################
+## SUBJECT                                                      #
+#################################################################
+# The length of a subject should be less than 50 (recommended)  #
+#################################################################
+# Footer                                                        #
+# Resolves: The issue id that this commit fixes                 #
+# See also: Related issues                                      #
+# ... etc                                                       #
+#################################################################

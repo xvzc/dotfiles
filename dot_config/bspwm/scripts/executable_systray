@@ -1,0 +1,31 @@
+#!/bin/bash
+
+
+#!/bin/bash
+
+hidden=/tmp/syshide.lock
+
+if [[ $(pidof stalonetray) ]]; then
+	if [[ ! -e $hidden ]]; then
+		polybar-msg action "#systray.hook.1"
+		xdo hide -n stalonetray
+		touch "$hidden"
+	else
+		polybar-msg action "#systray.hook.0"
+		xdo show -n stalonetray
+		xdo raise -n stalonetray
+		rm "$hidden"
+	fi
+else
+	stalonetray -c ~/.config/bspwm/stalonetray.conf &
+    polybar-msg action "#systray.hook.0"
+    # polybar-msg action "#systray.hook.1"
+fi
+
+# if [[ $(pidof stalonetray) ]]; then
+#     polybar-msg action "#systray.hook.1"
+#     kill -9 $(ps -ef | grep stalonetray | grep -v grep | awk '{print $2}')  > /dev/null 2>&1
+# else
+#     polybar-msg action "#systray.hook.0"
+#     stalonetray -c ~/.config/bspwm/stalonetray.conf &
+# fi
