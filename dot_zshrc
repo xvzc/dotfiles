@@ -19,7 +19,7 @@ source ~/.zsh/aliases
 source ~/.zsh/fzf
 source ~/.zsh/opt
 source ~/.zsh/styles
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source ~/.zsh/fpath
 source ~/.zsh/load
