@@ -3,5 +3,7 @@
 .config/nvim/backup/**
 .config/nvim/undo
 .config/nvim/undo/**
+.profile
+.secrets
 
 .DS_Store
