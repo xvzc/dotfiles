@@ -3,23 +3,25 @@
 
 mkdir -p ~/.zsh;
 mkdir -p ~/.config/nvim;
-mkdir -p ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-mkdir -p ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install;
+if [ ! -d "$HOME/.fzf" ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf\
+    ~/.fzf/install;
+fi
 
 # install oh-my-tmux
-git clone https://github.com/gpakosz/.tmux.git ~/.tmux
-ln -s -f .tmux/.tmux.conf
+if [ ! -d "$HOME/.tmux" ]; then
+  git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+  ln -s -f .tmux/.tmux.conf
+fi
 
 # install packer.nvim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-	~/.local/share/nvim/site/pack/packer/start/packer.nvim;
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git\
-	~/.zsh/zsh-syntax-highlighting;
+if [ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+  mkdir -p ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim;
+fi
 
 {{ if eq .osid "darwin" }}
 
