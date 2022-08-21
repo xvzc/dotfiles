@@ -6,24 +6,31 @@ mkdir -p ~/.config/nvim;
 
 # install fzf
 if [ ! -d "$HOME/.fzf" ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git\
+    ~/.fzf
+
+  ~/.fzf/install
+else
   echo 'Found fzf directory. skipping..'
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf\
-    ~/.fzf/install;
 fi
 
 # install oh-my-tmux
 if [ ! -d "$HOME/.tmux" ]; then
-  echo 'Found oh-my-tmux directory. skipping..'
-  git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+  git clone https://github.com/gpakosz/.tmux.git ~/.tmux\
   ln -s -f .tmux/.tmux.conf
+
+else
+  echo 'Found oh-my-tmux directory. skipping..'
 fi
 
 # install packer.nvim
 if [ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-  echo 'Found packer directory. skipping..'
   mkdir -p ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim;
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+else
+  echo 'Found packer directory. skipping..'
 fi
 
 {{ if eq .osid "darwin" }}
