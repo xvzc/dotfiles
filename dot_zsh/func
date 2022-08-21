@@ -187,20 +187,6 @@ function run_tmux_on_cases(){
     fi
 }
 
-function set_cur_os() {
-    GOGOSING=$(uname -a)
-
-    if [[ $GOGOSING =~ 'Darwin' ]]; then
-        export CUR_OS='mac'
-    elif [[ $GOGOSING =~ 'WSL' ]]; then
-        export CUR_OS='wsl'
-    elif [[ $GOGOSING =~ 'Linux' ]]; then
-        export CUR_OS='linux'
-    fi
-
-    unset GOGOSING
-}
-
 function bojlogin() {
     mkdir -p $HOME/.boj-cli
     touch $HOME/boj-handle

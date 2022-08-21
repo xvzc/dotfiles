@@ -41,18 +41,6 @@ global.run_sh = function()
   print(vim.fn.system('zsh '..vim.api.nvim_buf_get_name(0)..' 2>&1'))
 end
 
-global.set_cur_os = function ()
-  local uname = io.popen("uname -a")
-  local result = uname:read("*a")
-  uname:close()
-
-  if string.find(result, "Darwin") then
-    global.cur_os = "mac"
-  else
-    global.cur_os = "linux"
-  end
-end
-
 global.map = function(mode, from, handle, options)
   vim.keymap.set(mode, from, handle, options)
 end
@@ -72,6 +60,3 @@ end
 global.smap = function(from, handle, options)
   global.map('s', from, handle, options)
 end
-
--- Basic functions to run on start
-global.set_cur_os()

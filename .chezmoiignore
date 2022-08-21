@@ -1,4 +1,3 @@
-
 .config/nvim/backup
 .config/nvim/backup/**
 .config/nvim/undo
@@ -6,4 +5,16 @@
 .profile
 .secrets
 
+.oh-my-zsh
+
 .DS_Store
+
+# MacOs only
+{{ if ne .osid "darwin" }}
+
+{{ end }}
+
+# Arch linux only
+{{ if ne .osid "linux-arch" }}
+.config/bspwm
+{{ end }}
