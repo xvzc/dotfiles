@@ -1,3 +1,5 @@
+# vim:filetype=yaml:tw=80
+
 font:
   size: 13
   offset:
@@ -24,11 +26,9 @@ window:
    x: 3
    y: 1
 
-  position:
-    # none
-
-    # no title bar
-    # decorations: "buttonless"
+# MacOS Only################### {{ if eq .osid "darwin" }}
+  decorations: "buttonless"
+# ############################# {{ end }}
 
 colors:
 
@@ -970,3 +970,4 @@ mouse:
 
   # Print all received window events.
   #print_events: false
+

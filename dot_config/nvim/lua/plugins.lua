@@ -11,22 +11,33 @@ return require('packer').startup({function(use)
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-
-    -- UltiSnips
     'honza/vim-snippets',
     'SirVer/ultisnips',
     'quangnguyen30192/cmp-nvim-ultisnips',
   }
 
-  use 'tpope/vim-markdown'
+  use 'lewis6991/impatient.nvim'
 
   -- syntax
-  use 'octol/vim-cpp-enhanced-highlight'
-  use 'othree/yajs.vim' -- js syntax
-  use 'HerringtonDarkholme/yats.vim' -- ts
-  use 'yuezk/vim-js'
-  use 'maxmellon/vim-jsx-pretty'
-  use 'fladson/vim-kitty'
+  use {
+    'yuezk/vim-js',
+    ft = { 'js' }
+  }
+
+  use { -- js syntax
+    'othree/yajs.vim',
+    ft = { 'js' }
+  }
+
+  use { -- ts
+    'HerringtonDarkholme/yats.vim',
+    ft = { 'js' }
+  }
+
+  use { -- jsx
+  'maxmellon/vim-jsx-pretty',
+    ft = { 'jsx' }
+  }
 
   use {
     'junegunn/fzf',  
@@ -35,7 +46,7 @@ return require('packer').startup({function(use)
   }
 
   use 'akinsho/toggleterm.nvim'
-  use 'kdheepak/lazygit.nvim'
+  -- use 'kdheepak/lazygit.nvim'
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
   use 'easymotion/vim-easymotion'
@@ -43,8 +54,11 @@ return require('packer').startup({function(use)
   use 'windwp/nvim-autopairs'
   use 'godlygeek/tabular'
   use 'scrooloose/nerdcommenter'
-  use "iamcco/markdown-preview.nvim"
   use 'farmergreg/vim-lastplace'
+  use {
+    'iamcco/markdown-preview.nvim',
+    opt = true
+  }
 
   use {
     'akinsho/bufferline.nvim', 
@@ -59,19 +73,20 @@ return require('packer').startup({function(use)
   }
 
   -- styles
-  use 'junegunn/goyo.vim'
-  use'ryanoasis/vim-devicons' -- nerd tree icon
-  use 'folke/tokyonight.nvim'
-  use 'edeneast/nightfox.nvim'
-  -- use 'mhinz/vim-startify' --fancy start screen
-  use {'glepnir/dashboard-nvim'}
-  use { 'nvim-treesitter/nvim-treesitter', run = ':tsupdate' }
+  -- use 'junegunn/goyo.vim'
   use "lukas-reineke/indent-blankline.nvim"
+  use 'folke/tokyonight.nvim'
+  use 'glepnir/dashboard-nvim'
+
+  use { 
+    'nvim-treesitter/nvim-treesitter', 
+    run = ':tsupdate' 
+  }
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-
 
   if packer_bootstrap then
     require('packer').sync()
