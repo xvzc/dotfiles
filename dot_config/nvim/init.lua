@@ -1,16 +1,14 @@
 vim.cmd('filetype plugin indent on')
 
-require('global')
+local global = require('global')
+
 require('plugins')
 require('clipboard')
 require('preferences')
 require('keymaps')
 require('styles')
 
-for _, file in ipairs(vim.fn.readdir(global.config_path, [[v:val =~ '\.lua$']])) do
-  require('settings.'..file:gsub('%.lua$', ''))
-end
-
-for _, file in ipairs(vim.fn.readdir(global.language_servers_path, [[v:val =~ '\.lua$']])) do
-  require('settings.language-servers.'..file:gsub('%.lua$', ''))
+ 
+for _, name in ipairs(global.find_lua_files(global.language_servers_path)) do
+  require('settings.language-servers.' .. name)
 end

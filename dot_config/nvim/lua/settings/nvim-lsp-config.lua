@@ -1,3 +1,5 @@
+local global = require('global')
+
 local opts = { noremap=true, silent=true }
 
 vim.g.lsp_diagnostics_highlights_insert_mode_enabled = 0

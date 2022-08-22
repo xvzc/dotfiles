@@ -1,3 +1,5 @@
+local global = require('global')
+
 local clangd_cmd = global.home..'/.local/share/nvim/lsp_servers/clangd/clangd/bin/clangd'
 
 require('lspconfig').clangd.setup{

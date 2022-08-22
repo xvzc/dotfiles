@@ -42,7 +42,7 @@ return require('packer').startup({function(use)
   use {
     'junegunn/fzf',  
     requires = { 'junegunn/fzf.vim' }, 
-    run = './install --bin' 
+    run = './install --bin',
   }
 
   use 'akinsho/toggleterm.nvim'
@@ -80,7 +80,9 @@ return require('packer').startup({function(use)
 
   use { 
     'nvim-treesitter/nvim-treesitter', 
-    run = ':tsupdate' 
+    event = 'InsertEnter',
+    run = ':tsupdate',
+    config = require('settings.tree-sitter')
   }
 
   use {

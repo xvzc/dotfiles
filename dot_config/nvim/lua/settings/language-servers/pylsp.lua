@@ -1,3 +1,4 @@
+local global = require('global')
 local pylsp_cmd = global.home..'/.local/share/nvim/lsp_servers/pylsp/venv/bin/pylsp'
 
 require'lspconfig'.pylsp.setup{

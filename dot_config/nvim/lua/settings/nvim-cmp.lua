@@ -1,3 +1,5 @@
+local global = require('global')
+
 local cmp = require'cmp'
 cmp.setup({
   snippet = {

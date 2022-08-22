@@ -1,3 +1,5 @@
+local global = require('global')
+
 vim.g.mapleader = ' '
 vim.o.undofile = true
 vim.o.encoding = 'UTF-8'
