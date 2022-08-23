@@ -1,22 +1,51 @@
-vim.cmd [[packadd packer.nvim]]
+local packer = require('packer')
+packer.reset()
 
-return require('packer').startup({function(use)
+return packer.startup(function(use)
+
   use 'wbthomason/packer.nvim'
+  -- eager load
+
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-cmdline',
+    'honza/vim-snippets',
+    'hrsh7th/cmp-path',
+    'quangnguyen30192/cmp-nvim-ultisnips',
+    'folke/tokyonight.nvim',
+    'hrsh7th/nvim-cmp',
+  }
 
   use {
     'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
-    'williamboman/nvim-lsp-installer',
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'honza/vim-snippets',
-    'SirVer/ultisnips',
-    'quangnguyen30192/cmp-nvim-ultisnips',
+    run = ':TSUpdate',
+    config = function() require('settings.nvim-lspconfig') end,
   }
 
-  use 'lewis6991/impatient.nvim'
+  use {
+    'hrsh7th/cmp-buffer',
+  }
+
+
+  use {
+    'SirVer/ultisnips',
+  }
+
+  use {
+    'williamboman/nvim-lsp-installer',
+  }
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    event = "BufWinEnter",
+    config = function()
+      require('settings.treesitter')
+    end
+  }
+
+  use {
+    'akinsho/toggleterm.nvim',
+  }
 
   -- syntax
   use {
@@ -43,12 +72,6 @@ return require('packer').startup({function(use)
     'junegunn/fzf',  
     requires = { 'junegunn/fzf.vim' }, 
     run = './install --bin',
-  }
-
-  use {
-    'akinsho/toggleterm.nvim',
-    event = 'VimEnter',
-    config = require('settings.toggleterm')
   }
 
   -- use 'kdheepak/lazygit.nvim'
@@ -80,25 +103,12 @@ return require('packer').startup({function(use)
   -- styles
   -- use 'junegunn/goyo.vim'
   use "lukas-reineke/indent-blankline.nvim"
-  use 'folke/tokyonight.nvim'
   use 'glepnir/dashboard-nvim'
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
 
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end,
-config = {
-  display = {
-    open_fn = require('packer.util').float,
-  }
-}})
+end)
