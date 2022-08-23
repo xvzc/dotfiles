@@ -3,28 +3,29 @@ if not ok then
 	return
 end
 
+local config = {}
 
 treesitter.setup {
-    ensure_installed = { 
-      "c", 
-      "cpp", 
-      "go",
-      "lua",
-      "vim",
-      "bash",
-      "dockerfile",
-      "kotlin",
-      "java",
-      "python",
-      "regex",
-      "ruby",
-      "tsx",
-      "typescript",
-      "javascript",
-      "yaml",
-    },
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-  }
+	ensure_installed = { 
+		"c", 
+		"cpp", 
+		"go",
+		"lua",
+		"vim",
+		"bash",
+		"dockerfile",
+		"kotlin",
+		"java",
+		"python",
+		"regex",
+		"ruby",
+		"tsx",
+		"typescript",
+		"javascript",
+		"yaml",
+	},
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+}
