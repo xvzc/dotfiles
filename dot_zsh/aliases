@@ -12,8 +12,6 @@ alias l='ls -CF'
 
 alias g++='g++ -std=c++17'
 
-alias vi='nvim'
-
 alias tre='tmux attach'
 alias tat='tmux attach-session -t'
 alias tdt='tmux detach'
@@ -50,3 +48,9 @@ alias 9='cd -9'
 
 alias lazygit='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 alias lg='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
+
+alias cz='chezmoi'
+alias czcd='chezmoi cd'
+alias czvi='chezmoi edit'
+alias czrm='chezmoi remove'
+alias czpull='chezmoi update'

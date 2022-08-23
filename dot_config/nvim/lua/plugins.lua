@@ -45,7 +45,12 @@ return require('packer').startup({function(use)
     run = './install --bin',
   }
 
-  use 'akinsho/toggleterm.nvim'
+  use {
+    'akinsho/toggleterm.nvim',
+    event = 'VimEnter',
+    config = require('settings.toggleterm')
+  }
+
   -- use 'kdheepak/lazygit.nvim'
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
@@ -78,11 +83,9 @@ return require('packer').startup({function(use)
   use 'folke/tokyonight.nvim'
   use 'glepnir/dashboard-nvim'
 
-  use { 
-    'nvim-treesitter/nvim-treesitter', 
-    event = 'InsertEnter',
-    run = ':tsupdate',
-    config = require('settings.tree-sitter')
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
 
   use {

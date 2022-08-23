@@ -4,12 +4,16 @@
 function timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+
 }
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo "%{\$fg[white]%}[$(basename $VIRTUAL_ENV)]%{$reset_color%}";
 }
 
+function vi() {
+  chezmoi status /dev/null 2>&1 $1 && chezmoi edit $1 && chezmoi apply || nvim $1
+}
 
 # init functions
 # conda
