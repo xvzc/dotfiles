@@ -5,6 +5,9 @@
 .profile
 .secrets
 
+.config/nvim/plugin
+.config/nvim/plugin/**
+
 .oh-my-zsh
 Readme.md
 install.sh

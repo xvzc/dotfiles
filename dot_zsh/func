@@ -12,7 +12,7 @@ function virtualenv_info {
 }
 
 function vi() {
-  chezmoi status $1 > /dev/null 2>&1 && chezmoi edit $1 && chezmoi apply || nvim $@
+  chezmoi status $1 > /dev/null 2>&1 && nvim $(chezmoi source-path $1) && chezmoi apply || nvim $@
 }
 
 # init functions

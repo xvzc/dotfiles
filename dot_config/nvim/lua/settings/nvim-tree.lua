@@ -1,3 +1,5 @@
+local global = require('global')
+
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
@@ -22,4 +24,4 @@ require("nvim-tree").setup({
 })
 
 
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { silent = true })
+global.nmap('<leader>e', ':NvimTreeToggle<cr>', { silent = true, noremap = true })

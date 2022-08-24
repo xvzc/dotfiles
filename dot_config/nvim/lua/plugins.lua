@@ -2,113 +2,69 @@ local packer = require('packer')
 packer.reset()
 
 return packer.startup(function(use)
-
-  use 'wbthomason/packer.nvim'
   -- eager load
+  use 'wbthomason/packer.nvim'
+
+  use { 'folke/tokyonight.nvim', config = "require('styles')"}
+
+  use { 
+    'SirVer/ultisnips', 
+    after = 'nvim-cmp',
+    config = "require('settings.ultisnips')" 
+  }
 
   use {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
-    'honza/vim-snippets',
-    'hrsh7th/cmp-path',
-    'quangnguyen30192/cmp-nvim-ultisnips',
-    'folke/tokyonight.nvim',
     'hrsh7th/nvim-cmp',
-  }
-
-  use {
-    'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
-    run = ':TSUpdate',
-    config = function() require('settings.nvim-lspconfig') end,
-  }
-
-  use {
-    'hrsh7th/cmp-buffer',
-  }
-
-
-  use {
-    'SirVer/ultisnips',
+    event = 'BufWinEnter',
+    requires = {
+      { 'hrsh7th/cmp-nvim-lsp', before = 'nvim-cmp', config = function() require('settings.cmp-nvim-lsp') end },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp'},
+      { 'quangnguyen30192/cmp-nvim-ultisnips', after = 'nvim-cmp', config = function() require("cmp_nvim_ultisnips").setup{} end },
+      { 'neovim/nvim-lspconfig', config = "require('settings.nvim-lspconfig')", },
+    },
+    config = "require('settings.nvim-cmp')",
   }
 
   use {
     'williamboman/nvim-lsp-installer',
-  }
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    event = "BufWinEnter",
-    config = function()
-      require('settings.treesitter')
-    end
-  }
-
-  use {
-    'akinsho/toggleterm.nvim',
+    cmd = { 'LspInstallInfo', 'LspInstall', 'LspUninstall' },
+    config = "require('settings.nvim-lsp-installer')",
   }
 
   -- syntax
   use {
-    'yuezk/vim-js',
-    ft = { 'js' }
-  }
-
-  use { -- js syntax
-    'othree/yajs.vim',
-    ft = { 'js' }
-  }
-
-  use { -- ts
-    'HerringtonDarkholme/yats.vim',
-    ft = { 'js' }
-  }
-
-  use { -- jsx
-  'maxmellon/vim-jsx-pretty',
-    ft = { 'jsx' }
+    { 'yuezk/vim-js', ft = { 'js' } },
+    { 'othree/yajs.vim', ft = { 'js' } },
+    { 'HerringtonDarkholme/yats.vim', ft = { 'js' } },
+    { 'maxmellon/vim-jsx-pretty', ft = { 'jsx' } },
+    { 'iamcco/markdown-preview.nvim', ft = { 'md' }, },
   }
 
   use {
-    'junegunn/fzf',  
-    requires = { 'junegunn/fzf.vim' }, 
-    run = './install --bin',
+    { 'junegunn/fzf',  requires = { 'junegunn/fzf.vim' }, run = './install --bin', config = "require('settings.fzf')" },
+    { 'tpope/vim-fugitive', },
+    { 'airblade/vim-gitgutter', config = "require('settings.vim-gitgutter')" },
+    { 'easymotion/vim-easymotion', config = "require('settings.easymotion')" },
+    { 'tpope/vim-surround', config = "require('settings.vim-surround')" },
+    { 'windwp/nvim-autopairs', config = "require('settings.nvim-autopairs')" },
+    { 'godlygeek/tabular' },
+    { 'tpope/vim-commentary' },
+    { 'kdheepak/lazygit.nvim', config = "require('settings.lualine')"},
+    { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate",  config = "require('settings.treesitter')" },
+    { 'akinsho/toggleterm.nvim', config = "require('settings.toggleterm')" },
+    { 'lukas-reineke/indent-blankline.nvim', config = "require('settings.indent-blankline')" },
+    { 'glepnir/dashboard-nvim', config = "require('settings.dashboard-nvim')" },
+    { 'farmergreg/vim-lastplace', config = "require('settings.vim-lastplace')"},
+    event = 'BufWinEnter',
   }
 
-  -- use 'kdheepak/lazygit.nvim'
-  use 'tpope/vim-fugitive'
-  use 'airblade/vim-gitgutter'
-  use 'easymotion/vim-easymotion'
-  use 'tpope/vim-surround'
-  use 'windwp/nvim-autopairs'
-  use 'godlygeek/tabular'
-  use 'scrooloose/nerdcommenter'
-  use 'farmergreg/vim-lastplace'
+  -- plugins that are dependant on web-devicons
   use {
-    'iamcco/markdown-preview.nvim',
-    opt = true
-  }
-
-  use {
-    'akinsho/bufferline.nvim', 
-    requires = { 'kyazdani42/nvim-web-devicons' }, 
-    tag = 'v2.*'
-  }
-
-  use {
-    'kyazdani42/nvim-tree.lua', 
-    requires = { 'kyazdani42/nvim-web-devicons', }, 
-    tag = 'nightly' 
-  }
-
-  -- styles
-  -- use 'junegunn/goyo.vim'
-  use "lukas-reineke/indent-blankline.nvim"
-  use 'glepnir/dashboard-nvim'
-
-
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = "require('settings.lualine')"},
+    { 'akinsho/bufferline.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, tag = 'v2.*', config = "require('settings.bufferline')" },
+    { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons', }, config = "require('settings.nvim-tree')" },
   }
 
 end)

@@ -6,8 +6,8 @@ vim.g.UltiSnipsExpandTrigger = '<C-F19>'
 vim.g.UltiSnipsJumpForwardTrigger = '<C-F19>'
 vim.g.UltiSnipsJumpBackwardTrigger = '<C-F19>'
 
--- vim.g.UltiSnipsSnippetsDir = '~/.config/nvim/snippets'
--- vim.g.UltiSnipsSnippetDirectories = {'snippets'}
+ --vim.g.UltiSnipsSnippetsDir = '~/.config/nvim/snippets'
+ --vim.g.UltiSnipsSnippetDirectories = {'snippets'}
 vim.g.UltiSnipsEnableSnipMate = 1
 vim.g.UltiSnipsEditSplit="vertical"
 

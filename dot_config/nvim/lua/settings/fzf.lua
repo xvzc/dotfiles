@@ -14,5 +14,4 @@ autocmd! FileType fzf set laststatus=0 noshowmode noruler |
 command! -bang -nargs=? -complete=dir FZF
       \ call fzf#vim#files(<q-args>, 
       \ fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
-
 ]])
