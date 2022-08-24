@@ -1,5 +1,9 @@
 local global = {}
 
+local trim = function(s)
+  return (string.gsub(s, "^%s*(.-)%s*$", "%1"))
+end
+
 local syscall = function(cmd)
   local f = assert(io.popen(cmd, 'r'))
   local s = assert(f:read('*a'))
@@ -12,7 +16,7 @@ local run_python = function()
   vim.cmd("silent w")
   local cur_buffer = vim.api.nvim_buf_get_name(0)
   local cur_path = vim.fn.getcwd()
-  print(global.syscall('python3 '..cur_buffer..' 2>&1'))
+  print(syscall('python3 '..cur_buffer..' 2>&1'))
 end
 
 local run_cpp = function()
@@ -27,7 +31,7 @@ local run_cpp = function()
     return
   end
 
-  print(global.syscall(cur_path..'/a.out'..' 2>&1'))
+  print(syscall(cur_path..'/a.out'..' 2>&1'))
 end
 
 local run_sh = function()
@@ -96,6 +100,7 @@ function global:new()
   self.vmap = vmap
   self.imap = imap
   self.smap = smap
+  self.trim = trim
   self.find_lua_files = find_lua_files
 
   return self

@@ -40,32 +40,27 @@ global.autocmd({'BufRead', 'BufNewFile'}, {
 global.autocmd({'BufRead', 'BufNewFile'}, {
   pattern = '~/*/baekJoon/*.* ', 
   callback = function() 
-    global.nmap('<C-M-s>', ':call global.BOJ_SUBMIT()<CR>', silent_noremap )
+    global.nmap('<C-M-s>', ':call require("global").BOJ_SUBMIT()<CR>', silent_noremap )
   end
 })
 
 global.autocmd({'filetype'}, {
   pattern = 'python', 
   callback = function() 
-    global.nmap('<C-M-r>', ':lua global.run_python()<CR>', silent_noremap )
+    global.nmap('<C-M-r>', ':lua require("global").run_python()<CR>', silent_noremap )
   end
 })
 
 global.autocmd({'filetype'}, {
   pattern = 'cpp', 
   callback = function() 
-    global.nmap('<C-M-r>', ':lua global.run_cpp()<CR>', silent_noremap )
+    global.nmap('<C-M-r>', ':lua require("global").run_cpp()<CR>', silent_noremap )
   end
 })
 
 global.autocmd({'filetype'}, {
   pattern = 'sh', 
   callback = function() 
-    global.nmap('<C-M-r>', ':lua global.run_sh()<CR>', silent_noremap )
+    global.nmap('<C-M-r>', ':lua  require("global").run_sh()<CR>', silent_noremap )
   end
 })
-
-
-vim.cmd([[
-
-]])
