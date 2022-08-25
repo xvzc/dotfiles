@@ -12,6 +12,11 @@ function virtualenv_info {
 }
 
 function vi() {
+  if [ $# -eq 0 ]; then
+    nvim
+    return
+  fi
+
   chezmoi verify $1 > /dev/null 2>&1 && chezmoi edit --watch --apply $1 || nvim $@
 }
 

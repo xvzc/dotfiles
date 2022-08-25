@@ -5,6 +5,12 @@ return packer.startup(function(use)
   -- eager load
   use 'wbthomason/packer.nvim'
   use 'folke/tokyonight.nvim'
+  use { 
+    'glepnir/dashboard-nvim', 
+    event = "VimEnter", 
+    config = [[require('settings.dashboard-nvim')]] 
+  }
+
 
 
   use { 
@@ -108,10 +114,6 @@ return packer.startup(function(use)
       config = "require('settings.indent-blankline')" 
     },
     { 
-      'glepnir/dashboard-nvim', 
-      config = "require('settings.dashboard-nvim')" 
-    },
-    { 
       'farmergreg/vim-lastplace', 
       config = "require('settings.vim-lastplace')"
     },
@@ -133,6 +135,8 @@ return packer.startup(function(use)
     },
     { 
       'kyazdani42/nvim-tree.lua', 
+      tag = 'nightly', -- optional, updated every week. (see issue #1193)
+
       requires = { 'kyazdani42/nvim-web-devicons', }, 
       config = "require('settings.nvim-tree')" 
     },
