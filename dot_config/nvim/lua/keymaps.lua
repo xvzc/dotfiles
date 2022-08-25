@@ -1,8 +1,5 @@
 local global = require('global')
 
-
-
-
 local silent_noremap = {silent = true, noremap = true}
 local silent_noremap_expr = {silent = true, noremap = true, expr = true}
 
@@ -31,6 +28,10 @@ global.nmap('<esc>', function()
   end
 
   return "<esc>"
+end, silent_noremap_expr)
+
+global.nmap('<C-g>', function()
+  vim.cmd('input("string to find? ")')
 end, silent_noremap_expr)
 
 global.autocmd({'BufRead', 'BufNewFile'}, {

@@ -4,6 +4,7 @@ packer.reset()
 return packer.startup(function(use)
   -- eager load
   use 'wbthomason/packer.nvim'
+  use 'folke/tokyonight.nvim'
 
 
   use { 
@@ -136,7 +137,6 @@ return packer.startup(function(use)
       config = "require('settings.nvim-tree')" 
     },
 
-    { 'folke/tokyonight.nvim', before = "bufferline", config = "require('styles')"}
   }
 
 end)
