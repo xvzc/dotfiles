@@ -4,6 +4,19 @@ local trim = function(s)
   return (string.gsub(s, "^%s*(.-)%s*$", "%1"))
 end
 
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 local syscall = function(cmd)
   local f = assert(io.popen(cmd, 'r'))
   local s = assert(f:read('*a'))
@@ -101,10 +114,10 @@ function global:new()
   self.imap = imap
   self.smap = smap
   self.trim = trim
+  self.dump = dump
   self.find_lua_files = find_lua_files
 
   return self
 end
-
 
 return global:new()

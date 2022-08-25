@@ -35,7 +35,8 @@ cmp.setup({
     fields = { "kind",  "abbr", "menu"},
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind =  kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind
+      vim_item.kind = kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind
+      vim_item.abbr = global.trim(vim_item.abbr)
       -- Source
       vim_item.menu = ({
         buffer = "[Buffer]",
