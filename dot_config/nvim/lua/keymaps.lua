@@ -1,5 +1,8 @@
 local global = require('global')
 
+
+
+
 local silent_noremap = {silent = true, noremap = true}
 local silent_noremap_expr = {silent = true, noremap = true, expr = true}
 

@@ -32,7 +32,7 @@ local kind_icons = {
 
 cmp.setup({
   formatting = {
-    fields = { "kind",  "abbr", },
+    fields = { "kind",  "abbr", "menu"},
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind =  kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind

@@ -5,8 +5,6 @@ return packer.startup(function(use)
   -- eager load
   use 'wbthomason/packer.nvim'
 
-  use { 'folke/tokyonight.nvim', config = "require('styles')"}
-
 
   use { 
     {
@@ -14,6 +12,7 @@ return packer.startup(function(use)
       config = function() 
         require('settings.nvim-lspconfig')
       end,
+
       before = 'nvim-cmp'
     }, 
     {
@@ -44,9 +43,6 @@ return packer.startup(function(use)
       'SirVer/ultisnips', 
       before = 'nvim-cmp', 
       config = "require('settings.ultisnips')"
-    }, 
-    { 
-      'onsails/lspkind.nvim',
     }, 
     event = 'BufWinenter'
   }
@@ -139,6 +135,8 @@ return packer.startup(function(use)
       requires = { 'kyazdani42/nvim-web-devicons', }, 
       config = "require('settings.nvim-tree')" 
     },
+
+    { 'folke/tokyonight.nvim', before = "bufferline", config = "require('styles')"}
   }
 
 end)
