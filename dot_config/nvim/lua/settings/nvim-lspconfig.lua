@@ -93,10 +93,13 @@ local lspconfig = require('lspconfig')
 
 for _, server in ipairs(mason.get_installed_package_names()) do
   local config = make_config()
+  if server == 'pyright' then
+    config.filetypes = { 'python', 'py' }
+  end
 
   if server == "lua-language-server" then
-    lspconfig['sumneko_lua'].setup(config)
-    break
+    server = 'sumneko_lua'
+    config = lua_settings
   end
 
   if server == "sourcekit" then
