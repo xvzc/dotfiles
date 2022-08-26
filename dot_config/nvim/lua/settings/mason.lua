@@ -1,4 +1,4 @@
-require("nvim-lsp-installer").setup({
+require("mason").setup({
     ensure_installed = {},
     automatic_installation = false,
 

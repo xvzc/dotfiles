@@ -13,12 +13,17 @@ db.custom_header = {
 
 db.custom_center = {
   {
+    icon = '  ',
+    desc = 'Empty Buffer          ',
+    action = 'enew',
+  },
+  {
     icon = '  ',
-    desc = 'Recently opened files ',
+    desc = 'Recently Opened Files ',
     action = 'History',
   },
   {
-    icon = '  ',
+    icon = 'ﳎ  ',
     desc = 'Home Directory        ',
     action = 'FZF ~',
   },
@@ -29,7 +34,7 @@ db.custom_center = {
   },
   {
     icon = '  ',
-    desc = 'Find word             ',
+    desc = 'Find Word             ',
     action = 'Rg',
   },
   {
@@ -39,7 +44,7 @@ db.custom_center = {
   },
   {
     icon = '  ',
-    desc = 'Open Personal dotfiles',
+    desc = 'Open Personal Dotfiles',
     action = 'FZF ~/.stowfiles',
   }
 }
