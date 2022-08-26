@@ -16,10 +16,7 @@ return packer.startup(function(use)
   use { 
     {
       'neovim/nvim-lspconfig', 
-      config = function() 
-        require('settings.nvim-lspconfig')
-      end,
-
+      config = "require('settings.nvim-lspconfig')",
       before = 'nvim-cmp'
     }, 
     {
@@ -50,15 +47,14 @@ return packer.startup(function(use)
       'SirVer/ultisnips', 
       before = 'nvim-cmp', 
       config = "require('settings.ultisnips')"
-    }, 
+    },
+    {
+      'williamboman/mason.nvim',
+      before = 'nvim-lspconfig',
+      config = "require('settings.mason')",
+    },
+ 
     event = 'BufWinenter'
-  }
-
-
-  use {
-    'williamboman/nvim-lsp-installer',
-    cmd = { 'LspInstallInfo', 'LspInstall', 'LspUninstall' },
-    config = "require('settings.nvim-lsp-installer')",
   }
 
   -- syntax

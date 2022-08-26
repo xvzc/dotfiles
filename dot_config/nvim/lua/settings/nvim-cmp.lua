@@ -34,7 +34,6 @@ cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      print(global.dump())
       -- Kind icons
       vim_item.kind = kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind
       vim_item.abbr = global.trim(vim_item.abbr)
@@ -82,8 +81,8 @@ cmp.setup({
     end, { 'i' }),
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'ultisnips', priority = 20000 }, -- For ultisnips users.
+    { name = 'nvim_lsp', priority = 1 },
+    { name = 'ultisnips' }, -- For ultisnips users.
     { name = 'path' },
   }, { 
     { name = 'buffer' }, 
