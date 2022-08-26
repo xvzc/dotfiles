@@ -30,10 +30,6 @@ global.nmap('<esc>', function()
   return "<esc>"
 end, silent_noremap_expr)
 
-global.nmap('<C-g>', function()
-  vim.cmd('input("string to find? ")')
-end, silent_noremap_expr)
-
 global.autocmd({'BufRead', 'BufNewFile'}, {
   pattern = '*.cpp', 
   callback = function()
