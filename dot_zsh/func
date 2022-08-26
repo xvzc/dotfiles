@@ -17,7 +17,9 @@ function vi() {
     return
   fi
 
-  chezmoi verify $1 > /dev/null 2>&1 && chezmoi edit --watch --apply $1 || nvim $@
+  chezmoi verify $1 > /dev/null 2>&1\
+    && chezmoi edit --watch --hardlink=false $1\
+    || nvim $@
 }
 
 # init functions

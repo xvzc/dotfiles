@@ -2,6 +2,10 @@
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
+# vim:filetype=sh:tw=80:et
 
 [data]
     osid = {{ $osid | quote }}
+
+[edit]
+    command = "nvim"
