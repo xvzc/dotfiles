@@ -87,12 +87,6 @@ function init_sdkman(){
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 }
 
-# git
-function init_git_settings(){
-    git config --global commit.template ~/git/.gitmessage.txt
-    git config --global hub.protocol https
-}
-
 function run_tmux_on_cases(){
     GOGOSING=$(ps -p $(ps -p $$ -o ppid=) -o args=)
     if [[ $CUR_OS == 'linux' ]] && [[ $GOGOSING =~ 'tilda' ]]; then
