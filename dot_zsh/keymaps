@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 # How to map zle widget?
 # You will see zle: widgets can only be called when ZLE is active when you run `zle widget_name` command.
 # It means that widgets can be called only when you write and edit your commands in the editor,

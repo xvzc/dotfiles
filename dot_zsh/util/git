@@ -1,0 +1,84 @@
+#!/bin/sh
+
+git config --global commit.template ~/.templates/gitmessage.txt
+
+function git_login() {
+  if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+    git config --local user.email $PERSONAL_GITHUB_EMAIL
+    git config --local user.name $PERSONAL_GITHUB_UNAME
+    git config --local credential.helper store $PERSONAL_GITHUB_TOKEN
+  elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+    git config --local user.email $WORK_GITHUB_EMAIL
+    git config --local user.name $WORK_GITHUB_UNAME
+    git config --local credential.helper store $WORK_GITHUB_TOKEN
+  else
+    echo "Invalid option."
+    echo "Usage: $0 [option]"
+    return 1
+  fi
+}
+
+function hub_make_pr() {
+    if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+        GITHUB_TOKEN=$GITHUB_PERSONAL_TOKEN hub pull-request -b $2 -h $(git rev-parse --abbrev-ref HEAD)
+    elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+        GITHUB_TOKEN=$GITHUB_WORK_TOKEN hub pull-request -b $2 -h $(git rev-parse --abbrev-ref HEAD)
+    else
+        echo "Invalid option."
+        echo "Usage: [option] [destination-branch]"
+        return 1
+    fi
+}
+
+function hub_list_pr() {
+    if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+        GITHUB_TOKEN=$GITHUB_PERSONAL_TOKEN hub pr list
+    elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+        GITHUB_TOKEN=$GITHUB_WORK_TOKEN hub pr list
+    else
+        echo "Invalid option."
+        echo "Usage: $0 [option]"
+        return 1
+    fi
+}
+
+function hub_merge_pr() {
+    REMOTE_URL=$(git remote get-url origin)
+    echo "Remote URL: $REMOTE_URL" 
+
+    END_IDX=0
+    for ((i=${#REMOTE_URL}-1; i>=0; i--)); do
+        if [ "${REMOTE_URL:$i:1}" = "." ]; then
+            END_IDX=$i
+            break
+        fi
+    done
+
+    START_IDX=0
+    for ((i=$END_IDX-1; i>=0; i--)); do
+        if [ "${REMOTE_URL:$i:1}" = "/" ]; then
+            START_IDX=$i
+            break
+        fi
+    done
+
+    for ((i=$START_IDX-1; i>=0; i--)); do
+        if [ "${REMOTE_URL:$i:1}" = "/" ]; then
+            START_IDX=$i
+            break
+        fi
+    done
+
+    MERGE_ENDPOINT="repos/${REMOTE_URL:$START_IDX + 1:$END_IDX - $START_IDX - 1}/pulls/$2/merge"
+    echo "Merging pull request: $MERGE_ENDPOINT\n"
+
+    if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+        GITHUB_TOKEN=$GITHUB_PERSONAL_TOKEN hub api -XPUT $MERGE_ENDPOINT $3
+    elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+        GITHUB_TOKEN=$GITHUB_WORK_TOKEN hub api -XPUT $MERGE_ENDPOINT $3
+    else
+        echo "Invalid option."
+        echo "Usage: $0 [option] [pull-request-id]"
+        return 1
+    fi
+}

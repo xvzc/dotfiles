@@ -1,0 +1,34 @@
+#!/bin/sh
+# vim:filetype=sh:tw=80:et
+
+### directory stack
+setopt AUTO_PUSHD
+setopt pushdsilent # Omit printing directory stack
+setopt pushdminus  # Invert meanings of +N and -N arguments to pushd
+### directory stack end
+
+
+### completion units start
+skip_global_compinit=1
+
+zmodload zsh/nearcolor
+
+autoload -U promptinit; promptinit
+# autoload -Uz compinit && compinit -i
+
+{{ if eq .osid "darwin" }}
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit -i
+else
+  compinit -C
+fi
+{{ else if eq .osid "linux-arch" }}
+# Speed up zsh compinit by only checking cache once a day.
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit -i
+done
+compinit -C
+{{ end }}
+### completion units end

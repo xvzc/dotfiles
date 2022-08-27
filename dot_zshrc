@@ -1,4 +1,5 @@
-#!/bin/zsh
+#!/bin/sh
+# vim:filetype=sh:tw=80:et
 
 export ZSH=~/.oh-my-zsh
 
@@ -12,19 +13,19 @@ plugins=(
 
 ZSH_DISABLE_COMPFIX="true"
 
+fpath+=$HOME/.zsh/pure
+
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/env
-source ~/.zsh/func
 source ~/.zsh/aliases
-source ~/.zsh/fzf
 source ~/.zsh/opt
 source ~/.zsh/styles
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-source ~/.zsh/fpath
-source ~/.zsh/load
 source ~/.zsh/keymaps
-source ~/.zsh/git
+
+for file in ~/.zsh/util/*; do
+    source "$file"
+done
 
 source $HOME/.profile
 
