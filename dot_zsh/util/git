@@ -1,7 +1,5 @@
 #!/bin/sh
 
-git config --global commit.template ~/.templates/gitmessage.txt
-
 function git_login() {
   if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
     git config --local user.email $PERSONAL_GITHUB_EMAIL
@@ -16,6 +14,9 @@ function git_login() {
     echo "Usage: $0 [option]"
     return 1
   fi
+
+  git config --local commit.template ~/.templates/.gitmessage.txt
+  git config --local hub.protocol https
 }
 
 function hub_make_pr() {
