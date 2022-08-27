@@ -32,17 +32,22 @@ local kind_icons = {
 
 cmp.setup({
   formatting = {
-    fields = { "kind",  "abbr", },
+    fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind =  kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind
+      vim_item.kind = kind_icons[vim_item.kind] -- This concatonates the icons with the name of the item kind
+      vim_item.abbr = global.trim(vim_item.abbr)
+      if entry.source.name == 'nvim_lsp' then
+        vim_item.abbr = ' •'..vim_item.abbr
+      else
+        vim_item.abbr = ' '..vim_item.abbr
+      end
       -- Source
       vim_item.menu = ({
-        buffer = "[Buffer]",
+        buffer = "[BUF]",
         nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[LaTeX]",
+        ultisnips = "[SNI]",
+        latex_symbols = "[LTX]",
       })[entry.source.name]
       return vim_item
     end
@@ -76,8 +81,8 @@ cmp.setup({
     end, { 'i' }),
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'ultisnips', priority = 20000 }, -- For ultisnips users.
+    { name = 'nvim_lsp', priority = 1 },
+    { name = 'ultisnips' }, -- For ultisnips users.
     { name = 'path' },
   }, { 
     { name = 'buffer' }, 

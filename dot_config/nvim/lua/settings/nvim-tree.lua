@@ -1,6 +1,7 @@
 local global = require('global')
 
 require("nvim-tree").setup({
+  open_on_setup = false,
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,

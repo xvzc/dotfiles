@@ -6,6 +6,7 @@ end
 
 if global.cur_os == 'linux' then
   local clipboard = {}
+
   clipboard['name'] = 'xclip-xfce4-clipman'
 
   clipboard['copy'] = {}
