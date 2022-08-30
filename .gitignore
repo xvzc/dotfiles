@@ -1,4 +1,5 @@
 .config/nvim/backup
 .config/nvim/undo
+.profile
 
 .DS_Store
