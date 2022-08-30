@@ -15,4 +15,3 @@ else
 fi
 
 git config --local commit.template ~/.templates/gitmessage.txt
-git config --local hub.protocol https

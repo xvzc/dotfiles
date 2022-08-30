@@ -22,8 +22,8 @@ alias tls='tmux ls'
 
 alias ofd='open .'
 
-alias ghp='GITHUB_TOKEN=$PERSONAL_GITHUB_TOKEN gh'
-alias ghw='GITHUB_TOKEN=$WORK_GITHUB_TOKEN gh'
+alias pgh='GITHUB_TOKEN=$PERSONAL_GITHUB_TOKEN gh'
+alias wgh='GITHUB_TOKEN=$WORK_GITHUB_TOKEN gh'
 
 alias live-server='live-server --port=8080 --browser=chromium'
 
