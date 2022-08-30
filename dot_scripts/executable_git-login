@@ -1,0 +1,18 @@
+#!/bin/sh  
+
+if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+  git config --local user.email $PERSONAL_GITHUB_EMAIL
+  git config --local user.name $PERSONAL_GITHUB_UNAME
+  git config --local credential.helper store $PERSONAL_GITHUB_TOKEN
+elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+  git config --local user.email $WORK_GITHUB_EMAIL
+  git config --local user.name $WORK_GITHUB_UNAME
+  git config --local credential.helper store $WORK_GITHUB_TOKEN
+else
+  echo "Invalid option."
+  echo "Usage: $0 [option]"
+  exit 1
+fi
+
+git config --local commit.template ~/.templates/.gitmessage.txt
+git config --local hub.protocol https

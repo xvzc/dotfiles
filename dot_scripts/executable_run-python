@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+if [ -f $(pwd)/input.txt ]; then
+  python3 $1 < $(pwd)/input.txt
+else
+  python3 $1
+fi
