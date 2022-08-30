@@ -8,6 +8,6 @@ elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
     hub pull-request -b $2 -h $(git rev-parse --abbrev-ref HEAD)
 else
   echo "Invalid option."
-  echo "Usage: [option] [destination-branch]"
+  echo "Usage: $(basename $0)-[p | w] [destination-branch]"
   exit 1
 fi

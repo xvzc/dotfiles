@@ -26,7 +26,7 @@ for ((i=$START_IDX-1; i>=0; i--)); do
   fi
 done
 
-MERGE_ENDPOINT="repos/${REMOTE_URL:$START_IDX + 1:$END_IDX - $START_IDX - 1}/pulls/$2/merge"
+MERGE_ENDPOINT="repos${REMOTE_URL:$START_IDX + 1:$END_IDX - $START_IDX - 1}/pulls/$2/merge"
 echo "Merging pull request: $MERGE_ENDPOINT\n"
 
 if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
@@ -35,6 +35,6 @@ elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
   GITHUB_TOKEN=$WORK_GITHUB_TOKEN hub api -XPUT $MERGE_ENDPOINT $3
 else
   echo "Invalid option."
-  echo "Usage: $0 [option] [pull-request-id]"
+  echo "Usage: $(basename $0) -[p | w] [pull-request-id]"
   exit 1
 fi

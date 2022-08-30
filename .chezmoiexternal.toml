@@ -39,7 +39,7 @@
 
 [".config/nvim"]
     type = "git-repo"
-    url = "https://github.com/xvzc/nvim"
+    url = "https://xvzc@github.com/xvzc/nvim"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"

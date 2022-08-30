@@ -22,7 +22,8 @@ alias tls='tmux ls'
 
 alias ofd='open .'
 
-# alias personal-hub='GITHUB_TOKEN=$GIT_PERSONAL_TOKEN hub pull-request -b main -h $(git rev-parse --abbrev-ref HEAD)'
+alias ghp='GITHUB_TOKEN=$PERSONAL_GITHUB_TOKEN gh'
+alias ghw='GITHUB_TOKEN=$WORK_GITHUB_TOKEN gh'
 
 alias live-server='live-server --port=8080 --browser=chromium'
 

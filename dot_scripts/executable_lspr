@@ -6,6 +6,6 @@ elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
   GITHUB_TOKEN=$WORK_GITHUB_TOKEN hub pr list
 else
   echo "Invalid option."
-  echo "Usage: $0 [option]"
+  echo "Usage: $(basename $0) -[p | w]"
   exit 1
 fi
