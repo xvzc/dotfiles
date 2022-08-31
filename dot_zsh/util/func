@@ -108,6 +108,6 @@ function bojlogin() {
     mkdir -p $HOME/.boj-cli
     touch $HOME/boj-handle
     touch $HOME/boj-token
-    echo "jry9913" > $HOME/.boj-cli/boj-handle
-    echo "$1" > $HOME/.boj-cli/boj-token
+    echo "$1" > $HOME/.boj-cli/boj-handle
+    echo "$2" > $HOME/.boj-cli/boj-token
 }
