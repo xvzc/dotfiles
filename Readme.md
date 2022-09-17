@@ -43,3 +43,4 @@ find 'ralt_hangul' key, and then change the symbols to `symbols[Group1] = [ Alt_
 $ tmux -f /dev/null -L temp start-server \; list-keys > ./.tmux.reset.conf
 
 ```
+
