@@ -34,3 +34,5 @@ zmodload zsh/zprof
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 prompt pure
+
+git config --global user.useConfigOnly true
