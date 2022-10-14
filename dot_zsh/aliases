@@ -54,3 +54,5 @@ alias czcd='chezmoi cd'
 alias czrm='chezmoi remove'
 alias czfg='chezmoi remove'
 alias czpull='chezmoi update'
+
+alias tf='terraform'
