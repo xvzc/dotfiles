@@ -56,3 +56,4 @@ alias czfg='chezmoi remove'
 alias czpull='chezmoi update'
 
 alias tf='terraform'
+alias dcp='docker-compose'
