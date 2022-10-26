@@ -17,7 +17,7 @@ nimf
 # xset s noblank
 
 xset -dpms
-xset dpms 7200 0 0
+
 xset s blank
 xset s on
 xset s 3600

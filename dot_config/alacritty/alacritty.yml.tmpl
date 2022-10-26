@@ -1,7 +1,11 @@
 # vim:filetype=yaml:tw=80
 
 font:
+# {{ if eq .osid "darwin" }}
   size: 14
+# {{ else if eq .osid "linux-arch" }}
+  size: 13
+# {{ end }}
   offset:
     x: 0
     y: 0
@@ -26,9 +30,9 @@ window:
    x: 3
    y: 3
 
-# MacOS Only################### {{ if eq .osid "darwin" }}
+# {{ if eq .osid "darwin" }}
   decorations: "buttonless"
-# ############################# {{ end }}
+# {{ end }}
 
 colors:
 

@@ -1,18 +1,16 @@
 #!/bin/sh
 # vim:filetype=sh:tw=80:et
 
-ln -s -f .tmux/.tmux.conf
-
-{{ if eq .osid "darwin" }}
+# {{ if eq .osid "darwin" }}
 
 brew install ripgrep;
 brew install fd;
 brew install tmux;
 
-{{ else if eq .osid "linux-arch" }}
+# {{ else if eq .osid "linux-arch" }}
 
 sudo yay -Sy ripgrep;
 sudo yay -Sy fd;
 sudo yay -Sy tmux;
 
-{{ end }}
+# {{ end }}
