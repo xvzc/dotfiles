@@ -16,10 +16,10 @@ install.sh
 
 # MacOs only
 {{ if ne .osid "darwin" }}
-
 {{ end }}
 
 # Arch linux only
 {{ if ne .osid "linux-arch" }}
+.xprofile
 .config/bspwm
 {{ end }}
