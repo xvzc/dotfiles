@@ -60,6 +60,7 @@ alias tfi='terraform init'
 alias tfg='terraform get'
 alias tfa='terraform apply'
 alias tfl='terraform plan'
+alias tfd='terraform destroy'
 alias tfgu='terraform get --update'
 
 alias tf='terraform'

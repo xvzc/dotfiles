@@ -22,6 +22,17 @@ function vi() {
     || nvim $@
 }
 
+function push() {
+  git add .
+  if [ -z "$1" ]
+  then
+    git commit -a -m "Too lazy to write message"
+  else
+    git commit -a -m "$1"
+  fi
+  git push
+}
+
 # init functions
 # conda
 function init_conda(){
