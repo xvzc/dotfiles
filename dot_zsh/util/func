@@ -26,7 +26,7 @@ function push() {
   git add .
   if [ -z "$1" ]
   then
-    git commit -a -m "Too lazy to write message"
+    git commit -a -m "No commit message"
   else
     git commit -a -m "$1"
   fi
