@@ -20,6 +20,8 @@ install.sh
 
 # Arch linux only
 {{ if ne .osid "linux-arch" }}
+.config/rofi
+.config/rofi/**
 .xprofile
 .config/bspwm
 {{ end }}

@@ -1,21 +1,12 @@
 export BSPWM_MOD=alt
 
 # terminal emulator
-alt + Return
-	alacritty
+alt + Return 
+    alacritty
 
 # program launcher
-alt + space
-    rofi -modi window,drun,run \
-        -font 'D2Coding NF 11' \
-        -show drun \
-        -show-icons \
-        -sidebar-mode \
-        -terminal alacritty \
-        -color-window '#000000, #000000, #000000' \
-        -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' \
-        -color-active '#000000, #b3e774, #000000, #b3e774, #000000' \
-        -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'
+alt + space 
+    rofi -show drun
 
 # make sxhkd reload its configuration files:
 alt + alt + r
