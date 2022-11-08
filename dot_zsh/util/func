@@ -11,17 +11,6 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo "%{\$fg[white]%}[$(basename $VIRTUAL_ENV)]%{$reset_color%}";
 }
 
-function vi() {
-  if [ $# -eq 0 ]; then
-    nvim
-    return
-  fi
-
-  chezmoi verify $1 > /dev/null 2>&1\
-    && chezmoi edit --watch --hardlink=false $1\
-    || nvim $@
-}
-
 function push() {
   git add .
   if [ -z "$1" ]
