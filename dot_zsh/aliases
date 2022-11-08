@@ -1,14 +1,11 @@
 #!/bin/sh
 
-#alias tmux='tmux new-session -A -s main'
+alias sudo='sudo '
+
 
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-
-# if [[ $CUR_OS == 'linux' ]]; then
-#   alias ls='ls --color'
-# fi
 
 alias g++='g++ -std=c++17'
 
@@ -48,7 +45,7 @@ alias lazygit='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 alias lg='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 
 alias cz='chezmoi'
-alias cze='chezmoi edit --watch --hardlink=false'
+alias cvi='chezmoi edit --watch --hardlink=false'
 alias czg='chezmoi git'
 alias czu='chezmoi update'
 alias czap='chezmoi apply'
