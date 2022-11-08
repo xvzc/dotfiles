@@ -5,7 +5,6 @@
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-alias vi='nvim'
 
 # if [[ $CUR_OS == 'linux' ]]; then
 #   alias ls='ls --color'
@@ -49,7 +48,7 @@ alias lazygit='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 alias lg='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 
 alias cz='chezmoi'
-alias cvi='chezmoi edit --watch --hardlink=false'
+alias cze='chezmoi edit --watch --hardlink=false'
 alias czg='chezmoi git'
 alias czu='chezmoi update'
 alias czap='chezmoi apply'
