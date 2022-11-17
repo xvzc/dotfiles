@@ -21,3 +21,6 @@ vmap <leader>y "*y
 nmap <leader>p "*p
 
 nmap <leader>a ggVG
+
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gu :action FindUsages<CR>
