@@ -2,7 +2,6 @@
 
 alias sudo='sudo '
 
-
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
