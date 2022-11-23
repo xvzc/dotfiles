@@ -44,3 +44,5 @@ $ tmux -f /dev/null -L temp start-server \; list-keys > ./.tmux.reset.conf
 
 ```
 
+## Nerd Font issue with Alacritty on Mac OS Ventura >= 13.0 
+Open Font Book and right click All Fonts on the side bar, and then click `activate all fonts`
