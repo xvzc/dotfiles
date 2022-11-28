@@ -10,7 +10,7 @@ elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
   git config --local credential.helper store $WORK_GITHUB_TOKEN
 else
   echo "Invalid option."
-  echo "Usage: $(basename $0) -[p | w]"
+  echo "Usage: git login -[p | w]"
   exit 1
 fi
 
