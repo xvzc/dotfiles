@@ -14,7 +14,9 @@ for ((i=${#REMOTE_URL}-1; i>=0; i--)); do
   fi
 done
 
+REPO_NAME=$(echo $REPO_NAME | sed -e "s/\.git//")
 echo $REPO_NAME
+
 
 MERGE_ENDPOINT="repos/$REPO_NAME/pulls/$2/merge"
 echo "Merging pull request: $MERGE_ENDPOINT\n"
