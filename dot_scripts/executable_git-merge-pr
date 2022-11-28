@@ -3,24 +3,16 @@
 REMOTE_URL=$(git remote get-url origin)
 echo "Remote URL: $REMOTE_URL" 
 
-REPO_IDX=0
+SLASH_COUNT=0
 for ((i=${#REMOTE_URL}-1; i>=0; i--)); do
   if [ "${REMOTE_URL:$i:1}" = "/" ]; then
-    REPO_IDX=$i
-    break
+    SLASH_COUNT=$((SLASH_COUNT+1))
+    if [ $SLASH_COUNT -eq 2 ]; then
+      REPO_NAME="${REMOTE_URL:$((i + 1))}"
+      break
+    fi
   fi
 done
-
-OWNER_IDX=0
-for ((i=$REPO_IDX-1; i>=0; i--)); do
-  if [ "${REMOTE_URL:$i:1}" = "/" ]; then
-    OWNER_IDX=$i
-    break
-  fi
-done
-
-OWNER_IDX=$OWNER_IDX+1
-REPO_NAME="${REMOTE_URL:$OWNER_IDX}"
 
 echo $REPO_NAME
 
