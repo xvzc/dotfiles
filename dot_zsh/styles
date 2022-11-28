@@ -45,7 +45,10 @@ zstyle :prompt:pure:virtualenv show yes
 
 # Do menu-driven completion.
 zstyle ':completion:*' menu select
-zstyle ':completion:*:*:git:*' user-commands login:'git-login'
+zstyle ':completion:*:*:git:*' user-commands login:'git_login' \
+  list-pr:'hub_list_pr' \
+  make-pr:'hub_make_pr' \
+  merge-pr:'hub_make_pr'
 
 # Color completion for some things.
 # http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html

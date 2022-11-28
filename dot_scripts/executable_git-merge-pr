@@ -1,0 +1,38 @@
+#!/bin/sh
+
+REMOTE_URL=$(git remote get-url origin)
+echo "Remote URL: $REMOTE_URL" 
+
+REPO_IDX=0
+for ((i=${#REMOTE_URL}-1; i>=0; i--)); do
+  if [ "${REMOTE_URL:$i:1}" = "/" ]; then
+    REPO_IDX=$i
+    break
+  fi
+done
+
+OWNER_IDX=0
+for ((i=$REPO_IDX-1; i>=0; i--)); do
+  if [ "${REMOTE_URL:$i:1}" = "/" ]; then
+    OWNER_IDX=$i
+    break
+  fi
+done
+
+OWNER_IDX=$OWNER_IDX+1
+REPO_NAME="${REMOTE_URL:$OWNER_IDX}"
+
+echo $REPO_NAME
+
+MERGE_ENDPOINT="repos/$REPO_NAME/pulls/$2/merge"
+echo "Merging pull request: $MERGE_ENDPOINT\n"
+
+if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+  GITHUB_TOKEN=$PERSONAL_GITHUB_TOKEN hub api -XPUT $MERGE_ENDPOINT $3
+elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+  GITHUB_TOKEN=$WORK_GITHUB_TOKEN hub api -XPUT $MERGE_ENDPOINT $3
+else
+  echo "Invalid option."
+  echo "Usage: $0 [option] [pull-request-id]"
+  return 1
+fi
