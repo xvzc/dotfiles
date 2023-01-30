@@ -6,6 +6,7 @@ set surround
 
 let mapleader=" "
 set easymotion
+set NERDTree
 
 let g:EasyMotion_override_acejump = 0
 let g:EasyMotion_use_upper = 0
@@ -22,5 +23,7 @@ nmap <leader>p "*p
 
 nmap <leader>a ggVG
 
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <C-l> :action ReformatCode<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gu :action FindUsages<CR>
