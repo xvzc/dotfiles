@@ -65,3 +65,4 @@ alias tfa='terraform get --update && terraform apply'
 alias tfp='terraform plan'
 
 alias dcp='docker-compose'
+alias py='python3'
