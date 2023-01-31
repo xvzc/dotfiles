@@ -1,13 +1,15 @@
 #!/bin/sh  
 
 if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
+  git config --local --replace-all credential.helper 'cache --timeout 259200'
   git config --local user.email $PERSONAL_GITHUB_EMAIL
   git config --local user.name $PERSONAL_GITHUB_UNAME
-  git config --local credential.helper store $PERSONAL_GITHUB_TOKEN
+  git config --local credential.helper cache $PERSONAL_GITHUB_TOKEN
 elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
+  git config --local --replace-all credential.helper 'cache --timeout 259200'
   git config --local user.email $WORK_GITHUB_EMAIL
   git config --local user.name $WORK_GITHUB_UNAME
-  git config --local credential.helper store $WORK_GITHUB_TOKEN
+  git config --local credential.helper cache $WORK_GITHUB_TOKEN
 else
   echo "Invalid option."
   echo "Usage: $(basename $0) -[p | w]"
