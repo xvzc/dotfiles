@@ -1,5 +1,3 @@
-export BSPWM_MOD=alt
-
 # terminal emulator
 alt + Return 
     alacritty
@@ -24,6 +22,9 @@ alt + y
 alt + g
 	bspc node -s biggest.window
 
+alt + ctrl + s
+    scrot --select -e 'xclip -selection clipboard -t image/png -i $f' 
+
 #
 # state/flags
 #
@@ -45,12 +46,12 @@ alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-alt + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+# alt + {p,b,comma,period}
+# 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-alt + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
+# alt + {_,shift + }c
+# 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 alt + bracket{left,right}

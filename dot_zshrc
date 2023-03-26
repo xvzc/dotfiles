@@ -36,3 +36,4 @@ zmodload zsh/zprof
 prompt pure
 
 git config --global user.useConfigOnly true
+
