@@ -2,11 +2,14 @@
 .config/nvim/backup/**
 .config/nvim/undo
 .config/nvim/undo/**
+.config/nvim/plugin
+.config/nvim/plugin/**
+
+.config/tmux/tpm/**
+
 .profile
 .secrets
 
-.config/nvim/plugin
-.config/nvim/plugin/**
 
 .oh-my-zsh
 Readme.md

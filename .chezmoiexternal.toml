@@ -21,22 +21,6 @@
     [".fzf".clone]
         args = ["--depth", "1"]
 
-[".tmux/plugins/tpm"]
-    type = "git-repo"
-    url = "https://github.com/tmux-plugins/tpm.git"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
-[".local/share/nvim/site/pack/packer/start/packer.nvim"]
-    type = "git-repo"
-    url = "https://github.com/wbthomason/packer.nvim"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-    [".local/share/nvim/site/pack/packer/start/packer.nvim".clone]
-    args = ["--depth", "1"]
-
 [".config/nvim"]
     type = "git-repo"
     url = "https://xvzc@github.com/xvzc/nvim"

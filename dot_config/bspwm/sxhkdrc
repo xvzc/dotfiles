@@ -23,7 +23,7 @@ alt + g
 	bspc node -s biggest.window
 
 alt + ctrl + s
-    scrot --select -e 'xclip -selection clipboard -t image/png -i $f' 
+    flameshot gui --clipboard --accept-on-select
 
 #
 # state/flags

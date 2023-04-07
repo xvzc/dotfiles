@@ -17,4 +17,4 @@ else
 fi
 
 git config --local push.autoSetupRemote true
-git config --local commit.template ~/.templates/gitmessage.txt
+git config --local commit.template ~/.asset/gitmessage.txt
