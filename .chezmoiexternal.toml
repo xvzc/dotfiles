@@ -12,14 +12,14 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
-[".fzf"]
-    type = "git-repo"
-    url = "https://github.com/junegunn/fzf.git"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-    [".fzf".clone]
-        args = ["--depth", "1"]
+# [".fzf"]
+#     type = "git-repo"
+#     url = "https://github.com/junegunn/fzf.git"
+#     exact = true
+#     stripComponents = 1
+#     refreshPeriod = "168h"
+#     [".fzf".clone]
+#         args = ["--depth", "1"]
 
 [".config/nvim"]
     type = "git-repo"

@@ -1,14 +1,21 @@
 #! /bin/sh
 
 ## AUTO START ##
-pgrep -x nitrogen > /dev/null || nitrogen --restore &
-pgrep -x sxhkd > /dev/null || sxhkd -c ~/.config/bspwm/sxhkdrc &
-pgrep -x picom > /dev/null || picom --config ~/.config/bspwm/picom.conf &
+# if [[ $(pgrep -x sxhkd) ]]; then
+#   pkill -9 sxhkd > /dev/null
+# fi
+#
+# if [[ $(pgrep -x polybar) ]]; then
+#   pkill -9 polybar > /dev/null
+# fi
+
+pgrep -x picom > /dev/null   || picom --config ~/.config/bspwm/picom.conf &
+pgrep -x sxhkd > /dev/null   || sxhkd -c ~/.config/bspwm/sxhkdrc &
 pgrep -x polybar > /dev/null || polybar -c ~/.config/bspwm/polybar.ini &
+nitrogen --restore &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+bspc monitor -d 1 2 3 4 5 6 7 8 9 0 11 12
 
-bspc config border_width         2
 bspc config window_gap          12
 
 bspc config split_ratio          0.5
@@ -20,10 +27,12 @@ bspc config focused_border_color "#09ad32"
 bspc config external_rules_command "$HOME/.config/bspwm/scripts/external-rules"
 
 # usage: (<class_name>|*)[:(<instance_name>|*)[:(<name>|*)]]
-bspc rule -a '*:*:Google Chrome' desktop='^2' follow=on focus=on
-bspc rule -a "Slack" desktop='^10' follow=on focus=on
-bspc rule -a "Alacritty" desktop='^1' follow=on focus=on
-bspc rule -a "kakaotalk.exe" desktop='^10' follow=off focus=on
+bspc rule -a 'Google-chrome:*:*' desktop='^2' follow=on focus=on
+# bspc rule -a "Alacritty" desktop='^1' follow=on focus=on
+# bspc rule -a "kakaotalk.exe:*:*" desktop='^11' follow=on focus=on
+bspc rule -a "discord:*:*" desktop='^11' follow=on focus=on
+bspc rule -a "Slack" desktop='^11' follow=on focus=on
+bspc rule -a "Spotify" desktop='^12' follow=on focus=on
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
 # bspc rule -a mplayer2 state=floating
 # bspc rule -a Kupfer.py focus=on

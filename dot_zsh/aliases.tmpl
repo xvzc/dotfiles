@@ -1,12 +1,11 @@
 #!/bin/sh
+# vim:filetype=sh:tw=80
 
-alias sudo='sudo '
+# alias sudo='sudo '
 
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-alias vi='nvim'
-
 alias g++='g++ -std=c++17'
 
 alias tre='tmux attach'
@@ -17,7 +16,11 @@ alias tst='tmux switch -t'
 alias tns='tmux new -s'
 alias tls='tmux ls'
 
+# {{ if eq .osid "darwin" }}
 alias ofd='open .'
+# {{ else if eq .osid "linux-arch" }}
+alias open='xdg-open'
+# {{ end }}
 
 alias pgh='GITHUB_TOKEN=$PERSONAL_GITHUB_TOKEN gh'
 alias wgh='GITHUB_TOKEN=$WORK_GITHUB_TOKEN gh'
@@ -67,3 +70,4 @@ alias tfp='terraform plan'
 alias dcp='docker-compose'
 alias py='python3'
 alias wol='wakeonlan -i $(dig +short $HOME_DDNS) -p 9 $DESKTOP_MAC_ADDRESS'
+

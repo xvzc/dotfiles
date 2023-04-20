@@ -7,8 +7,12 @@ alt + space
     rofi -show drun
 
 # make sxhkd reload its configuration files:
-alt + alt + r
-	pkill -USR1 -x sxhkd; bspc wm -r; polybar -r polybar
+alt + shift + r
+    pkill -USR1 -x sxhkd; \
+        pkill -9 polybar; \
+        nohup polybar -c ~/.config/bspwm/polybar.ini> /dev/null 2>&1; \
+        bscp wm -r
+
 
 # close and kill
 alt + {_,shift + }q
@@ -54,12 +58,12 @@ alt + {_,shift + }{h,j,k,l}
 # 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
-alt + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+# alt + bracket{left,right}
+# 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-alt + {grave,Tab}
-	bspc {node,desktop} -f last
+alt + grave
+	bspc desktop -f last
 
 # focus the older or newer node in the focus history
 alt + {o,i}
@@ -68,8 +72,17 @@ alt + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+alt + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+alt + bracket{left,right}
+	bspc desktop -f '^{11,12}'
+
+alt + shift + {1-9,0}
+	bspc node -d '^{1-9,10}' --follow
+
+alt + shift + bracket{left,right}
+	bspc node -d '^{11,12}' --follow
 
 #
 # move/resize

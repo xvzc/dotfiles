@@ -24,4 +24,6 @@ xset s 3600
 
 # Faster key repeat and delay
 xset r rate 200 25
+export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+
 xsetroot -cursor_name left_ptr

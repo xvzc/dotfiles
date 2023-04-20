@@ -22,12 +22,12 @@ export FZF_COMPLETION_TRIGGER='**'
 
 # Options to fzf command
 # export ='--border --info=inline'
-export FZF_COMPLETION_OPTS="--layout=reverse \
-                            --inline-info \
-                            --height 40%  \
-                            --preview 'bat --style=numbers --color=always --line-range :500 {}' \
-                            --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
-                           "
+# export FZF_COMPLETION_OPTS="--layout=reverse \
+#                             --inline-info \
+#                             --height 40%  \
+#                             --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+#                             --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
+#                            "
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -57,19 +57,27 @@ _fzf_comprun() {
     *)            fzf "$@" ;;
   esac
 }
-function test_f() {
-  echo $1
-}
 
 function fvi() {
-  OUTPUT=$(fd -L --type f --hidden --follow --exclude .git $1 | fzf)
+  OUTPUT=$( \
+  fd -L --type f --hidden --follow --exclude .git $1 | \
+    fzf "${FZF_CUSTOM_OPTS[@]}" \
+    --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+    --query=$1 \
+  )
+
   if [[ ! -z $OUTPUT ]]; then
     vi $OUTPUT
   fi
 }
 
 function fcd() {
-  OUTPUT=$(fd -L --type d --hidden --search-path=$HOME | fzf "${FZF_CUSTOM_OPTS[@]}" --preview='tree {}')
+  OUTPUT=$( \
+    fd -L --type d --hidden --search-path=$HOME | \
+    fzf "${FZF_CUSTOM_OPTS[@]}" \
+    --preview='tree {}' \
+    --query=$1 \
+  )
 
   if [[ ! -z $OUTPUT ]]; then
     cd $OUTPUT

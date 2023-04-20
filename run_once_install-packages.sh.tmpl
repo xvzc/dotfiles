@@ -5,18 +5,36 @@
 
 brew install ripgrep;
 brew install fd;
+brew install fzf;
 brew install tmux;
+brew install tree;
+brew install bat;
 
 # {{ else if eq .osid "linux-arch" }}
 
-sudo yay -Sy ripgrep;
-sudo yay -Sy fd;
-sudo yay -Sy tmux;
-sudo yay -S nimf
-sudo yay -S flameshot
-sudo yay -S rofi
-sudo yay -S polybar
-sudo yay -S bspwm
+#################################################################
+#                                                               #
+# INSTALL NIMF HERE                                             #
+# - https://github.com/hamonikr/nimf                            #
+#                                                               #
+# INSTALL ROFI THEMES HERE                                      #
+# - https://github.com/Murzchnvok/rofi-collection               #
+#                                                               #
+#################################################################
 
+yes | yay -Sy --answerdiff=None ripgrep;
+yes | yay -Sy --answerdiff=None fd;
+yes | yay -Sy --answerdiff=None fzf;
+yes | yay -Sy --answerdiff=None tmux;
+yes | yay -Sy --answerdiff=None flameshot;
+yes | yay -Sy --answerdiff=None rofi;
+yes | yay -Sy --answerdiff=None polybar;
+yes | yay -Sy --answerdiff=None bspwm;
+yes | yay -Sy --answerdiff=None papirus-icon-theme;
+yes | yay -Sy --answerdiff=None nitrogen;
+yes | yay -Sy --answerdiff=None ttf-font-awesome;
+yes | yay -Sy --answerdiff=None bat;
+yes | yay -Sy --answerdiff=None tree;
+yes | yay -Sy --answerdiff=None trayer;
 
 # {{ end }}

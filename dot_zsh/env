@@ -26,3 +26,4 @@ export KEYTIMEOUT=1
 # default editor
 export EDITOR=nvim
 export BAEKJOON_CLI=$HOME/.boj-cli
+

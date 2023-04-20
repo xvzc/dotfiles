@@ -7,8 +7,24 @@ function timezsh() {
 
 }
 
+# "vi FILE_NAME" automatically runs "chemoi edit FILE_NAME" command if the file is under management by chemoi.
+# otherwise just give the all arguments to neovim
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo "%{\$fg[white]%}[$(basename $VIRTUAL_ENV)]%{$reset_color%}";
+}
+
+# "vi FILE_NAME" automatically runs "chemoi edit FILE_NAME" command if the file is under management by chemoi.
+# otherwise just give the all arguments to neovim
+function vi() {
+  if [ $# -eq 0 ]; then
+    nvim
+    return
+  fi
+
+  # Added "--hardlink=false" option to get neovim undo available.
+  chezmoi verify $1 > /dev/null 2>&1 \
+    && chezmoi edit --watch --hardlink=false $1 \
+    || nvim $@
 }
 
 function push() {
