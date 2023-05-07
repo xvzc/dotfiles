@@ -30,9 +30,12 @@ bspc config external_rules_command "$HOME/.config/bspwm/scripts/external-rules"
 bspc rule -a 'Google-chrome:*:*' desktop='^2' follow=on focus=on
 # bspc rule -a "Alacritty" desktop='^1' follow=on focus=on
 # bspc rule -a "kakaotalk.exe:*:*" desktop='^11' follow=on focus=on
-bspc rule -a "discord:*:*" desktop='^11' follow=on focus=on
-bspc rule -a "Slack" desktop='^11' follow=on focus=on
-bspc rule -a "Spotify" desktop='^12' follow=on focus=on
+bspc rule -a "discord:*:*" desktop='^11' follow=off focus=off
+bspc rule -a "Slack" desktop='^11' follow=off focus=off
+bspc rule -a "Spotify" desktop='^12' follow=off focus=off
+
+test discord && discord &
+test spotify && spotify &
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
 # bspc rule -a mplayer2 state=floating
 # bspc rule -a Kupfer.py focus=on

@@ -2,11 +2,13 @@ nnoremap <SPACE> <Nop>
 nnoremap <ESC> <C-c>
 
 set keep-english-in-normal
-set surround
 
 let mapleader=" "
-set easymotion
+
 set NERDTree
+set easymotion
+set commentary
+set surround
 
 let g:EasyMotion_override_acejump = 0
 let g:EasyMotion_use_upper = 0
@@ -27,4 +29,20 @@ nmap <leader>a ggVG
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <C-l> :action ReformatCode<CR>
 nnoremap gi :action GotoImplementation<CR>
-nnoremap gu :action FindUsages<CR>
+nnoremap gf :action FindUsages<CR>
+nnoremap <leader>i :action ShowErrorDescription<CR>
+
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 10gt
+
+
+
+
