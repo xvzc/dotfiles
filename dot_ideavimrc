@@ -15,7 +15,6 @@ let g:EasyMotion_use_upper = 0
 
 nmap <leader>f <Plug>(easymotion-s)
 nmap <leader><leader>f <Plug>(easymotion-s2)
-nmap <C-l> ReformatCode
 
 nmap <leader>s ysiw
 vmap <leader>s S
@@ -27,7 +26,6 @@ nmap <leader>p "*p
 nmap <leader>a ggVG
 
 nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <C-l> :action ReformatCode<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gf :action FindUsages<CR>
 nnoremap <leader>i :action ShowErrorDescription<CR>
