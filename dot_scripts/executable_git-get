@@ -18,7 +18,7 @@ set -- "${@:2}" # remove the first arg
 
 i=1
 for arg do
-  REPO_URL=$(echo "$arg" | grep -oP "github.com.*")
+  REPO_URL=$(echo "$arg" | grep -o -e "github.com.*")
 
   if [[ "$?" -eq 0 ]]; then
     break;
