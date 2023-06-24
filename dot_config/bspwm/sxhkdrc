@@ -8,7 +8,6 @@ alt + space
 
 # make sxhkd reload its configuration files:
 alt + shift + r
-    pkill -USR1 -x sxhkd; \
         pkill -9 polybar; \
         nohup polybar -c ~/.config/bspwm/polybar.ini> /dev/null 2>&1; \
         bscp wm -r

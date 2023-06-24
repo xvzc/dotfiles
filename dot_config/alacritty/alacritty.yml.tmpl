@@ -24,7 +24,11 @@ font:
 
 
 window:
+# {{ if eq .osid "darwin" }}
   opacity: 0.9
+# {{ else if eq .osid "linux-arch" }}
+  opacity: 1.0
+# {{ end }}
   dimensions:
    columns: 125
    lines: 35
