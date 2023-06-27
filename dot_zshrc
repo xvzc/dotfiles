@@ -4,8 +4,8 @@
 export ZSH=~/.oh-my-zsh
 
 plugins=(
-    fzf
     git
+    fzf
     docker
     vi-mode
 )

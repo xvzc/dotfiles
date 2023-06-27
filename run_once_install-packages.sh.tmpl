@@ -3,13 +3,13 @@
 
 # {{ if eq .osid "darwin" }}
 
-brew install ripgrep;
-brew install fd;
-brew install fzf;
-brew install tmux;
-brew install tree;
-brew install bat;
-brew install coreutils;
+brew install ripgrep \
+  fd \
+  fzf \
+  tmux \
+  tree \
+  bat \
+  coreutils
 
 # {{ else if eq .osid "linux-arch" }}
 
@@ -23,28 +23,29 @@ brew install coreutils;
 #                                                               #
 #################################################################
 
-yes | yay -Sy --answerdiff=None ripgrep;
-yes | yay -Sy --answerdiff=None fd;
-yes | yay -Sy --answerdiff=None fzf;
-yes | yay -Sy --answerdiff=None tmux;
-yes | yay -Sy --answerdiff=None flameshot;
-yes | yay -Sy --answerdiff=None rofi;
-yes | yay -Sy --answerdiff=None polybar;
-yes | yay -Sy --answerdiff=None bspwm;
-yes | yay -Sy --answerdiff=None papirus-icon-theme;
-yes | yay -Sy --answerdiff=None nitrogen;
-yes | yay -Sy --answerdiff=None ttf-font-awesome;
-yes | yay -Sy --answerdiff=None bat;
-yes | yay -Sy --answerdiff=None tree;
-yes | yay -Sy --answerdiff=None trayer-srg-git;
-yes | yay -Sy --answerdiff=None yay -Syu pulseaudio;
-yes | yay -Sy --answerdiff=None yay -Syu pavucontrol;
-yes | yay -Sy --answerdiff=None yay -Syu font-manager;
-yes | yay -Sy --answerdiff=None yay -Syu network-manager-applet;
-yes | yay -Sy --answerdiff=None yay -Syu networkmanager;
-yes | yay -Sy --answerdiff=None yay -Syu thunar;
-yes | yay -Sy --answerdiff=None yay -Syu noto-fonts-cjk;
-yes | yay -Sy --answerdiff=None yay -Syu noto-fonts-emoji;
-yes | yay -Sy --answerdiff=None yay -Syu noto-fonts-extra;
+yes | yay -Sy --answerdiff=None ripgrep \
+  fd \
+  fzf \
+  tmux \
+  flameshot \
+  rofi \
+  polybar \
+  bspwm \
+  papirus-icon-theme \
+  nitrogen \
+  ttf-font-awesome \
+  bat \
+  tree \
+  trayer-srg-git \
+  tty-clock \
+  pulseaudio \
+  pavucontrol \
+  font-manager \
+  network-manager-applet \
+  networkmanager \
+  thunar \
+  noto-fonts-cjk \
+  noto-fonts-emoji \
+  noto-fonts-extra
 
 # {{ end }}

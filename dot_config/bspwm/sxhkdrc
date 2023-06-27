@@ -9,7 +9,7 @@ alt + space
 # make sxhkd reload its configuration files:
 alt + shift + r
         pkill -9 polybar; \
-        nohup polybar -c ~/.config/bspwm/polybar.ini> /dev/null 2>&1; \
+        nohup polybar -c ~/.config/bspwm/polybar.ini > /dev/null 2>&1; \
         bscp wm -r
 
 
@@ -45,8 +45,11 @@ alt + {t,shift + t,s,f}
 #
 
 # focus the node in the given direction
-alt + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+alt + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+alt + shift + {h,j,k,l}
+	bspc node -s {west,south,north,east}
 
 # focus the node for the given path jump
 # alt + {p,b,comma,period}

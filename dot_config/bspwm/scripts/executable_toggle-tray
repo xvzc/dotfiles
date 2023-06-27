@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+TRAYER_EXISTS=/tmp/trayer-exists.lck
+
+function open_tray() {
+  rm $TRAYER_EXISTS
+
+  polybar-msg hook systray 2 & > /dev/null
+  pkill -9 trayer > /dev/null; \
+    trayer --margin 0 --width 10 --align right --edge top --height 30  \
+    --distance 950,50 --distancefrom right,top --transparent true \
+    --alpha 255 --tint 0x262729 --padding 4 --SetDockType true &
+}
+
+function close_tray() {
+  touch $TRAYER_EXISTS
+
+  polybar-msg hook systray 1 & > /dev/null
+  pkill -9 trayer > /dev/null; \
+    trayer --margin 0 --width 10 --align right --edge top --height 30  \
+    --distance 950,0 --distancefrom right,top --transparent true \
+    --alpha 255 --tint 0x262729 --padding 4 --SetDockType true &
+}
+
+if [ -f $TRAYER_EXISTS ]; then
+  open_tray
+else
+  close_tray
+fi
