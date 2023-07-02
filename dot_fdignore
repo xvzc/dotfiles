@@ -2,7 +2,7 @@
 
 
 **/.wine
-**/.local/share
+# **/.local/share
 **/.cache
 **/.npm
 **/.local/lib
@@ -22,16 +22,14 @@
 **/go/
 **/.fontconfig
 
-**/run/
-**/boot/
-**/dev/
-**/lib/
-**/proc/
-**/sys/
-**/lib/
-**/lib32/
-
-
+/run/
+/boot/
+/dev/
+/lib/
+/proc/
+/sys/
+/lib/
+/lib32/
 
 Applications
 Movies

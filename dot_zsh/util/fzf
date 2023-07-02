@@ -3,19 +3,19 @@
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 #fzf option
-# export FZF_DEFAULT_OPTS="--layout=reverse \
-#                          --inline-info \
-#                          --height 40%  \
-#                          --preview 'bat --style=numbers --color=always --line-range :500 {}' \
-#                          --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
-#                         "
-
-export FZF_CUSTOM_OPTS=( \
-  --layout=reverse \
+export FZF_DEFAULT_OPTS="--layout=reverse \
   --inline-info \
-  --height 40%  \
+  --height 40% \
+  --preview 'bat --style=numbers --color=always --line-range :500 {}' \
   --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
-)
+  "
+
+# export FZF_CUSTOM_OPTS=( \
+#   --layout=reverse \
+#   --inline-info \
+#   --height 40%  \
+#   --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
+# )
 
 # Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='**'
@@ -61,7 +61,7 @@ _fzf_comprun() {
 function fvi() {
   OUTPUT=$( \
   fd -L --type f --hidden --follow --exclude .git $1 | \
-    fzf "${FZF_CUSTOM_OPTS[@]}" \
+    fzf \
     --preview 'bat --style=numbers --color=always --line-range :500 {}' \
     --query=$1 \
   )
@@ -74,7 +74,7 @@ function fvi() {
 function fcd() {
   OUTPUT=$( \
     fd -L --type d --hidden --search-path=$HOME | \
-    fzf "${FZF_CUSTOM_OPTS[@]}" \
+    fzf \
     --preview='tree {}' \
     --query=$1 \
   )

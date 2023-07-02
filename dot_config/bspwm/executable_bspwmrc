@@ -19,8 +19,7 @@ bspc config click_to_focus true
 bspc config external_rules_command "$HOME/.config/bspwm/scripts/external-rules"
 
 # usage: (<class_name>|*)[:(<instance_name>|*)[:(<name>|*)]]
-bspc rule -a 'Google-chrome:*:*' desktop='^2' follow=on focus=on
-bspc rule -a 'explorer.exe:*:*' desktop='^2' follow=off focus=off
+bspc rule -a 'Google Chrome:*:*' desktop='^2' follow=on focus=on
 # bspc rule -a "Alacritty" desktop='^1' follow=on focus=on
 # bspc rule -a "kakaotalk.exe:*:*" desktop='^11' follow=on focus=on
 bspc rule -a "discord:*:*" desktop='^11' follow=off focus=off
