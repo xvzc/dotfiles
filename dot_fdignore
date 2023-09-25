@@ -11,7 +11,6 @@
 **/.oh-my-zsh/plugins
 **/.git
 **/.github
-**/coc/extensions/node_modules
 **/.zsh_sessions/
 **/.config/nvim/backup
 **/.config/nvim/undo
@@ -21,6 +20,7 @@
 **/.local/share/chezmoi/
 **/go/
 **/.fontconfig
+**/node_modules
 
 /run/
 /boot/
