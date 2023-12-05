@@ -13,16 +13,17 @@ plugins=(
 ZSH_DISABLE_COMPFIX="true"
 
 fpath+=$HOME/.zsh/pure
-fpath+=$HOME/.zsh/completion
+fpath+=$HOME/.zsh/_completion_sources
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/env
 source ~/.zsh/aliases
 source ~/.zsh/opt
-source ~/.zsh/styles
-source ~/.zsh/auto-completion
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/prompt
+source ~/.zsh/completion
 source ~/.zsh/keymaps
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 for file in ~/.zsh/util/*; do
     source "$file"

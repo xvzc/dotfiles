@@ -8,17 +8,6 @@ setopt pushdminus  # Invert meanings of +N and -N arguments to pushd
 setopt complete_aliases
 ### directory stack end
 
-
-### completion units start
-skip_global_compinit=1
-
+# Enable hex color codes
 zmodload zsh/nearcolor
 
-autoload -U promptinit; promptinit
-
-# Speed up zsh compinit by only checking cache once a day.
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit -i
-done
-compinit -C
