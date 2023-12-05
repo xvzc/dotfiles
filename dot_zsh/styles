@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 #zsh-syntax-highlight
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
@@ -63,9 +63,20 @@ zstyle ':completion:*:*:git:*' user-commands login:'git_login' \
 # zstyle ':completion:*' group-name ''
 
 # Completers for my own scripts
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
+  '+l:|?=** r:|?=**'
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
+# Better SSH/Rsync/SCP Autocomplete
+zstyle ':completion:*:(scp|rsync):*' tag-order ' hosts:-ipaddr:ip\ address hosts:-host:host files'
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
+
+# Allow for autocomplete to be case insensitive
+
+# Initialize the autocompletion
+autoload -Uz compinit && compinit -i
 # zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")';
 
 function zle-keymap-select {
