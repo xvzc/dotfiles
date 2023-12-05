@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# Initialize the autocompletion
+# skip_global_compinit=1
+autoload -Uz compinit && compinit
+
 # Do menu-driven completion.
 zstyle ':completion:*' menu select
 zstyle ':completion:*:*:git:*' user-commands login:'git_login' \
@@ -16,7 +20,10 @@ zstyle ':completion:*:*:git:*' user-commands login:'git_login' \
 # zstyle ':completion:*' group-name ''
 
 # Completers for my own scripts
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list \
+  'm:{a-zA-Z}={A-Za-z}' \
+  'm:{a-zA-Z}={A-Za-z} l:|=* r:|=*' 
+
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 # Better SSH/Rsync/SCP Autocomplete
@@ -24,16 +31,10 @@ zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
 
-### completion units start
-skip_global_compinit=1
-autoload -U promptinit; promptinit
-
-# Initialize the autocompletion
-autoload -Uz compinit && compinit -i
-
 # Speed up zsh compinit by only checking cache once a day.
 # autoload -Uz compinit
 # for dump in ~/.zcompdump(N.mh+24); do
 #   compinit -i
 # done
+
 

@@ -9,20 +9,23 @@ plugins=(
     docker
     vi-mode
 )
+zstyle ':omz:plugins:docker' legacy-completion yes
+
 
 ZSH_DISABLE_COMPFIX="true"
 
 fpath+=$HOME/.zsh/pure
 fpath+=$HOME/.zsh/_completion_sources
 
+autoload -U promptinit; promptinit
+
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/env
+source ~/.zsh/completion
 source ~/.zsh/aliases
 source ~/.zsh/opt
 source ~/.zsh/prompt
-source ~/.zsh/completion
 source ~/.zsh/keymaps
-
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 for file in ~/.zsh/util/*; do
