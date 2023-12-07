@@ -16,9 +16,9 @@ fpath+=$HOME/.zsh/_completions
 autoload -U promptinit; promptinit
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/env
 source ~/.zsh/aliases
 source ~/.zsh/completion
-source ~/.zsh/env
 source ~/.zsh/opt
 source ~/.zsh/prompt
 source ~/.zsh/keymaps
