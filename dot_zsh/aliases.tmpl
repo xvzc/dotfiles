@@ -68,8 +68,9 @@ alias tfu='terraform get --update'
 alias tfa='terraform get --update && terraform apply -auto-approve'
 alias tfp='terraform plan'
 
-alias dk='docker' && compdef dk='docker'
-alias dkc='docker-compose' && compdef dkc='docker-compose'
+alias k='kubectl'
+alias dk='docker'
+alias dkc='docker-compose'
 alias py='python3'
 alias wol='wakeonlan -i $(dig +short $HOME_DDNS) -p 9 $DESKTOP_MAC_ADDRESS'
 

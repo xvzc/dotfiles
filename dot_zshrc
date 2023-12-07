@@ -6,23 +6,19 @@ export ZSH=~/.oh-my-zsh
 plugins=(
     git
     fzf
-    docker
     vi-mode
+    kubectl
 )
-zstyle ':omz:plugins:docker' legacy-completion yes
-
-
-ZSH_DISABLE_COMPFIX="true"
 
 fpath+=$HOME/.zsh/pure
-fpath+=$HOME/.zsh/_completion_sources
+fpath+=$HOME/.zsh/_completions
 
 autoload -U promptinit; promptinit
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/env
-source ~/.zsh/completion
 source ~/.zsh/aliases
+source ~/.zsh/completion
+source ~/.zsh/env
 source ~/.zsh/opt
 source ~/.zsh/prompt
 source ~/.zsh/keymaps
