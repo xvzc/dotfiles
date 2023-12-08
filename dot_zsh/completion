@@ -2,10 +2,6 @@
 
 # Initialize the autocompletion
 # skip_global_compinit=1
-autoload -U +X compinit && compinit
-compdef dk='docker'
-compdef dkc='docker-compose'
-compdef k="kubectl"
 
 # Do menu-driven completion.
 zstyle ':completion:*' menu select

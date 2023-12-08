@@ -1,39 +1,71 @@
-#!/bin/zsh
-# vim:filetype=sh:tw=80:et
-
-export ZSH=~/.oh-my-zsh
-
-plugins=(
-    git
-    fzf
-    vi-mode
-    kubectl
-)
-
-fpath+=$HOME/.zsh/pure
-fpath+=$HOME/.zsh/_completions
-
-autoload -U promptinit; promptinit
-
+# #!/bin/zsh
+# # vim:filetype=sh:tw=80:et
+#
+# export ZSH=~/.oh-my-zsh
+#
+# plugins=(
+#     git
+#     fzf
+#     vi-mode
+#     kubectl
+# )
+#
+# fpath+=$HOME/.zsh/pure
+# fpath+=$HOME/.zsh/_completions
+#
+# autoload -U promptinit; promptinit
+# autoload -U +X compinit && compinit
+#
+# source $ZSH/oh-my-zsh.sh
+# source ~/.zsh/env
+# source ~/.zsh/aliases
+# source ~/.zsh/completion
+# source ~/.zsh/opt
+# source ~/.zsh/prompt
+# source ~/.zsh/keymaps
+# source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
+# for file in ~/.zsh/util/*; do
+#     source "$file"
+# done
+#
+# source $HOME/.profile
+#
+# zmodload zsh/zprof
+#
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+# prompt pure
+#
+# git config --global user.useConfigOnly true
+#
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+CASE_SENSITIVE="true"
+DISABLE_LS_COLORS="true"
+plugins=(git autojump zsh-autosuggestions docker zsh-completions fzf enhancd tmux)
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/env
-source ~/.zsh/aliases
-source ~/.zsh/completion
-source ~/.zsh/opt
-source ~/.zsh/prompt
-source ~/.zsh/keymaps
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-for file in ~/.zsh/util/*; do
-    source "$file"
-done
-
-source $HOME/.profile
-
-zmodload zsh/zprof
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-prompt pure
-
-git config --global user.useConfigOnly true
+alias gits="git status"
+alias gitp="git push"
+alias gpl="git pull"
+alias gitd="git diff"
+alias gitco="git commit -a -m"
+alias x="exit"
+alias cat="bat --theme=gruvbox-light"
+alias ls="exa"
+alias manu="tldr"
+alias chrome="flatpak run com.google.Chrome"
+alias chromium="flatpak run org.chromium.Chromium"
+alias r="fc -s"
+export FCEDIT=vim
+source <(kubectl completion zsh)
+alias kn="kubectl neat"
+alias kubens="kubectl-ns"
+alias kubectx="kubectl-ctx"
+alias k="kubectl"
+if [ -f /etc/profile.d/lt.sh ]; then
+   source /etc/profile.d/lt.sh
+fi
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
