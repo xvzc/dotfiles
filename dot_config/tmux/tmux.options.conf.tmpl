@@ -1,7 +1,7 @@
 # vim:filetype=tmux :tw=80:et
 
 # set -g default-terminal "xterm-256color"
-set -g default-terminal 'alacritty'
+set -g default-terminal 'xterm-256color'
 
 # 0 is too far from ` ;)
 setw -g pane-base-index 1
@@ -10,7 +10,7 @@ set -g base-index 1
 # Automatically set window title
 set-window-option -g automatic-rename on
 set-option -g set-titles on
-set-option -sa terminal-overrides ",alacritty:Tc"
+# set-option -sa terminal-overrides ",alacritty:Tc"
 
 tmux_conf_new_window_retain_current_path=true
 

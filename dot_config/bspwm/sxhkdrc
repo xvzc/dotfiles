@@ -1,6 +1,6 @@
 # terminal emulator
 alt + Return 
-    alacritty
+    wezterm
 
 # program launcher
 alt + space 
