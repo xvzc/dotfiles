@@ -1,41 +1,16 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
--- This table will hold the configuration.
 local config = {}
 
--- In newer versions of wezterm, use the config_builder which will
--- help provide clearer error messages
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.color_scheme_dirs = { '~/.config/term/theme/' }
-
-  -- normal:
-  --  black:   '#1d1f21'
-  --  red:     '#cc6666'
-  --  green:   '#b5bd68'
-  --  yellow:  '#f0c674'
-  --  blue:    '#6c9ac1'
-  --  magenta: '#b294bb'
-  --  cyan:    '#8abeb7'
-  --  white:   '#c5c8c6'
-  --
-  -- # Bright colors
-  -- bright:
-  --  black:   '#666666'
-  --  red:     '#d54e53'
-  --  green:   '#b9ca4a'
-  --  yellow:  '#e7c547'
-  --  blue:    '#7aa6da'
-  --  magenta: '#c397d8'
-  --  cyan:    '#70c0b1'
-  --  white:   '#eaeaea'
 config.default_cursor_style = 'BlinkingBlock'
-config.cursor_blink_rate = 0
-
-
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out= "Constant"
+config.cursor_blink_rate = 700
 
 config.colors = {
   foreground = '#c5c8c6',
@@ -78,13 +53,7 @@ config.window_padding = {
   bottom = 4,
 }
 
--- This is where you actually apply your config choices
-
--- For example, changing the color scheme:
--- config.color_scheme = 'Github Dark'
 config.font = wezterm.font 'JetBrainsMono Nerd Font'
 config.hide_tab_bar_if_only_one_tab = true
 
-
--- and finally, return the configuration to wezterm
 return config
