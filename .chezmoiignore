@@ -6,6 +6,7 @@
 .config/nvim/plugin/**
 
 .config/tmux/tpm/**
+hooks/**
 
 .profile
 .secrets
@@ -13,9 +14,11 @@
 
 .oh-my-zsh
 Readme.md
-install.sh
 
 .DS_Store
+
+Brewfile
+aur_packages.txt
 
 # MacOs only
 {{ if ne .osid "darwin" }}

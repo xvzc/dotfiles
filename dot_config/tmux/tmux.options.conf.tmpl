@@ -31,8 +31,6 @@ set -sg escape-time 10
 setw -g mode-keys vi
 setw -g mouse on
 
-{{ if eq .osid "darwin" }}
-
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
 bind -n WheelDownPane select-pane -t= \; send-keys -M
 bind -n C-WheelUpPane select-pane -t= \; copy-mode -e \; send-keys -M
@@ -40,24 +38,16 @@ bind -T copy-mode-vi    C-WheelUpPane   send-keys -X halfpage-up
 bind -T copy-mode-vi    C-WheelDownPane send-keys -X halfpage-down
 bind -T copy-mode-emacs C-WheelUpPane   send-keys -X halfpage-up
 bind -T copy-mode-emacs C-WheelDownPane send-keys -X halfpage-down
+unbind -T copy-mode-vi Enter
+
+{{ if eq .osid "darwin" }}
 
 # Update default binding of `Enter` to also use copy-pipe
-unbind -T copy-mode-vi Enter
 bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 
 {{ else if eq .osid "linux-arch" }}
 
-# Linux only
-bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
-bind -n WheelDownPane select-pane -t= \; send-keys -M
-bind -n C-WheelUpPane select-pane -t= \; copy-mode -e \; send-keys -M
-bind -T copy-mode-vi    C-WheelUpPane   send-keys -X halfpage-up
-bind -T copy-mode-vi    C-WheelDownPane send-keys -X halfpage-down
-bind -T copy-mode-emacs C-WheelUpPane   send-keys -X halfpage-up
-bind -T copy-mode-emacs C-WheelDownPane send-keys -X halfpage-down
-
-unbind -T copy-mode-vi Enter
 bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -selection c"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 

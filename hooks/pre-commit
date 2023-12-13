@@ -1,0 +1,11 @@
+#!/bin/sh
+
+exec 1>&2
+
+if [ $(uname -a | grep -c "Darwin") -ne 0 ]; then
+  brew bundle dump --file=~/.local/share/chezmoi/Brewfile --force && chezmoi git add Brewfile
+fi
+
+if [ $(uname -a | grep -c "arch-linux") -ne 0 ]; then
+  pacman -Qqe > ~/.local/share/chezmoi/aur_packages.txt && chezmoi git add aur_packages.txt
+fi
