@@ -4,10 +4,6 @@ exec 1>&2
 
 if [ "$(uname -a | grep -c "Darwin")" -ne 0 ]; then
 	brew bundle dump --file=~/.local/share/chezmoi/Brewfile --force && chezmoi git add Brewfile
-
-	echo "#!/bin/sh" >~/.local/share/chezmoi/dot_zsh/ls-colors &&
-		echo "export LS_COLORS=\"$LS_COLORS\"" >>~/.local/share/chezmoi/dot_zsh/ls-colors &&
-		chezmoi git add dot_zsh/ls-colors
 fi
 
 if [ "$(uname -a | grep -c "arch-linux")" -ne 0 ]; then
