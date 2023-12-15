@@ -1,5 +1,4 @@
 alacritty
-android-tools
 appmenu-gtk-module
 aws-cli-v2
 aws-session-manager-plugin
@@ -19,6 +18,7 @@ docker-buildx
 docker-compose
 efibootmgr
 epiphany
+eza
 fd
 file-roller
 flameshot
