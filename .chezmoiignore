@@ -20,6 +20,9 @@ Readme.md
 Brewfile
 aur_packages.txt
 
+install.mac.sh
+install.arch.sh
+
 # MacOs only
 {{ if ne .osid "darwin" }}
 {{ end }}
