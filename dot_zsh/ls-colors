@@ -1,2 +1,0 @@
-#!/bin/sh
-export LS_COLORS="rs=0:di=01"
