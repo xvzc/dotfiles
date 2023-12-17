@@ -35,16 +35,10 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
-[".config/fonts"]
+[".config/assets"]
     type = "git-repo"
-    url = "https://github.com/xvzc/fonts.git"
+    url = "https://github.com/xvzc/assets.git"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
 
-[".config/img"]
-    type = "git-repo"
-    url = "https://github.com/xvzc/img.git"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"

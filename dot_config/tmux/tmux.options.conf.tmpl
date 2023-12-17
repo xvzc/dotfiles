@@ -40,16 +40,16 @@ bind -T copy-mode-emacs C-WheelUpPane   send-keys -X halfpage-up
 bind -T copy-mode-emacs C-WheelDownPane send-keys -X halfpage-down
 unbind -T copy-mode-vi Enter
 
-{{ if eq .osid "darwin" }}
+# {{ if eq .osid "darwin" }}
 
 # Update default binding of `Enter` to also use copy-pipe
 bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 
-{{ else if eq .osid "linux-arch" }}
+# {{ else if eq .osid "linux-arch" }}
 
 bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -selection c"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 
-{{ end }}
+# {{ end }}
 

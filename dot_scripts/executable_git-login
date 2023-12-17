@@ -22,4 +22,3 @@ git config --local remote.origin.url \
   $(echo "https://$GITHUB_UNAME:$GITHUB_TOKEN@$REPO_URL")
 
 git config --local push.autoSetupRemote true
-git config --local commit.template ~/.asset/gitmessage.txt

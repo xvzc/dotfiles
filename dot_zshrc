@@ -38,7 +38,3 @@ prompt pure
 
 git config --global user.useConfigOnly true
 
-
-
-
-
