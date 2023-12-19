@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Initialize the autocompletion
 # skip_global_compinit=1

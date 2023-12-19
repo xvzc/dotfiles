@@ -1,5 +1,5 @@
 #!/bin/zsh
-# vim:filetype=sh:tw=80:et
+# vim:filetype=zsh:tw=80:et
 
 export ZSH=~/.oh-my-zsh
 
@@ -16,19 +16,17 @@ autoload -U promptinit; promptinit
 autoload -U +X compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/env
-source ~/.zsh/aliases
-source ~/.zsh/completion
-source ~/.zsh/opt
-source ~/.zsh/prompt
-source ~/.zsh/keymaps
+source ~/.zsh/env.zsh
+source ~/.zsh/aliases.zsh
+source ~/.zsh/completion.zsh
+source ~/.zsh/opt.zsh
+source ~/.zsh/style.zsh
+source ~/.zsh/keymaps.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 for file in ~/.zsh/util/*; do
     source "$file"
 done
-
-source $HOME/.profile
 
 zmodload zsh/zprof
 

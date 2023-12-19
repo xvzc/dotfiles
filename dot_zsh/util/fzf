@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 # alias fcd='cd $(fd --type d --search-path=$HOME/_jry | fzf)'
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
