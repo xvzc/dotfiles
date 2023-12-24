@@ -37,7 +37,7 @@
 
 [".config/assets"]
     type = "git-repo"
-    url = "https://github.com/xvzc/assets.git"
+    url = "git@personal.github.com:xvzc/assets.git"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"

@@ -1,33 +1,42 @@
 #!/bin/sh
 
-if [ "$1" = "--personal" ] || [ "$1" = "-p" ]; then
-  GITHUB_UNAME=$PERSONAL_GITHUB_UNAME
-  GITHUB_EMAIL=$PERSONAL_GITHUB_EMAIL
-  GITHUB_TOKEN=$PERSONAL_GITHUB_TOKEN
-elif [ "$1" = "--work" ] || [ "$1" = "-w" ]; then
-  GITHUB_UNAME=$WORK_GITHUB_UNAME
-  GITHUB_EMAIL=$WORK_GITHUB_EMAIL
-  GITHUB_TOKEN=$WORK_GITHUB_TOKEN
-else
-  echo "Invalid option."
-  echo "Usage: $(basename $0) -[p | w]"
-  exit 1
-fi
+HELP="usage: git get --profile [profile] [options]"
 
-set -- "${@:2}" # remove the first arg
+ARGS=()
 
-i=1
-for arg do
-  REPO_URL=$(echo "$arg" | grep -o -e "github.com.*")
-
-  if [[ "$?" -eq 0 ]]; then
-    break;
-  fi
-
-  i=$((i + 1))
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -p|--profile)
+      PROFILE="$2"
+      shift
+      shift
+      ;;
+    -h|--help)
+      shift
+      echo $HELP
+      exit 1
+      ;;
+    *)
+      ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
 done
 
-REPO_URL="https://$GITHUB_UNAME:$GITHUB_TOKEN@$REPO_URL"
-set -- "${@:1:$((i-1))}" "$REPO_URL" "${@:$((i+1))}"
+if [ -z "$PROFILE" ]; then
+  echo $HELP
+  exit 1;
+fi
 
-git clone "$@"
+set -- "${ARGS[@]}" # restore positional parameters
+for i in "${!ARGS[@]}"; do
+  if [[ ${ARGS[$i]} == *"github.com"* ]]; then
+    ARGS[$i]=$(echo "${ARGS[$i]}" | sed "s/github.com/$PROFILE.github.com/g")
+  fi
+done
+
+for ARG in ${ARGS[@]}; do
+  echo "This is ${ARG}"
+done
+
+git clone "${ARGS[@]}"

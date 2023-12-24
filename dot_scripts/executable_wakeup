@@ -1,3 +1,0 @@
-#!/bin/bash
-
-perl ~/.scripts/wake-on-lan.pl $DESKTOP_MAC_ADDRESS
