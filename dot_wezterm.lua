@@ -45,6 +45,30 @@ config.colors = {
 		"#eaeaea", -- white
 	},
 }
+config.keys = {
+	{
+		key = "-",
+		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+	{
+		key = "=",
+		mods = "CTRL",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "-",
+		mods = "CMD",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+	{
+		key = "=",
+		mods = "CMD",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+}
 
 config.window_padding = {
 	left = 4,
@@ -54,10 +78,13 @@ config.window_padding = {
 }
 
 config.font = wezterm.font_with_fallback({
-	"JetBrainsMono Nerd Font",
+	"JetBrainsMonoNL Nerd Font",
 	"hesalche",
 })
 
+config.window_background_opacity = 0.95
+config.use_fancy_tab_bar = true
+config.window_decorations = "NONE"
 config.hide_tab_bar_if_only_one_tab = true
 config.window_close_confirmation = "NeverPrompt"
 

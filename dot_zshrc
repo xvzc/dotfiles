@@ -23,6 +23,7 @@ source ~/.zsh/opt.zsh
 source ~/.zsh/style.zsh
 source ~/.zsh/keymaps.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 
 for file in ~/.zsh/util/*; do
     source "$file"
