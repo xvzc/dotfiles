@@ -10,6 +10,8 @@ export FZF_DEFAULT_OPTS="--layout=reverse \
   --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
   "
 
+export FZF_TMUX_OPTS='-p80%,60%'
+
 # export FZF_CUSTOM_OPTS=( \
 #   --layout=reverse \
 #   --inline-info \
