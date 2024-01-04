@@ -11,6 +11,7 @@ echo "Detected OS: ${machine}"
 
 if [ "$machine" == "Mac" ]; then
     source ~/.local/share/chezmoi/setup/macos-setup.sh
+    all()
     
     if type brew > /dev/null 2>&1; then
         echo "Found brew at $(whareis brew). Skipping install."
