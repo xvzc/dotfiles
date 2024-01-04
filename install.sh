@@ -39,4 +39,4 @@ else
    exit 1;
 fi
 
-chezmoi apply ~/.ssh/config
+chezmoi apply -R
