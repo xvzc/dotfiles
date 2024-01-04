@@ -14,6 +14,9 @@ if [ "$machine" == "Mac" ]; then
     if type brew > /dev/null 2>&1; then
         echo "Found brew at $(whareis brew). Skipping install."
     else
+        sudo -v --prompt "Administrator privilege required. Please type your local password: "
+        # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+        while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
         echo "homdbrew not found. installing.."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
 	    eval "$(/opt/homebrew/bin/brew shellenv)"
