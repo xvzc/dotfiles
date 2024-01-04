@@ -10,6 +10,8 @@ esac
 echo "Detected OS: ${machine}"
 
 if [ "$machine" == "Mac" ]; then
+    source ~/.local/share/chezmoi/setup/macos-setup.sh
+    
     if type brew > /dev/null 2>&1; then
         echo "Found brew at $(whareis brew). Skipping install."
     else
@@ -20,7 +22,7 @@ if [ "$machine" == "Mac" ]; then
 
     echo "Installing MacOS packages.."
     brew bundle --file=~/yadmfile/Brewfile
-    source ~/.local/share/chezmoi/setup/macos-setup.sh
+    
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "Installing Linux packages.."
     yay -S --needed --noconfirm - < ~/.local/share/chezmoi/aur_packages.txt
