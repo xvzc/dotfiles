@@ -7,6 +7,7 @@
 
 .config/tmux/tpm/**
 hooks/**
+setup/**
 
 .profile
 .secrets

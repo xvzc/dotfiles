@@ -35,17 +35,17 @@
 #     [".fzf".clone]
 #         args = ["--depth", "1"]
 
-[".config/nvim"]
-    type = "git-repo"
-    url = "https://xvzc@github.com/xvzc/nvim.git"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
+# [".config/nvim"]
+#   type = "git-repo"
+    # url = "https://xvzc@github.com/xvzc/nvim.git"
+    # exact = true
+    # stripComponents = 1
+    # refreshPeriod = "168h"
 
-[".config/assets"]
-    type = "git-repo"
-    url = "git@personal.github.com:xvzc/assets.git"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
+# [".config/assets"]
+    # type = "git-repo"
+    # url = "git@personal.github.com:xvzc/assets.git"
+    # exact = true
+    # stripComponents = 1
+    # refreshPeriod = "168h"
 
