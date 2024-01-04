@@ -21,13 +21,25 @@ if [ "$machine" == "Mac" ]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
 	    eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
+    
+    if [ $? -ne 0 ]; then
+        echo "Filed to install brew"
+	exit 1;
+    fi
 
     echo "Installing MacOS packages.."
-    brew bundle --file=~/yadmfile/Brewfile && \
-        echo "Successfully installed packaged" || \
-	(echo "Failed to install packages" && exit 1)
+    brew install chezmoi && chezmoi init github.com/xvzc/dotfiles
+    if [ $? -ne 0 ]; then
+        echo "Filed to initialize dotfiles"
+	exit 1;
+    fi
 
-    chezmoi init github.com/xvzc/dotfiles && chezmoi apply -R
+    
+    brew bundle --file=~/.local/share/chezmoi/Brewfile && chezmoi apply -R
+    if [ $? -ne 0 ]; then
+        echo "Filed to apply dotfiles"
+	exit 1;
+    fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "Installing Linux packages.."
     yay -S --needed --noconfirm - < ~/.local/share/chezmoi/aur_packages.txt
