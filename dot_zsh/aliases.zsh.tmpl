@@ -4,8 +4,11 @@
 # alias sudo='sudo '
 alias vi='nvim'
 
-alias ls='eza --sort=type'
-alias g++='g++ -std=c++17'
+if [ -x "$(command -v eza)" ]; then
+  alias ls='eza --sort=type'
+  alias la='eza -alg --sort=type'
+  alias g++='g++ -std=c++17'
+fi
 
 # {{ if eq .osid "darwin" }}
 alias ofd='open .'
@@ -27,6 +30,7 @@ alias lazygit='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 alias lg='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 
 alias py='python3'
+alias python='python3'
 alias wol='wakeonlan -i $(dig +short $HOME_DDNS) -p 9 $DESKTOP_MAC_ADDRESS'
 
 ######################################################
@@ -53,7 +57,7 @@ alias czg='chezmoi git'
 alias czu='chezmoi update'
 alias czap='chezmoi apply'
 alias czad='chezmoi add'
-alias czc='chezmoi cd'
+alias czc='cd ~/.local/share/chezmoi'
 alias czr='chezmoi remove'
 alias czf='chezmoi forget'
 

@@ -1,13 +1,20 @@
-[".oh-my-zsh"]
+[".zsh/.oh-my-zsh"]
     type = "git-repo"
     url = "https://github.com/ohmyzsh/ohmyzsh.git"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
 
-[".zsh/zsh-syntax-highlighting"]
+# [".zsh/zsh-syntax-highlighting"]
+#     type = "git-repo"
+#     url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+#     exact = true
+#     stripComponents = 1
+#     refreshPeriod = "168h"
+
+[".zsh/fast-syntax-highlighting"]
     type = "git-repo"
-    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    url = "https://github.com/zdharma-continuum/fast-syntax-highlighting"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"

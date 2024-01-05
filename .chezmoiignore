@@ -11,6 +11,9 @@ setup/**
 
 .profile
 .secrets
+Brewfile.lock.json
+install.sh
+init_private_resources.sh
 
 
 .oh-my-zsh
@@ -24,14 +27,14 @@ aur_packages.txt
 install.mac.sh
 install.arch.sh
 
-# MacOs only
-{{ if ne .osid "darwin" }}
-{{ end }}
-
-# Arch linux only
-{{ if ne .osid "linux-arch" }}
+{{ if eq .osid "darwin" }}
 .config/rofi
 .config/rofi/**
+.config/nitrogen
+.config/flameshot
 .xprofile
 .config/bspwm
+{{ end }}
+
+{{ if eq .osid "linux-arch" }}
 {{ end }}

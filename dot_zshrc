@@ -1,7 +1,7 @@
 #!/bin/zsh
 # vim:filetype=zsh:tw=80:et
 
-export ZSH=~/.oh-my-zsh
+export OMZ=~/.zsh/.oh-my-zsh
 
 plugins=(
     git
@@ -15,8 +15,10 @@ fpath+=$HOME/.zsh/_completions
 autoload -U promptinit; promptinit
 autoload -U +X compinit && compinit
 
-source $ZSH/oh-my-zsh.sh
+source $OMZ/oh-my-zsh.sh
+source ~/.zsh/detect_os.zsh
 source ~/.zsh/env.zsh
+source ~/.zsh/path.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/opt.zsh
