@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+
+CUR_OS=$(uname)
+
+darwin_batt() {
+  cmd=$(pmset -g batt)
+  amount=$(echo "$cmd" | grep -Eo "\d+%" | cut -d% -f1)
+  label=$amount%
+
+  if echo "$cmd" | grep -q "AC Power"; then
+    label="AC"
+  fi
+
+  if (( $amount < 20 )) then
+    color="color9"
+  elif (( $amount < 40 )) then
+    color="color208"
+  elif (( $amount < 60 )) then
+    color="color214"
+  elif (( $amount < 80 )) then
+    color="color184"
+  else
+    color="color148"
+  fi
+
+  echo "#[fg=black,bg=$color] $label";
+}
+
+case $(uname -s) in
+    Linux)
+      echo "AC"
+      ;;
+    Darwin)
+      darwin_batt
+      ;;
+    *)  
+      echo "N/A"
+esac
