@@ -1,0 +1,7 @@
+[user]
+    email = dev.kwnaghoo@gmail.com
+    name = xvzc
+    signingkey = "~/.ssh/xvzc.pub"
+
+[includeIf "gitdir:~/work/"] 
+    path = ~/.gitconfig
