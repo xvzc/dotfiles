@@ -1,12 +1,9 @@
 # vim:ft=gitconfig ts=2 sw=2 
 
 [user]
-    email = dev.kwnaghoo@gmail.com
+    email = dev.kwanghoo@gmail.com
     name = xvzc
     signingkey = "~/.ssh/xvzc.pub"
-
-[github]
-    user = xvzc
 
 [includeIf "gitdir:~/work/"] 
     path = ~/.gitconfig
