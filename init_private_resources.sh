@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 op read "op://Personal/SSH Github xvzc/public key" > ~/.ssh/xvzc.pub && \
   chmod 600 ~/.ssh/xvzc.pub
 
@@ -26,5 +24,8 @@ else
   git clone git@xvzc.github.com:xvzc/assets.git $ASSETS_DIR
 fi
 
-cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Light.ttf ~/Library/Fonts/
-cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Regular.ttf ~/Library/Fonts/
+_is_darwin && cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Light.ttf ~/Library/Fonts/
+_is_darwin && cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Regular.ttf ~/Library/Fonts/
+
+_is_linux && cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Light.ttf ~/.local/share/fonts/
+_is_linux && cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Regular.ttf ~/.local/share/fonts/
