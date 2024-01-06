@@ -20,7 +20,7 @@ require-sudo() {
 }
 
 check-or-install-xcode() {
-	if ! /usr/bin/xcodebuild -version; then
+	if ! xcode-select --print-path &> /dev/null; then
  		# Install XCode Command Line Tools.
 		xcode-select --install &> /dev/null
 
