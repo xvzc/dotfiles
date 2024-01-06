@@ -18,6 +18,14 @@ wait-1password() {
 			sleep 1
 		done
 	fi
+
+	if ! ssh-add -l &>/dev/null; then
+		echo "Setup 1password ssh-agent"
+
+		until ssh-add -l &>/dev/null; do
+			sleep 1
+		done
+	fi
 }
 
 cur_os=$(uname)
