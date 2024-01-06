@@ -19,9 +19,15 @@ require-sudo() {
 	fi
 }
 
-check-xcode() {
+check-or-install-xcode() {
 	if ! /usr/bin/xcodebuild -version; then
-   		error "Xcode not installed please run 'xcode-select --install'"
+ 		# Install XCode Command Line Tools.
+		xcode-select --install &> /dev/null
+
+		# Wait until XCode Command Line Tools installation has finished.
+		until $(xcode-select --print-path &> /dev/null); do
+  			sleep 1;
+		done
 	fi
 }
 
