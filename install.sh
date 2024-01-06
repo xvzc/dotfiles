@@ -44,6 +44,22 @@ check-or-install-brew() {
 	fi
 }
 
+check-or-install-chezmoi() {
+	if type chezmoi >/dev/null 2>&1; then
+		echo "Found chezmoi at $(whereis chezmoi). Skipping install."
+	else
+		echo "chezmoi not found. installing.."
+		if ! sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"; then
+  			error "Failed to install chezmoi"
+  		fi
+		export PATH="$HOME/.local/bin:$PATH"
+	fi
+
+ 	if ! chezmoi init github.com/xvzc/dotfiles && chezmoi apply; then
+    			error "Failed to apply dotfiles"
+ 	fi
+}
+
 # Determine OS
 uname_out="$(uname -s)"
 case "${uname_out}" in
@@ -54,23 +70,16 @@ esac
 
 echo "Detected OS: ${machine}"
 
-if type chezmoi >/dev/null 2>&1; then
-	echo "Found chezmoi at $(whereis chezmoi). Skipping install."
-else
-	echo "chezmoi not found. installing.."
-	sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
-	export PATH="$HOME/.local/bin:$PATH"
-fi
 
-chezmoi init github.com/xvzc/dotfiles
-chezmoi apply
+
 
 if [ "$machine" == "Mac" ]; then
 	check-or-install-xcode
+  	check-or-install-chezmoi
 	check-or-install-brew
 	brewfile="$HOME/.local/share/chezmoi/setup/Brewfile.essential"
 	if ! brew bundle --no-lock --no-upgrade --file="$brewfile"; then
-		error "Filed to install packages"
+		error "Failed to install packages"
 	fi
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
