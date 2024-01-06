@@ -5,26 +5,19 @@ error() {
 	exit 1
 }
 
-wait-1password() {
+check-1password() {
 	if ! command -v op &>/dev/null; then
 		error "1Password not found"
 	fi
 
 	if ! op whoami 2>/dev/null; then
-		echo "Login 1password app"
 		open -a 1Password
-
-		until op signin 2>/dev/null; do
-			sleep 1
-		done
+		error "Login 1password app"
 	fi
 
 	if ! ssh-add -l &>/dev/null; then
-		echo "Setup 1password ssh-agent"
-
-		until ssh-add -l &>/dev/null; do
-			sleep 1
-		done
+		open -a 1Password
+		error "Setup 1password ssh-agent"
 	fi
 }
 
@@ -45,7 +38,7 @@ elif [ "$cur_os" = "Linux" ]; then
 	font_dir=~/.local/share/fonts/
 fi
 
-wait-1password
+check-1password
 
 op read "op://Personal/SSH Github xvzc/public key" >~/.ssh/xvzc.pub &&
 	chmod 600 ~/.ssh/xvzc.pub

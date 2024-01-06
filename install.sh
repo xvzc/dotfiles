@@ -97,5 +97,5 @@ else
 	error "Cannot determine operating system."
 fi
 
-# install pynvim
-pip3 install pynvim
+bob install nightly
+bob use nightly
