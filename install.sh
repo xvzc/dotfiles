@@ -19,11 +19,9 @@ require-sudo() {
 	fi
 }
 
-check-or-install-xcode() {
+check-xcode() {
 	if ! /usr/bin/xcodebuild -version; then
-		xcode-select --install && echo "Successfully installed xcode"
-  	else
-   		error "Xcode not installed"
+   		error "Xcode not installed please run 'xcode-select --install'"
 	fi
 }
 
