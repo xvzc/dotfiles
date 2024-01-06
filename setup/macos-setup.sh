@@ -158,11 +158,7 @@ configure_menubar() {
 }
 
 configure_trackpad() {
-	# Double tap to drag
-	defaults write com.apple.AppleMultitouchTrackpad "Dragging" -bool "true"
-
-	# enable three finder swipe
-	defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerHorizSwipeGesture" -int 1
+	defaults -currentHost write -globalDomain com.apple.mouse.tapBehavior -int 1
 }
 
 configure_textedit() {
