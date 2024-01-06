@@ -122,6 +122,7 @@ configure_dock() {
 	defaults write com.apple.dock "show-recents" -bool "false"
 	defaults write com.apple.dock "mineffect" -string "scale"
 	defaults write com.apple.dock "tilesize" -int "36"
+  defaults write com.apple.dock persistent-apps -array
 
 	#defaults write com.apple.dock magnification -int 1
 	killall Dock
@@ -149,8 +150,6 @@ configure_finder() {
 }
 
 configure_menubar() {
-	defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE MMM d HH:mm\""
-
 	# Remove spotlight
 	defaults -currentHost write com.apple.Spotlight "
   <dict><key>MenuItemHidden</key><integer>1</integer></dict>
