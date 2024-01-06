@@ -1,6 +1,11 @@
 #!/bin/bash
 # vim:ft=sh ts=2 sw=2
 
+error() {
+	echo "[ERROR] $1"
+	exit 1
+}
+
 require-sudo() {
 	if [ -n "$1" ]; then
 		sudo -v --prompt "Administrator privilege required. Please type your local password: "
@@ -27,8 +32,7 @@ check-or-install-brew() {
 	fi
 
 	if [ $? -ne 0 ]; then
-		echo "Filed to install brew"
-		exit 1
+		error "Failed to install brew"
 	fi
 }
 
@@ -46,7 +50,7 @@ if type chezmoi >/dev/null 2>&1; then
 	echo "Found chezmoi at $(whereis chezmoi). Skipping install."
 else
 	echo "chezmoi not found. installing.."
-	sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+	sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
 	export PATH="$HOME/.local/bin:$PATH"
 fi
 
@@ -55,10 +59,9 @@ chezmoi apply
 
 if [ "$machine" == "Mac" ]; then
 	check-or-install-brew
-  brewfile_path="$HOME/.local/share/chezmoi/setup/Brewfile.essential"
-	if ! brew bundle --no-lock --no-upgrade --file="$brewfile_path"; then
-		echo "Filed to install packages"
-		exit 1
+	brewfile="$HOME/.local/share/chezmoi/setup/Brewfile.essential"
+	if ! brew bundle --no-lock --no-upgrade --file="$brewfile"; then
+		error "Filed to install packages"
 	fi
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
@@ -74,6 +77,5 @@ elif [ "$machine" == "Linux" ]; then
 	#                                                               #
 	#################################################################
 else
-	echo "Cannot determine operation system."
-	exit 1
+	error "Cannot determine operating system."
 fi

@@ -53,7 +53,7 @@
     "BTTTpFourFingerSwipeSensitivity" : 0.40000000000000002,
     "BSTMoveTreshold" : 2,
     "BTTHideFomControlStripWhenOpen" : false,
-    "BTTNumberOfStarts" : 3,
+    "BTTNumberOfStarts" : 6,
     "BTTForceNormalClickPressure3F" : 150,
     "showSiriRemoteTab" : true,
     "SIRIScrollSpeed" : 1,
@@ -159,20 +159,15 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "33AD11E6-BEF8-4E13-8123-ADAA23FA50B6",
+  "BTTPresetUUID" : "6464A11A-BEE2-453B-8324-BAFE00C2D339",
   "BTTPresetContent" : [
-    {
-      "BTTAppBundleIdentifier" : "com.apple.finder",
-      "BTTAppName" : "Finder",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTTriggers" : [
-
-      ]
-    },
     {
       "BTTAppBundleIdentifier" : "BT.G",
       "BTTAppName" : "Global",
       "BTTAppAutoInvertIcon" : 1,
+      "BTTAppSpecificSettings" : {
+        "BTTDisableGlobalTriggers" : false
+      },
       "BTTTriggers" : [
         {
           "BTTLastUpdatedAt" : 1704437819.182636,
@@ -188,7 +183,7 @@
           "BTTOrder" : 0,
           "BTTAdditionalActions" : [
             {
-              "BTTLastUpdatedAt" : 1704437823.9116421,
+              "BTTLastUpdatedAt" : 1704438634.0507588,
               "BTTTriggerType" : -1,
               "BTTTriggerParentUUID" : "90E5B6F5-59E7-41CE-82C5-93E82F39AEAE",
               "BTTIsPureAction" : true,
@@ -202,6 +197,14 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
       ]
     }
   ],
