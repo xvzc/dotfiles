@@ -24,7 +24,7 @@ check-or-install-brew() {
 		echo "Found brew at $(whereis brew). Skipping install."
 	else
 		echo "homdbrew not found. installing.."
-		require_sudo
+		require-sudo
 
 		/bin/bash -c \
 			"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" &&
