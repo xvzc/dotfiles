@@ -32,20 +32,21 @@ check-or-install-xcode() {
 }
 
 check-or-install-brew() {
-	if type brew >/dev/null 2>&1; then
-		echo "Found brew at $(whereis brew). Skipping install."
-	else
-		echo "homdbrew not found. installing.."
+	if ! /opt/homebrew/bin/brew shellenv 2>&1; then
+ 		echo "homdbrew not found. installing.."
 		require-sudo
 
-		/bin/bash -c \
-			"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" &&
-			eval "$(/opt/homebrew/bin/brew shellenv)"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"   
+   		if [ $? -ne 0 ]; then
+			error "Failed to install brew"
+		fi
+	else
+ 		echo "Found brew at $(whereis brew). Skipping install."
 	fi
-
-	if [ $? -ne 0 ]; then
-		error "Failed to install brew"
-	fi
+ 
+ 	if ! eval "$(/opt/homebrew/bin/brew shellenv)"; then
+  		error "Failed to run brew shellenv"
+  	fi
 }
 
 check-or-install-chezmoi() {
