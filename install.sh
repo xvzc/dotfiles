@@ -19,6 +19,14 @@ require-sudo() {
 	fi
 }
 
+check-or-install-xcode() {
+	if ! /usr/bin/xcodebuild -version; then
+		xcode-select --install && echo "Successfully installed xcode"
+  	else
+   		error "Xcode not installed"
+	fi
+}
+
 check-or-install-brew() {
 	if type brew >/dev/null 2>&1; then
 		echo "Found brew at $(whereis brew). Skipping install."
@@ -58,6 +66,7 @@ chezmoi init github.com/xvzc/dotfiles
 chezmoi apply
 
 if [ "$machine" == "Mac" ]; then
+	check-or-install-xcode
 	check-or-install-brew
 	brewfile="$HOME/.local/share/chezmoi/setup/Brewfile.essential"
 	if ! brew bundle --no-lock --no-upgrade --file="$brewfile"; then
