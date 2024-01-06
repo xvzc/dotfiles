@@ -59,9 +59,8 @@ check-or-install-chezmoi() {
 		export PATH="$HOME/.local/bin:$PATH"
 	fi
 
- 	if ! chezmoi init github.com/xvzc/dotfiles && chezmoi apply; then
-    			error "Failed to apply dotfiles"
- 	fi
+ 	chezmoi init github.com/xvzc/dotfiles || error "Filed to init chezmoi"
+  	chezmoi apply -R || error "Failed to apply dotfiles"
 }
 
 # Determine OS
