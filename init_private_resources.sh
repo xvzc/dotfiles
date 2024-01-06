@@ -5,6 +5,21 @@ error() {
 	exit 1
 }
 
+wait-1password() {
+	if ! command -v op &>/dev/null; then
+		error "1Password not found"
+	fi
+
+	if ! op whoami 2>/dev/null; then
+		echo "Login 1password app"
+		open -a 1Password
+
+		until op signin 2>/dev/null; do
+			sleep 1
+		done
+	fi
+}
+
 cur_os=$(uname)
 
 assets_dir="$HOME/.config/assets"
@@ -12,23 +27,17 @@ assets_dir="$HOME/.config/assets"
 # Install packages
 if [ "$cur_os" = "Darwin" ]; then
 	font_dir=~/Library/Fonts/
-  brewfile="$HOME/.local/share/chezmoi/setup/Brewfile.personal"
+	brewfile="$HOME/.local/share/chezmoi/setup/Brewfile.personal"
 	if ! brew bundle --no-lock --no-upgrade --file="$brewfile"; then
 		error "Filed to install packages"
 	fi
 
-  source ~/.local/share/chezmoi/setup/macos-setup.sh && all
+	source ~/.local/share/chezmoi/setup/macos-setup.sh && all
 elif [ "$cur_os" = "Linux" ]; then
 	font_dir=~/.local/share/fonts/
 fi
 
-if ! command -v op; then
-	error "1Password not found"
-fi
-
-if ! op whoami 2>/dev/null; then
-	error "Your 1Password account is not signed in please signin."
-fi
+wait-1password
 
 op read "op://Personal/SSH Github xvzc/public key" >~/.ssh/xvzc.pub &&
 	chmod 600 ~/.ssh/xvzc.pub
@@ -47,4 +56,6 @@ cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Light.ttf "$font_dir"
 cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Regular.ttf "$font_dir"
 
 # install cargo
-curl https://sh.rustup.rs -sSf | sh
+if ! which cargo; then
+	curl https://sh.rustup.rs -sSf | sh
+fi
