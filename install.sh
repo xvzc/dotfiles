@@ -97,5 +97,10 @@ else
 	error "Cannot determine operating system."
 fi
 
+# install cargo
+if ! command -v cargo &> /dev/null; then
+	curl https://sh.rustup.rs -sSf | sh
+fi
+
 bob install nightly
 bob use nightly

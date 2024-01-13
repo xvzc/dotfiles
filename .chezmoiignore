@@ -4,6 +4,7 @@
 .config/nvim/undo/**
 .config/nvim/plugin
 .config/nvim/plugin/**
+README.md
 
 .profile
 .zprofile

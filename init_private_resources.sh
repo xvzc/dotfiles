@@ -56,7 +56,3 @@ fi
 cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Light.ttf "$font_dir"
 cp ~/.config/assets/fonts/hesalche/ttf/hesalche-Regular.ttf "$font_dir"
 
-# install cargo
-if ! which cargo; then
-	curl https://sh.rustup.rs -sSf | sh
-fi

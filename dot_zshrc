@@ -39,3 +39,4 @@ prompt pure
 
 
 [ "$TMUX" = "" ] && (tns main || tat main) || return 0
+

@@ -4,10 +4,6 @@ darwin_batt() {
   cmd=$(pmset -g batt)
   amount=$(echo "$cmd" | grep -Eo "\d+%" | cut -d% -f1)
 
-  if echo "$cmd" | grep -q "AC Power"; then
-    label="AC"
-  fi
-
   echo "#[fg=$(get_color $amount),bg=default] $amount%";
 }
 

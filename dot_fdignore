@@ -17,7 +17,6 @@
 **/.PlayOnLinux/
 **/.install/
 **/.yarn/
-**/.local/share/chezmoi/
 **/go/
 **/.fontconfig
 **/node_modules
