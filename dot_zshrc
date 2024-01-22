@@ -38,5 +38,5 @@ zmodload zsh/zprof
 prompt pure
 
 
-[ "$TMUX" = "" ] && (tns main || tat main) || return 0
+[ "$TERM_PROGRAM" = "WezTerm" ] && [ "$TMUX" = "" ] && (tns main || tat main) || return 0
 

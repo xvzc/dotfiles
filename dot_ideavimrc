@@ -41,6 +41,4 @@ nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 10gt
 
-
-
-
+nnoremap <leader>rn :action RenameElement<CR>
