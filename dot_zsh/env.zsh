@@ -15,3 +15,16 @@ export KEYTIMEOUT=1
 # default editor
 export EDITOR=nvim
 
+# PATHS
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+for file in ~/.scripts/*; do # Add all directories in ~/.scripts
+    [ -d "$dir" ] && export PATH="$dir:$PATH"
+done
+
+_is_darwin && export PATH="/opt/homebrew/bin:$PATH"
+
+command -v go &> /dev/null && export PATH=${PATH}:`go env GOPATH`/bin
+command -v bob &> /dev/null && export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+

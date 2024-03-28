@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-HELP="usage: git set --user [username]"
+HELP="usage: git set --org [organization name]"
 
 while [[ $# -gt 0 ]]; do
 	case $1 in
-	-u | --user)
-		git_user="$2"
+	-o | --org)
+		org="$2"
 		shift
 		shift
 		;;
@@ -20,7 +20,7 @@ while [[ $# -gt 0 ]]; do
 	esac
 done
 
-if [ -z "$git_user" ]; then
+if [ -z "$org" ]; then
 	echo $HELP
 	exit 1
 fi
@@ -30,4 +30,4 @@ origin=$(git remote get-url origin)
 tokens=($(echo $origin | tr "/" "\n"))
 repo=${tokens[${#tokens[@]} - 1]}
 
-git remote set-url --push origin "git@$git_user.github.com:$git_user/$repo"
+git remote set-url --push origin "git@$org.github.com:$org/$repo"

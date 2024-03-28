@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+selected=$( \
+  tmux list-sessions | awk '{print $1;}' | \
+  fzf-tmux \
+  -p30%,30% \
+  --preview ''
+)
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+tmux switch -t "$selected"

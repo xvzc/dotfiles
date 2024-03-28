@@ -1,42 +1,37 @@
 #!/bin/zsh
 # vim:filetype=zsh:tw=80:et
 
-export OMZ=~/.zsh/.oh-my-zsh
+export OMZ=~/.zsh/oh-my-zsh
 
 plugins=(
     git
     fzf
     vi-mode
+    zsh-defer
+    zsh-syntax-highlighting
+    autoswitch_virtualenv
 )
 
 fpath+=$HOME/.zsh/pure
-fpath+=$HOME/.zsh/_completions
-
-autoload -U promptinit; promptinit
-autoload -U +X compinit && compinit
+fpath+=$HOME/.zsh/app_completion
 
 source $OMZ/oh-my-zsh.sh
 source ~/.zsh/detect_os.zsh
-source ~/.zsh/env.zsh
-source ~/.zsh/path.zsh
 source ~/.zsh/aliases.zsh
+source ~/.zsh/env.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/opt.zsh
 source ~/.zsh/style.zsh
-source ~/.zsh/keymaps.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
+source ~/.zsh/keymap.zsh
+source ~/.zsh/func.zsh
+source ~/.zsh/fzf.zsh
+[ -f ~/.profile ] && zsh-defer source ~/.profile
 
-for file in ~/.zsh/util/*; do
-    source "$file"
-done
-
-zmodload zsh/zprof
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+autoload -U +X compinit && compinit
+autoload -U promptinit; promptinit
 prompt pure
 
+zmodload zsh/zprof
 
 [ "$TERM_PROGRAM" = "WezTerm" ] && [ "$TMUX" = "" ] && (tns main || tat main) || return 0
 

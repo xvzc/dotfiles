@@ -4,7 +4,17 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd --search-path ~/.config --search-path ~/_personal --search-path ~/_work --type d --exact-depth 1 | fzf-tmux -p80%,60% --preview 'tree {}')
+    selected=$( \
+      fd \
+      --search-path ~/.config \
+      --search-path ~/_personal \
+      --search-path \
+      ~/_work --type d \
+      --exact-depth 1 | \
+      fzf-tmux \
+      -p80%,60% \
+      --preview 'tree {}' \
+    )
 fi
 
 if [[ -z $selected ]]; then

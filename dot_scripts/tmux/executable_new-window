@@ -1,6 +1,13 @@
 #!/bin/zsh
 
-selected=$(fd --type d --search-path $HOME --hidden | fzf-tmux -p80%,60% --preview 'tree {}')
+selected=$( \
+  fd --type d \
+  --search-path $HOME \
+  --hidden | \
+  fzf-tmux \
+  -p80%,60% \
+  --preview 'tree {}' \
+)
 
 if [[ -z $selected ]]; then
   tmux new-window -c $HOME

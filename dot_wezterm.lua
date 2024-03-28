@@ -1,11 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
-local config = {}
-
-if wezterm.config_builder then
-	config = wezterm.config_builder()
-end
+local	config = wezterm.config_builder()
 
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_ease_in = "Constant"
@@ -68,6 +64,16 @@ config.keys = {
 		mods = "CMD",
 		action = wezterm.action.DisableDefaultAssignment,
 	},
+	{
+		key = "Tab",
+		mods = "CTRL",
+		action = wezterm.action.SendKey({ key = "Tab", mods = "CTRL" }),
+	},
+	{
+		key = "Tab",
+		mods = "SHIFT|CTRL",
+		action = wezterm.action.SendKey({ key = "Tab", mods = "SHIFT|CTRL" }),
+	},
 }
 
 config.window_padding = {
@@ -84,7 +90,7 @@ config.font = wezterm.font_with_fallback({
 
 config.window_background_opacity = 0.95
 config.use_fancy_tab_bar = true
-config.window_decorations = "NONE"
+-- config.window_decorations = "NONE"
 config.hide_tab_bar_if_only_one_tab = true
 config.window_close_confirmation = "NeverPrompt"
 config.audible_bell = "Disabled"
