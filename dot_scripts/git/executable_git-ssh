@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+HELP="usage: git ssh [identifier]"
+
+if [ -z "$1" ]; then
+	echo "$HELP"
+	exit 1
+fi
+
+origin=$(git remote get-url origin)
+tokens=($(echo "$origin" | tr "/" "\n"))
+repo=${tokens[${#tokens[@]} - 1]}
+
+git remote set-url --push origin "git@$1.github.com:$1/$repo"

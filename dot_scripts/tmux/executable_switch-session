@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 selected=$( \
-  tmux list-sessions | awk '{print $1;}' | \
+  tmux list-sessions | awk '{ print substr($1, 0, length($1) - 1) }' | \
   fzf-tmux \
-  -p30%,30% \
+  -p20%,20% \
   --preview ''
 )
 

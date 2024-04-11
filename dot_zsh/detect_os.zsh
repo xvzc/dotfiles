@@ -12,9 +12,3 @@ else
   function _is_linux() { return 1 }
 fi
 
-# function _is_darwin() { [ "$(uname)" = "Darwin" ] }
-# function _is_linux() { [ "$(uname)" = "Linux" ] }
-
-
-_is_darwin && export PATH="/opt/homebrew/bin:$PATH"
-

@@ -6,9 +6,6 @@ function timezsh() {
   for i in $(seq 1 100); do time $shell -i -c exit; done
 }
 
-function is_linux() {
-}
-
 function push() {
   git add .
   if [ -z "$1" ]
@@ -20,15 +17,16 @@ function push() {
   git push
 }
 
-# gvm
-function init_gvm(){
-    [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-}
+function _run_tmux_if_terminal_is_one_of() {
+  arr=("$@")
+  for i in "${arr[@]}";
+  do
+    if [ "$TERM_PROGRAM" = "$i" ] 
+    then
+      [ "$TMUX" = "" ] && (tmux attach-session -t "main" || tmux new -c ~ -s "main")
+    fi
+  done
 
-# sdkman
-function init_sdkman(){
-    #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-    export SDKMAN_DIR="$HOME/.sdkman"
-    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+  return 0
 }
 
