@@ -13,8 +13,9 @@ if [ -x "$(command -v eza)" ]; then
   alias l="ls"
   alias ls='eza --sort=type'
   alias la='eza -alg --sort=type'
-  alias g++='g++ -std=c++17'
 fi
+
+alias g++='g++ -std=c++17'
 
 # {{ if eq .osid "darwin" }}
 alias ofd='open .'
