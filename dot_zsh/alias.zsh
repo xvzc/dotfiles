@@ -15,21 +15,12 @@ if [ -x "$(command -v eza)" ]; then
   alias la='eza -alg --sort=type'
 fi
 
-alias g++='g++ -std=c++17'
-
-# {{ if eq .osid "darwin" }}
-alias ofd='open .'
-# {{ else if eq .osid "linux-arch" }}
-alias open='thunar'
-# {{ end }}
-
-alias pgh='GITHUB_TOKEN=$PERSONAL_GITHUB_TOKEN gh'
-alias wgh='GITHUB_TOKEN=$WORK_GITHUB_TOKEN gh'
-
-alias live-server='live-server --port=8080 --browser=chromium'
-
-alias bat='bat --style=plain'
+alias 'bat'='bat --style=plain'
 alias 'bat -nu'='bat --style=numbers'
+
+_is_linux && alias open='thunar'
+
+alias g++='g++ -std=c++17'
 
 alias lazygit='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 alias lg='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
@@ -54,6 +45,11 @@ alias 7='cd -7 &> /dev/null'
 alias 8='cd -8 &> /dev/null'
 alias 9='cd -9 &> /dev/null'
 
+
+# ┌─────┐ 
+# │ GIT │ 
+# └─────┘ 
+alias ggpush='git push origin "$(git_current_branch)"'
 
 # ┌─────────┐ 
 # │ CHEZMOI │ 
@@ -122,6 +118,9 @@ if [ -x "$(command -v kubectl)" ]; then
 
   alias kcv='kubectl config view'
   alias kaf='kubectl apply -f'
+
+  alias kx='kubectl exec'
+  alias kxi='kubectl exec -it'
 fi
 
 # ┌───────────┐ 

@@ -7,7 +7,7 @@ error() {
 }
 
 require-sudo() {
-	sudo -v --prompt "Administrator privilege required. Please type your local password: "
+	sudo -v --prompt "Administrator privilege required. Please type your password: "
 
 	# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 	while true; do
@@ -17,7 +17,7 @@ require-sudo() {
 	done 2>/dev/null &
 }
 
-check-or-install-xcode() {
+install-xcode() {
 	if ! xcode-select --print-path &>/dev/null; then
 		# Install XCode Command Line Tools.
 		xcode-select --install &>/dev/null
@@ -29,7 +29,7 @@ check-or-install-xcode() {
 	fi
 }
 
-check-or-install-brew() {
+install-brew() {
 	if ! /opt/homebrew/bin/brew shellenv 2>&1; then
 		echo "homdbrew not found. installing.."
 		require-sudo
@@ -47,7 +47,7 @@ check-or-install-brew() {
 	fi
 }
 
-check-or-install-chezmoi() {
+install-chezmoi() {
 	if type chezmoi >/dev/null 2>&1; then
 		echo "Found chezmoi at $(whereis chezmoi). Skipping install."
 	else
@@ -73,13 +73,15 @@ esac
 echo "Detected OS: ${machine}"
 
 if [ "$machine" == "Mac" ]; then
-	check-or-install-xcode
-	check-or-install-chezmoi
-	check-or-install-brew
-	brewfile="$HOME/.local/share/chezmoi/setup/Brewfile.essential"
+	install-xcode
+	install-chezmoi
+	install-brew
+	brewfile="$HOME/.local/share/chezmoi/setup/Brewfile"
 	if ! brew bundle --no-lock --no-upgrade --file="$brewfile"; then
-		error "Failed to install packages"
+		error "Failed to install MacOS packages"
 	fi
+
+	source "$HOME/.local/share/chezmoi/setup/macos-setup.sh" && all
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
 	yay -S --needed --noconfirm - <~/.local/share/chezmoi/setup/aur_packages.txt
@@ -102,5 +104,6 @@ if ! command -v cargo &> /dev/null; then
 	curl https://sh.rustup.rs -sSf | sh
 fi
 
+# Install neovim version manager
 bob install nightly
 bob use nightly

@@ -4,7 +4,7 @@
 export DOT_ZSH=$HOME/.zsh
 
 plugins=(
-    git
+    # git
     fzf
     vi-mode
     zsh-defer

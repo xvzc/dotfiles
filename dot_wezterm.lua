@@ -15,7 +15,7 @@ config.default_cursor_style = "BlinkingBlock"
 config.audible_bell = "Disabled"
 
 config.window_background_opacity = 0.93
-config.colors = require("themes/ontario")
+config.colors = require("themes/miami")
 
 config.window_padding = {
 	left = 4,
@@ -26,7 +26,7 @@ config.window_padding = {
 
 config.font = wezterm.font_with_fallback({
 	"JetBrainsMonoNL Nerd Font",
-	"hesalche",
+	"D2Coding",
 })
 
 config.keys = {

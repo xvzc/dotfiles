@@ -22,7 +22,8 @@ export LS_COLORS="\
   *.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90: \
   *.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90: \
   *.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90: \
-  *.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.pub=00;00:*.zwc=00;90: \
+  *.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90: \
+  *.pub=00;00:*.zwc=00;90: \
   "
 
 export EZA_COLORS="da=00;00:uu=01;37:gu=01;37:"
@@ -42,10 +43,11 @@ ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[comment]='fg=#7d807e'
-ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#eb87ff'
+# ZSH_HIGHLIGHT_STYLES[comment]='fg=#7d807e'
+# ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#eb87ff'
 
-zstyle :prompt:pure:path color '#89a4f0'
+# zstyle :prompt:pure:path color '#89a4f0'
+zstyle :prompt:pure:path color blue
 
 zstyle :prompt:pure:git:dirty color red
 zstyle :prompt:pure:git:branch color cyan
@@ -64,10 +66,8 @@ zstyle :prompt:pure:virtualenv show yes
 
 # Do menu-driven completion.
 zstyle ':completion:*' menu select
-# zstyle ':completion:*:*:git:*' user-commands login:'git_login' \
-#   list-pr:'hub_list_pr' \
-#   make-pr:'hub_make_pr' \
-#   merge-pr:'hub_make_pr'
+zstyle ':completion:*:*:git:*' user-commands \
+  login:'authenticate current git repository with ssh key'
 
 # formatting and messages
 zstyle ':completion:*' verbose yes

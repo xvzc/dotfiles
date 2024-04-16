@@ -7,3 +7,7 @@
 
 [includeIf "gitdir:~/work/"] 
     path = ~/.gitconfig
+
+[init]
+    defaultBranch = main
+
