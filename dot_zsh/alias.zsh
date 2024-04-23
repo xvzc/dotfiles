@@ -50,6 +50,7 @@ alias 9='cd -9 &> /dev/null'
 # │ GIT │ 
 # └─────┘ 
 alias ggpush='git push origin "$(git_current_branch)"'
+alias ggpull='git pull origin "$(git_current_branch)"'
 
 # ┌─────────┐ 
 # │ CHEZMOI │ 
