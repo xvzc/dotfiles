@@ -19,9 +19,9 @@ config.colors = require("themes/miami")
 
 config.window_padding = {
 	left = 4,
-	right = 4,
+	right = 0,
 	top = 4,
-	bottom = 4,
+	bottom = 0,
 }
 
 config.font = wezterm.font_with_fallback({

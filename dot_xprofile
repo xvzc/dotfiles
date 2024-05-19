@@ -1,20 +1,10 @@
 #!/bin/sh
 
-# export GTK_IM_MODULE=ibus
-# export XMODIFIERS=@im=ibus
-# export QT_IM_MODULE=ibus
-
-# ibus-daemon -drx
-
 export GTK_IM_MODULE=nimf
 export QT4_IM_MODULE=nimf
 export QT_IM_MODULE=nimf
 export XMODIFIERS="@im=nimf"
 nimf
-
-# Stop screen from going blank
-# xset s off
-# xset s noblank
 
 xset -dpms
 
@@ -24,5 +14,6 @@ xset s 3600
 
 # Faster key repeat and delay
 xset r rate 200 50
-export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
 xsetroot -cursor_name left_ptr
+
+export "$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)"
