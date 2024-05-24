@@ -16,4 +16,4 @@ xset s 3600
 xset r rate 200 50
 xsetroot -cursor_name left_ptr
 
-export "$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)"
+export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
