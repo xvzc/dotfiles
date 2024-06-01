@@ -6,10 +6,6 @@
 .config/nvim/plugin/**
 README.md
 
-.profile
-.zprofile
-.zshenv
-
 .config/tmux/tpm/**
 hooks/**
 setup/**
@@ -20,7 +16,6 @@ Brewfile.lock.json
 install.sh
 init_private_resources.sh
 wallpaper.*
-
 
 .oh-my-zsh
 Readme.md

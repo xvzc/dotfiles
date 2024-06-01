@@ -16,7 +16,6 @@ fpath+="$DOT_ZSH/pure"
 fpath+="$DOT_ZSH/_completion"
 
 source "$DOT_ZSH/oh-my-zsh/oh-my-zsh.sh"
-source "$DOT_ZSH/detect_os.zsh"
 source "$DOT_ZSH/style.zsh"
 source "$DOT_ZSH/alias.zsh"
 source "$DOT_ZSH/env.zsh"
@@ -24,7 +23,7 @@ source "$DOT_ZSH/opt.zsh"
 source "$DOT_ZSH/keymap.zsh"
 source "$DOT_ZSH/func.zsh"
 source "$DOT_ZSH/fzf.zsh"
-[ -f ~/.profile ] && zsh-defer source "$HOME/.profile"
+[ -f ~/.secrets ] && zsh-defer source "$HOME/.secrets"
 
 # autoload -U +X compinit && compinit
 autoload -U promptinit; promptinit
