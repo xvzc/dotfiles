@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+# ┌─────────┐ 
+# │ OPENVPN │ 
+# └─────────┘ 
+export OVPN_ROOT="$HOME/vpn"
+export OVPN_DATA="$HOME/vpn/data"
+alias vpn='sudo openvpn --setenv PATH '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' --up /etc/openvpn/update-resolv-conf --down /etc/openvpn/update-resolv-conf --script-security 2 --down-pre'
+
+# ┌───────────────────┐ 
+# │ JETBRAINS TOOLBOX │ 
+# └───────────────────┘ 
+export PATH="$PATH:/home/jerry/.local/share/JetBrains/Toolbox/scripts"
+
+# ┌───────────┐ 
+# │ SPOOF-DPI │ 
+# └───────────┘ 
+export PATH="$PATH:~/.spoof-dpi/bin"
+
+# ┌───────┐ 
+# │ CARGO │ 
+# └───────┘ 
+. "$HOME/.cargo/env"
+
+# ┌───────┐ 
+# │ PYENV │ 
+# └───────┘ 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv > /dev/null && eval "$(pyenv init -)"
+
+# ┌────────┐ 
+# │ SDKMAN │ 
+# └────────┘ 
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -2,5 +2,5 @@
 Brewfile.lock.json
 
 dot_profile
-dot_zprofile
-dot_zshenv
+dot_secrets
+dot_secret
