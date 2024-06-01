@@ -1,6 +1,5 @@
 .DS_Store
 Brewfile.lock.json
 
-dot_profile
 dot_secrets
 dot_secret

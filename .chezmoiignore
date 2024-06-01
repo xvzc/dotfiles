@@ -10,7 +10,6 @@ README.md
 hooks/**
 setup/**
 
-.profile
 .secrets
 Brewfile.lock.json
 install.sh

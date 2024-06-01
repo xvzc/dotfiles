@@ -23,6 +23,7 @@ source "$DOT_ZSH/opt.zsh"
 source "$DOT_ZSH/keymap.zsh"
 source "$DOT_ZSH/func.zsh"
 source "$DOT_ZSH/fzf.zsh"
+[ -f ~/.profile ] && zsh-defer source "$HOME/.profile"
 [ -f ~/.secrets ] && zsh-defer source "$HOME/.secrets"
 
 # autoload -U +X compinit && compinit
