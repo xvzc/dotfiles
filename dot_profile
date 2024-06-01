@@ -44,17 +44,15 @@ command -v go &> /dev/null && export PATH=`go env GOPATH`/bin:$PATH
 # └──────────┘ 
 command -v bob &> /dev/null && export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
+# ┌───────┐ 
+# │ PYENV │ 
+# └───────┘ 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv > /dev/null && eval "$(pyenv init --path)"
+
 # ┌────────┐ 
 # │ SDKMAN │ 
 # └────────┘ 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# ┌───────┐ 
-# │ PYENV │ 
-# └───────┘ 
-# THIS SHOULD BE AT THE LAST LINE BECAUSE OF THE USAGE OF "eval" BELOW
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-command -v pyenv > /dev/null && eval "$(pyenv init --path)"
-
