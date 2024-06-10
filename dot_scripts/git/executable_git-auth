@@ -1,0 +1,38 @@
+#!/bin/zsh
+
+HELP="usage: git auth --user [organization name]"
+
+while [[ $# -gt 0 ]]; do
+	case $1 in
+	-u | --user )
+		user="$2"
+		shift
+		shift
+		;;
+	-h | --help)
+		shift
+		echo "$HELP"
+		exit 1
+		;;
+	*)
+		shift # past argument
+		;;
+	esac
+done
+
+if [ -z "$user" ]; then
+	echo "$HELP"
+	exit 1
+fi
+
+# https://github.com/xvzc/dotfiles.git
+origin=$(git remote get-url origin)
+if [[ "$origin" =~ ^git@.* ]]; then
+    org="$(cut -d'/' -f1 <<<"$(cut -d':' -f2 <<<"$origin")")"
+    repo="$(cut -d'/' -f2 <<<"$origin")"
+elif [[ "$origin" =~ ^https://.* ]]; then
+    org="$(cut -d'/' -f4 <<<"$origin")"
+    repo="$(cut -d'/' -f5 <<<"$origin")"
+fi
+
+git remote set-url --push origin "git@$user.github.com:$org/$repo"
