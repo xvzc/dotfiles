@@ -1,5 +1,13 @@
 #!/bin/zsh
 
+# ┌─────────────┐ 
+# │ ZSH_OPTIONS │ 
+# └─────────────┘ 
+setopt no_global_rcs
+
+# ┌───────────┐ 
+# │ DETECT_OS │ 
+# └───────────┘ 
 export CUR_OS=$(uname)
 
 if [ "$CUR_OS" = "Darwin" ]; then
@@ -14,4 +22,19 @@ else
   function _is_linux() { return 1 }
 fi
 
-setopt no_global_rcs
+# ┌────────────┐ 
+# │ COMMON ENV │ 
+# └────────────┘ 
+export CLICOLOR=1
+export CLICOLOR_FORCE=1
+
+# reduce esc delay 
+export KEYTIMEOUT=1 
+
+# set default editor to nvim
+export EDITOR=nvim
+
+# PATHS
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.scripts/git:$PATH"
+
