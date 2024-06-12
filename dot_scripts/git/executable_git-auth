@@ -36,3 +36,4 @@ elif [[ "$origin" =~ ^https://.* ]]; then
 fi
 
 git remote set-url --push origin "git@$user.github.com:$org/$repo"
+git remote set-url origin "git@$user.github.com:$org/$repo"
