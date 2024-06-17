@@ -3,6 +3,8 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "homebrew/cask-fonts"
 tap "daipeihust/tap"
+tap "koekeishiya/formulae"
+
 brew "python@3.11"
 brew "go" 
 brew "node@18", link: :force
@@ -31,6 +33,9 @@ brew "ranger"
 brew "ripgrep"
 brew "terraform"
 brew "wakeonlan"
+brew "yabai"
+brew "skhd"
+
 cask "font-jetbrains-mono-nerd-font"
 cask "font-d2coding"
 cask "wezterm"
@@ -40,5 +45,6 @@ cask "google-chrome"
 cask "discord"
 cask "alfred" 
 cask "bettertouchtool" 
+
 mas "KakaoTalk ", id: 869223134
 mas "Gifski ", id: 1351639930

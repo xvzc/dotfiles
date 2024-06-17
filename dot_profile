@@ -29,10 +29,10 @@ export PATH="$PATH:~/.spoof-dpi/bin"
 # _is_darwin && \
 #   export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-# ┌──────────┐ 
-# │ HOMEBREW │ 
-# └──────────┘ 
-_is_darwin && export PATH="/opt/homebrew/bin:$PATH"
+# ┌────────┐ 
+# │ DOCKER │ 
+# └────────┘ 
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
 # ┌────┐ 
 # │ GO │ 

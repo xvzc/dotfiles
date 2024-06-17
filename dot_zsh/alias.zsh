@@ -9,7 +9,7 @@
 # alias sudo='sudo '
 alias vi='nvim'
 
-if [ -x "$(command -v eza)" ]; then
+if [ "$(command -v eza)" ]; then
   alias l="ls"
   alias ls='eza --sort=type'
   alias la='eza -alg --sort=type'
@@ -85,7 +85,7 @@ alias dkc='docker-compose'
 # ┌────────────┐ 
 # │ KUBERNETES │ 
 # └────────────┘ 
-if [ -x "$(command -v kubectl)" ]; then
+if [ "$(command -v kubectl)" ]; then
   alias k='kubectl'
 
   alias kg='kubectl get'
