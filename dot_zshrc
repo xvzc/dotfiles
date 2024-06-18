@@ -32,4 +32,3 @@ prompt pure
 zmodload zsh/zprof
 
 # _run_tmux_if_terminal_is_one_of "WezTerm" "alacritty"
-
