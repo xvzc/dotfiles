@@ -11,8 +11,7 @@ check-1password() {
 	fi
 
 	if ! op whoami 2>/dev/null; then
-		open -a 1Password
-		error "Login 1password app"
+		error "Signin to 1password cli. run 'op signin'"
 	fi
 }
 
