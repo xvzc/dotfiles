@@ -20,8 +20,12 @@ source "$DOT_ZSH/style.zsh"
 source "$DOT_ZSH/alias.zsh"
 source "$DOT_ZSH/opt.zsh"
 source "$DOT_ZSH/keymap.zsh"
-source "$DOT_ZSH/func.zsh"
-source "$DOT_ZSH/fzf.zsh"
+
+for file in $HOME/.zsh/util/*
+do
+  source "$file"
+done
+
 [ -f ~/.profile ] && zsh-defer source "$HOME/.profile"
 [ -f ~/.secrets ] && zsh-defer source "$HOME/.secrets"
 
