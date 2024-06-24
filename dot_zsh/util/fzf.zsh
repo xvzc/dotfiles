@@ -2,15 +2,20 @@
 # alias fcd='cd $(fd --type d --search-path=$HOME/_jry | fzf)'
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-#fzf option
-export FZF_DEFAULT_OPTS="--layout=reverse \
-  --inline-info \
-  --height 40% \
-  --preview 'bat --style=numbers --color=always --line-range :500 {}' \
-  --color 'fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899' \
-  "
 
-export FZF_TMUX_OPTS='-p80%,60%'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --reverse
+  --height=40%
+  --color=fg:#e0dada,fg+:#fbdada,bg:#313f54,bg+:#313f54
+  --color=hl:#6bc9e1,hl+:#33eaff,info:#aaaa84,marker:#4fe62d
+  --color=prompt:#f32d2d,spinner:#fdf905,pointer:#fdf905,header:#87afaf
+  --color=border:#648f66,preview-bg:#1f2c3d,label:#aeaeae,query:#d9d9d9
+  --border="bold" --border-label="" --preview-window="border-bold" --prompt="> "
+  --marker="▪" --pointer="●" --separator="─" --scrollbar="┃"
+  --info="right"'
+
+export FZF_TMUX_OPTS=$FZF_DEFAULT_OPTS'
+  -p80%,60%'
 
 # Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='**'
