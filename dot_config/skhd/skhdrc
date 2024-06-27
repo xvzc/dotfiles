@@ -1,7 +1,5 @@
 cmd + alt - r : ~/.config/yabai/scripts/refresh
 
-cmd - return : open -a "Wezterm" --new
-
 cmd - h : yabai -m window --focus west
 cmd - l : yabai -m window --focus east
 cmd - j : yabai -m window --focus south
@@ -38,7 +36,7 @@ cmd + alt - l : yabai -m window --swap east
 # yabai -m space --destroy
 
 cmd + alt - c : yabai -m space --create
-cmd + alt - x : yabai -m space --focus prev && yabai -m space --destroy next
+cmd + alt - x : yabai -m space --destroy && yabai -m space --focus prev
 
 cmd + alt - 0x1B : yabai -m display --focus prev
 cmd + alt - 0x18 : yabai -m display --focus next
@@ -46,5 +44,7 @@ cmd + alt - 0x18 : yabai -m display --focus next
 cmd + alt - f : yabai -m window --toggle zoom-fullscreen
 cmd + alt - t : yabai -m window --toggle float
 
+
+cmd + alt - b : yabai -m space --balance
 
 

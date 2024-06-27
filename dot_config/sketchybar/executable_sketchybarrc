@@ -1,0 +1,118 @@
+# This is a demo config to showcase some of the most important commands.
+# It is meant to be changed and configured, as it is intentionally kept sparse.
+# For a (much) more advanced configuration example see my dotfiles:
+# https://github.com/FelixKratz/dotfiles
+
+source "$CONFIG_DIR/colors.sh"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Bar Appearance #####
+# Configuring the general appearance of the bar.
+# These are only some of the options available. For all options see:
+# https://felixkratz.github.io/SketchyBar/config/bar
+# If you are looking for other colors, see the color picker:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+
+sketchybar --bar \
+               position=top \
+               height=25 \
+               blur_radius=4 \
+               color=0x40000000 \
+               margin=8 \
+               y_offset=8 \
+               corner_radius=5
+
+##### Changing Defaults #####
+# We now change some default values, which are applied to all further items.
+# For a full list of all available item properties see:
+# https://felixkratz.github.io/SketchyBar/config/items
+
+default=(
+  padding_left=0
+  padding_right=0
+  icon.font="JetBrainsMonoNL Nerd Font:Bold:13.0"
+  label.font="JetBrainsMonoNL Nerd Font:Bold:12.0"
+  icon.color="$WHITE"
+  label.color="$WHITE"
+  icon.padding_left=2
+  icon.padding_right=2
+  label.padding_left=2
+  label.padding_right=6
+  background.padding_left=4
+  background.height=18
+  background.corner_radius=3
+)
+
+sketchybar --default "${default[@]}"
+
+##### Adding Mission Control Space Indicators #####
+# Let's add some mission control spaces:
+# https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
+# to indicate active and available mission control spaces.
+
+SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+for i in "${!SPACE_ICONS[@]}"
+do
+  sid="$(($i+1))"
+  space=(
+    space="$sid"
+    icon="${SPACE_ICONS[i]}"
+    icon.padding_left=5
+    icon.padding_right=5
+    label.drawing=off
+    script="$PLUGIN_DIR/space.sh"
+    click_script="yabai -m space --focus $sid"
+  )
+  sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
+done
+
+##### Adding Left Items #####
+# We add some regular items to the left side of the bar, where
+# only the properties deviating from the current defaults need to be set
+
+sketchybar --add item front_app left \
+               --set front_app \
+               background.color="$WHITE" \
+               icon.color="$BAR_COLOR" \
+               label.color="$BAR_COLOR" \
+               script="$PLUGIN_DIR/front_app.sh" \
+               --subscribe front_app front_app_switched
+
+##### Adding Right Items #####
+# In the same way as the left items we can add items to the right side.
+# Additional position (e.g. center) are available, see:
+# https://felixkratz.github.io/SketchyBar/config/items#adding-items-to-sketchybar
+
+# Some items refresh on a fixed cycle, e.g. the clock runs its script once
+# every 10s. Other items respond to events they subscribe to, e.g. the
+# volume.sh script is only executed once an actual change in system audio
+# volume is registered. More info about the event system can be found here:
+# https://felixkratz.github.io/SketchyBar/config/events
+
+sketchybar --add item calendar right \
+           --set calendar icon=󰃵  \
+           update_freq=30 \
+           script="$PLUGIN_DIR/calendar.sh"
+
+sketchybar --add item battery right \
+           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+           --subscribe battery system_woke power_source_change
+
+sketchybar --add item volume right \
+    --set volume script="$PLUGIN_DIR/volume.sh" \
+    --subscribe volume volume_change
+
+sketchybar --add item media e \
+       --set media label.color=$WHITE \
+                   label.max_chars=30 \
+                   label.scroll_duration=250 \
+                   icon.padding_left=0 \
+                   scroll_texts=on \
+                   icon=󰎄 \
+                   background.drawing=off \
+                   script="$PLUGIN_DIR/media.sh" \
+       --subscribe media media_change
+
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update
