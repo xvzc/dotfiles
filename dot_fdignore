@@ -1,6 +1,7 @@
 # vim:filetype=gitignore:tw=80:et
 
 
+**/.config/raycast
 **/.wine
 # **/.local/share
 **/.cache

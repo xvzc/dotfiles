@@ -29,7 +29,7 @@ export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
 # reduce esc delay 
-export KEYTIMEOUT=1 
+export KEYTIMEOUT=1
 
 # set default editor to nvim
 export EDITOR=nvim

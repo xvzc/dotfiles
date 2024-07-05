@@ -13,7 +13,7 @@ else
       --type f --hidden \
       | fzf-tmux \
       --preview 'bat --style=numbers --color=always --line-range :500 {}' \
-      -p80%,60% \
+      -p60%,60% \
     )
 fi
 

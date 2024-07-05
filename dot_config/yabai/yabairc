@@ -11,7 +11,7 @@ yabai -m config split_ratio 0.5
 yabai -m config focus_follows_mouse autoraise
 
 yabai -m config window_opacity on
-yabai -m config active_window_opacity 1.0
+yabai -m config active_window_opacity 0.97
 yabai -m config normal_window_opacity 0.9
 
 yabai -m config top_padding    8
@@ -28,4 +28,10 @@ yabai -m rule --add app="Spotify" manage=off
 yabai -m rule --add app="1Password" manage=off
 yabai -m rule --add app="Alfred*" manage=off
 yabai -m rule --add app="Discord*" manage=off
+yabai -m rule --add app="ChatGPT" manage=off
+
+yabai -m rule --add title="Rename" manage=off
+yabai -m rule --add title="Move" manage=off
+yabai -m rule --add title="Delete" manage=off
+yabai -m rule --add title="Add File to Git" manage=off
 

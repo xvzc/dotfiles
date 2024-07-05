@@ -1,4 +1,2 @@
 yabai --restart-service
 skhd --restart-service
-sketchybar --reload
-brew services restart borders
