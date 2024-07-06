@@ -9,6 +9,7 @@ README.md
 .config/tmux/tpm/**
 hooks/**
 setup/**
+alfred/**
 
 .secrets
 Brewfile.lock.json
