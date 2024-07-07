@@ -68,12 +68,11 @@ alias czf='chezmoi forget'
 # ┌──────┐ 
 # │ TMUX │ 
 # └──────┘ 
-alias tre='tmux attach'
-alias tat='tmux attach-session -t'
+alias tat='tmux -u attach-session -t'
 alias tdt='tmux detach'
 alias tkt='tmux kill-session -t'
-alias tst='tmux switch -t'
-alias tns='tmux new -c ~ -s'
+alias tst='tmux -u switch -t'
+alias tns='tmux -u new -c ~ -s'
 alias tls='tmux ls'
 
 # ┌────────┐ 

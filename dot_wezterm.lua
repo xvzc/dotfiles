@@ -25,7 +25,12 @@ config.window_padding = {
 	bottom = 0,
 }
 
-config.font_size = 12.0
+if os.getenv("CUR_OS") == "Linux" then
+	config.font_size = 15.0
+else
+	config.font_size = 12.0
+end
+
 config.font = wezterm.font_with_fallback({
 	"JetBrainsMonoNL Nerd Font",
 	"D2Coding",

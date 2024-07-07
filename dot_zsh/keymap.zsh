@@ -44,6 +44,10 @@ zle -N zle-line-init
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
+# Remove keymaps
+bindkey -r "^S"
+bindkey -r "^D"
+
 bindkey "^E" edit-command-line
 
 # bindkey '^[[Z' reverse-menu-complete
