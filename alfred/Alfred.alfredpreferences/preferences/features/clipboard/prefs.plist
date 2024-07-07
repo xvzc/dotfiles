@@ -11,6 +11,10 @@
 		<key>string</key>
 		<string></string>
 	</dict>
+	<key>snippetKeywordEnabled</key>
+	<false/>
+	<key>snippetKeywordInResult</key>
+	<false/>
 	<key>snippetsAtTop</key>
 	<false/>
 	<key>snippetsWhenSearching</key>

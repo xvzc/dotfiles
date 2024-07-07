@@ -4,6 +4,8 @@
 <dict>
 	<key>fallbacks</key>
 	<array/>
+	<key>showDocuments</key>
+	<true/>
 	<key>showFolders</key>
 	<true/>
 </dict>

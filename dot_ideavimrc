@@ -16,8 +16,8 @@ let g:EasyMotion_use_upper = 0
 nmap <leader>f <Plug>(easymotion-s)
 nmap <leader><leader>f <Plug>(easymotion-s2)
 
-nmap <leader>s ysiw
-vmap <leader>s S
+nmap s ysiw
+vmap s S
 
 nmap <leader>yy "*yy
 vmap <leader>y "*y

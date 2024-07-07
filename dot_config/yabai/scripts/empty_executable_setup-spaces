@@ -1,0 +1,30 @@
+#!/bin/bash
+
+TARGET_COUNT=6
+CUR_COUNT=$(yabai -m query --spaces | jq length)
+
+
+# remove windows if needed
+for each in $(yabai -m query --spaces | jq -r '.[] | @base64'); do
+  ITEM=$(echo "$each" | base64 --decode)
+
+  WINDOW_COUNT=$(echo "$ITEM" | jq '.windows | length')
+  if [[ $TARGET_COUNT -lt $CUR_COUNT && $WINDOW_COUNT -eq 0 ]];
+  then
+    yabai -m space "$(echo "$ITEM" | jq '.index')" --destroy && CUR_COUNT=$((CUR_COUNT - 1))
+    # echo "$(_jq | jq '.id')"
+  fi
+done
+
+# create windows if needed
+while [ "$CUR_COUNT" -lt $TARGET_COUNT ]
+do
+  yabai -m space --create && CUR_COUNT=$((CUR_COUNT + 1))
+done
+
+yabai -m space 1 --display 1
+yabai -m space 2 --display 1
+yabai -m space 3 --display 2
+yabai -m space 4 --display 2
+yabai -m space 5 --display 2
+yabai -m space 6 --display 2

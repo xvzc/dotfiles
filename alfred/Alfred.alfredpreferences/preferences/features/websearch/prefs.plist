@@ -4,6 +4,19 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>2F0123BD-86CF-4E87-8A71-07E7106F5F2B</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>y</string>
+			<key>spaces</key>
+			<string>+</string>
+			<key>text</key>
+			<string>Search Youtube for '{query}'</string>
+			<key>url</key>
+			<string>https://www.youtube.com/results?search_query={query}</string>
+		</dict>
 		<key>A7A22C28-F04E-4C13-BE8E-AFC9E05EEF13</key>
 		<dict>
 			<key>enabled</key>

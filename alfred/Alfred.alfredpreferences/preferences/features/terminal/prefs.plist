@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>custom</key>
+	<string>on alfred_script(query)
+  tell application "wezterm" to activate
+  set paneId to do shell script "/Applications/WezTerm.app/Contents/MacOS/wezterm cli split-pane"
+  set commandList to paragraphs of query
+  repeat with command in commandList
+    do shell script "echo " &amp; command &amp; " | /Applications/WezTerm.app/Contents/MacOS/wezterm cli send-text --no-paste --pane-id " &amp; paneId
+  end repeat
+end alfred_script</string>
+	<key>prefix</key>
+	<integer>6</integer>
+</dict>
+</plist>

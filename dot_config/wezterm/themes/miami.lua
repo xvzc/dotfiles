@@ -24,8 +24,8 @@ local colors = {
 	cursor_bg = palette.lemon_white,
 	cursor_border = palette.lemon_white,
 	cursor_fg = palette.balck,
-	selection_bg = palette.black,
-	selection_fg = palette.lemon_white,
+	selection_bg = palette.grey,
+	selection_fg = palette.black,
 
 	ansi = {
 		-- ORDER: { black, red, green, yellow, blue, magenta, cyan, white }

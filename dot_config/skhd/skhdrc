@@ -1,4 +1,5 @@
 cmd + alt - r : ~/.config/yabai/scripts/refresh
+cmd + alt - return : wezterm cli spawn --new-window
 
 cmd - h : yabai -m window --focus west
 cmd - l : yabai -m window --focus east
@@ -23,6 +24,9 @@ cmd + alt - 4 : yabai -m window --space 4 --focus
 cmd + alt - 5 : yabai -m window --space 5 --focus
 cmd + alt - 6 : yabai -m window --space 6 --focus
 cmd + alt - 7 : yabai -m window --space 7 --focus
+cmd + alt - 8 : yabai -m window --space 8 --focus
+cmd + alt - 9 : yabai -m window --space 9 --focus
+cmd + alt - 0 : yabai -m window --space 10 --focus
 
 cmd + alt - h : yabai -m window --swap west
 cmd + alt - j : yabai -m window --swap south
@@ -31,19 +35,11 @@ cmd + alt - l : yabai -m window --swap east
 
 # Create space on the active display
 
-
 # Delete focused space and focus first space on display
 # yabai -m space --destroy
 
-cmd + alt - c : yabai -m space --create
-cmd + alt - x : yabai -m space --destroy && yabai -m space --focus prev
-
-cmd + alt - 0x1B : yabai -m display --focus prev
-cmd + alt - 0x18 : yabai -m display --focus next
-
-cmd + alt - f : yabai -m window --toggle zoom-fullscreen
 cmd + alt - t : yabai -m window --toggle float
-
+cmd + alt - s : yabai -m window --toggle sticky
 
 cmd + alt - b : yabai -m space --balance
 
