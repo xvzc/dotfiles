@@ -1,8 +1,8 @@
 configuration {
-    dpi: 0;
+    dpi: 128;
     show-icons: true;
     sidebar-mode: true;
-    terminal: "alacritty";
+    terminal: "WezTerm";
 }
 
 * {
@@ -21,9 +21,4 @@ inputbar {
 prompt {
 }
 
-//@theme "/home/jerry/.local/share/rofi/themes/nord.rasi"
-//@theme "/usr/share/rofi/themes/paper-float.rasi"
-//@theme "/home/jerry/.local/share/rofi/themes/gruvbox.rasi"
-//@theme "/home/jerry/.local/share/rofi/themes/material.rasi"
-//@theme "/home/jerry/.local/share/rofi/themes/onedark.rasi"
 @theme "/home/jerry/.local/share/rofi/themes/nord.rasi"
