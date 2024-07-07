@@ -38,4 +38,3 @@ export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.scripts/git:$PATH"
 _is_darwin && export PATH="/opt/homebrew/bin:$PATH"
-

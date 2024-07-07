@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export GTK_IM_MODULE=nimf
 export QT4_IM_MODULE=nimf
@@ -15,5 +15,8 @@ xset s 3600
 # Faster key repeat and delay
 xset r rate 200 50
 xsetroot -cursor_name left_ptr
+xrandr --dpi 196
 
-export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+export "$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)"
+
+exec bspwm

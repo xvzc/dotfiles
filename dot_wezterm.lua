@@ -25,6 +25,7 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.font_size = 14.0
 config.font = wezterm.font_with_fallback({
 	"JetBrainsMonoNL Nerd Font",
 	"D2Coding",
