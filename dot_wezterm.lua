@@ -21,15 +21,11 @@ config.colors = require("themes/miami")
 config.window_padding = {
 	left = 4,
 	right = 0,
-	top = 4,
+	top = 0,
 	bottom = 0,
 }
 
-if os.getenv("CUR_OS") == "Linux" then
-	config.font_size = 15.0
-else
-	config.font_size = 12.0
-end
+config.font_size = 12.0
 
 config.font = wezterm.font_with_fallback({
 	"JetBrainsMonoNL Nerd Font",
