@@ -38,5 +38,25 @@ brew services start borders
 brew services start sketchybar
 ```
 
+# Automatically enable bluetooth connection
+```bash
+# Dependencies: yay -Sy bluez bluez-utils
+sudo systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service
+bluetoothctl
+# [bluetoothctl] power on
+# [bluetoothctl] agent on
+# [bluetoothctl] default-agent
+# [bluetoothctl] scan on
+# [bluetoothctl] devices
+# Look up mac address
+# [bluetoothctl] trust $MAC_ADDRESS
+# [bluetoothctl] pair $MAC_ADDRESS
+# [bluetoothctl] connect $MAC_ADDRESS
+
+sudo nvim /etc/bluetooth/main.conf
+# uncommecnt AutoEnable=true
+```
+
 
 
