@@ -22,5 +22,4 @@ export LANG=en_US.UTF-8
 
 # export "$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)"
 
-exec awesome
-
+exec bspwm

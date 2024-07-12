@@ -1,34 +1,28 @@
 #! /bin/sh
+bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
-pgrep -x picom > /dev/null   || picom --config ~/.config/bspwm/picom.conf &
-pgrep -x sxhkd > /dev/null   || sxhkd -c ~/.config/bspwm/sxhkdrc &
-pgrep -x polybar > /dev/null || polybar -c ~/.config/bspwm/polybar.ini &
-nitrogen --restore &
-
-bspc monitor -d 1 2 3 4 5 6 7 8 9 0 11 12
-
-bspc config window_gap          34
+bspc config window_gap          28
 
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-bspc config border_width 0
+bspc config border_width 1
 bspc config click_to_focus true
-# bspc config focused_border_color "#09ad32"
+# bspc config active_border_color "#d9fccf"
+bspc config focused_border_color "#d9fccf"
+bspc config pointer_modifier mod1
 
-bspc config external_rules_command "$HOME/.config/bspwm/scripts/external-rules"
+nitrogen --restore &
+flameshot &
+(pgrep -x picom > /dev/null && pkill -9 picom); 
+(picom --config ~/.config/bspwm/picom.conf &)
+(pgrep -x sxhkd > /dev/null && pkill -9 sxhkd); 
+(sxhkd -c ~/.config/bspwm/sxhkdrc &)
 
-# usage: (<class_name>|*)[:(<instance_name>|*)[:(<name>|*)]]
-bspc rule -a 'Google Chrome:*:*' desktop='^2' follow=on focus=on
-# bspc rule -a "Alacritty" desktop='^1' follow=on focus=on
-# bspc rule -a "kakaotalk.exe:*:*" desktop='^11' follow=on focus=on
-bspc rule -a "discord:*:*" desktop='^11' follow=off focus=off
-bspc rule -a "Slack" desktop='^11' follow=off focus=off
-bspc rule -a "Spotify" desktop='^12' follow=off focus=off
+(pgrep -x polybar > /dev/null && pkill -9 polybar); 
+(polybar -c ~/.config/bspwm/polybar.ini &)
 
-test discord && discord &
-test spotify && spotify &
-# bspc rule -a Gimp desktop='^8' state=floating follow=on
-# bspc rule -a mplayer2 state=floating
-# bspc rule -a Kupfer.py focus=on
-# bspc rule -a Screenkey manage=off
+(pgrep -x trayer > /dev/null && pkill -9 trayer); 
+(trayer -l --margin 0 --align right --edge top --height 29  --distance 0,0 --distancefrom right,top --transparent true --alpha 0 --tint '#000000' &)
+
+

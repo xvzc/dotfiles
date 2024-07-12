@@ -7,10 +7,9 @@ alt + space
     rofi -show drun
 
 # make sxhkd reload its configuration files:
-alt + shift + r
-        pkill -9 polybar; \
-        nohup polybar -c ~/.config/bspwm/polybar.ini > /dev/null 2>&1; \
-        bscp wm -r
+alt + super + r 
+    bspc wm -r
+    
 
 
 # close and kill
@@ -32,13 +31,13 @@ alt + ctrl + s
 # state/flags
 #
 
-# set the window state
-alt + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+set the window state
+alt + super + {i,t,f}
+	bspc node -t {\~tiled,\~floating,\~fullscreen}
 
-# set the node flags
-# alt + ctrl + {m,x,y,z}
-#     bspc node -g {marked,locked,sticky,private}
+alt + super + y
+    bspc node -g sticky
+
 
 #
 # focus/swap
@@ -48,7 +47,7 @@ alt + {t,shift + t,s,f}
 alt + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
-alt + shift + {h,j,k,l}
+alt + super + {h,j,k,l}
 	bspc node -s {west,south,north,east}
 
 # focus the node for the given path jump
@@ -77,24 +76,6 @@ alt + {o,i}
 alt + {1-9,0}
 	bspc desktop -f '^{1-9,10}'
 
-alt + bracket{left,right}
-	bspc desktop -f '^{11,12}'
-
-alt + shift + {1-9,0}
+alt + super + {1-9,0}
 	bspc node -d '^{1-9,10}' --follow
 
-alt + shift + bracket{left,right}
-	bspc node -d '^{11,12}' --follow
-
-#
-# move/resize
-#
-
-alt + ctrl + {h,j,k,l}
-  n=10; \
-  { d1=left;   d2=right;  dx=-$n; dy=0;   \
-  , d1=bottom; d2=top;    dx=0;   dy=$n;  \
-  , d1=top;    d2=bottom; dx=0;   dy=-$n; \
-  , d1=right;  d2=left;   dx=$n;  dy=0;   \
-  } \
-  bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
