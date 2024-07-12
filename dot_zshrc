@@ -26,7 +26,7 @@ do
   source "$file"
 done
 
-[ -f ~/.profile ] && zsh-defer source "$HOME/.profile"
+[ -f ~/.lazy-profile ] && zsh-defer source "$HOME/.lazy-profile"
 [ -f ~/.secrets ] && zsh-defer source "$HOME/.secrets"
 
 # autoload -U +X compinit && compinit
