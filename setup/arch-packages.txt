@@ -10,6 +10,8 @@ nimf
 libhangul-git
 tmux
 rofi
+xorg
+xorg-xinit
 
 base-devel
 bat
