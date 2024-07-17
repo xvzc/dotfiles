@@ -11,6 +11,7 @@ libhangul-git
 tmux
 rofi
 xorg
+xorg-server
 xorg-xinit
 
 base-devel

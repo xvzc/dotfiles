@@ -7,10 +7,10 @@ Host home
     HostName home.xvzc.dev
     User jerry
     IdentitiesOnly yes
-    IdentityFile ~/.ssh/arch
+    IdentityFile ~/.ssh/arch.pub
 
 Host xvzc.github.com
     HostName github.com
     IdentitiesOnly yes
-    IdentityFile ~/.ssh/xvzc
+    IdentityFile ~/.ssh/xvzc.pub
 
