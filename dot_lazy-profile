@@ -25,9 +25,9 @@ export PATH="$PATH:~/.spoof-dpi/bin"
 # ┌───────────┐ 
 # │ 1PASSWORD │ 
 # └───────────┘ 
-_is_linux && export SSH_AUTH_SOCK=~/.1password/agent.sock
-_is_darwin && \
-  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+# _is_linux && export SSH_AUTH_SOCK=~/.1password/agent.sock
+# _is_darwin && \
+#   export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 # ┌────────┐ 
 # │ DOCKER │ 
