@@ -26,7 +26,8 @@ echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut
 
 # (Arch Linux) Set locale
 ```bash
-sudo localectl set-locale LANG=en_US.UTF-8
+sudo locale-gen en_US.UTF-8
+echo 'LANG=en_US.UTF-8' | sudo tee -a /etc/environment > /dev/null
 ```
 
 # (Arch Linux) Automatically enable bluetooth connection

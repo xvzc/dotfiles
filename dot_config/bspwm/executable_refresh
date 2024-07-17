@@ -1,6 +1,0 @@
-#!/bin/bash
-
-bspc wm -r; \
-  pkill -x sxhkd; sxhkd -c ~/.config/bspwm/sxhkdrc; \
-  pkill -x polybar; polybar -c ~/.config/bspwm/polybar.ini
-

@@ -12,6 +12,9 @@ bspc config click_to_focus true
 bspc config focused_border_color "#d9fccf"
 bspc config pointer_modifier mod1
 
+bspc rule -a '*:pavucontrol' state=floating follow=on focus=on
+bspc rule -a '*:flameshot' state=floating follow=on focus=on
+
 nitrogen --restore &
 flameshot &
 (pgrep -x picom > /dev/null && pkill -9 picom); 
@@ -23,6 +26,6 @@ flameshot &
 (polybar -c ~/.config/bspwm/polybar.ini &)
 
 (pgrep -x trayer > /dev/null && pkill -9 trayer); 
-(trayer -l --margin 0 --align right --edge top --height 29  --distance 0,0 --distancefrom right,top --transparent true --alpha 0 --tint '#000000' &)
+(trayer -l --margin 0 --padding 10 --align left --edge top --height 29  --distance 0,0 --distancefrom left,top --transparent true --alpha 0 --tint '#000000' &)
 
 
