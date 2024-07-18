@@ -20,10 +20,8 @@ Host xvzc.github.com
     IdentityFile ~/.ssh/xvzc.pub
 
 # {{ else if eq .osid "linux-arch" }}
-Host home
 Host xvzc.github.com
 	HostName github.com
-    ForwardAgent yes
     IdentitiesOnly yes
     IdentityAgent "~/.1password/agent.sock"
     IdentityFile ~/.ssh/xvzc.pub
