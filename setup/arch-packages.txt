@@ -6,7 +6,6 @@ polybar
 nitrogen
 picom
 trayer-srg-git
-nimf
 libhangul-git
 tmux
 rofi
