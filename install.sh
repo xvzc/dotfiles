@@ -84,6 +84,8 @@ if [ "$machine" == "Mac" ]; then
 	source "$HOME/.local/share/chezmoi/setup/macos-setup.sh" && all
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
+  (yay -Sy chezmoi && chezmoi init github.com/xvzc/dotfiles) || error "Filed to init chezmoi"
+	chezmoi apply -R || error "Failed to apply dotfiles"
 	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
 
 	#################################################################
