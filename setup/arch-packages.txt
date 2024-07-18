@@ -14,6 +14,7 @@ xorg-server
 xorg-xinit
 
 base-devel
+pyenv
 bat
 zsh
 bob
@@ -34,6 +35,8 @@ nodejs
 npm
 openssh
 pavucontrol
+unzip
 
 ttf-font-awesome
 papirus-icon-theme
+noto-font-cjk

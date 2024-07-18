@@ -21,4 +21,4 @@ inputbar {
 prompt {
 }
 
-@theme "/home/jerry/.local/share/rofi/themes/nord.rasi"
+@theme "~/.config/rofi/themes/nord/nord.rasi"
