@@ -16,8 +16,7 @@ xset s 3600
 xset r rate 200 50
 xsetroot -cursor_name left_ptr
 
-echo "Xcursor.size: 48" | xrdb -override
-echo "Xft.dpi: 144"     | xrdb -override
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # export "$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)"
 
