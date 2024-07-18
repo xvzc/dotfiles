@@ -50,5 +50,10 @@ sudo nvim /etc/bluetooth/main.conf
 # uncommecnt AutoEnable=true
 ```
 
+# (Arch Linux) Enable SSH Agent Forwarding
+```bash
+sudo vim/etc/ssh/sshd_config
+# AllowAgentForwarding yes
+```
 
 
