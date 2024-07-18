@@ -14,16 +14,15 @@ Host home
 
 Host xvzc.github.com
 	HostName github.com
-    ForwardAgent yes
-    IdentitiesOnly yes
-    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-    IdentityFile ~/.ssh/xvzc.pub
+  ForwardAgent yes
+  IdentitiesOnly yes
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentityFile ~/.ssh/xvzc.pub
 
 # {{ else if eq .osid "linux-arch" }}
-Host xvzc.github.com
-	HostName github.com
-    IdentitiesOnly yes
-    IdentityAgent "~/.1password/agent.sock"
-    IdentityFile ~/.ssh/xvzc.pub
+Host *
+  ForwardAgent yes
 
+Match Host * exec "test -z $SSH_CONNECTION"
+  IdentityAgent "~/.1password/agent.sock"
 # {{ end }}
