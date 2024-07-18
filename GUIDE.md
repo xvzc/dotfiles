@@ -55,3 +55,4 @@ sudo nvim /etc/bluetooth/main.conf
 sudo vim/etc/ssh/sshd_config
 # AllowAgentForwarding yes
 ```
+
