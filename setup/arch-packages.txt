@@ -20,7 +20,6 @@ zsh
 bob
 ripgrep
 xclip
-wine
 rofi
 discord
 eza
