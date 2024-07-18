@@ -2,7 +2,7 @@
 
 Include ~/.ssh/local.config
 
-# # {{ if eq .osid "darwin" }}
+# {{ if eq .osid "darwin" }}
 Host home
     HostName home.xvzc.dev
     User jerry
@@ -19,7 +19,7 @@ Host xvzc.github.com
     IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     IdentityFile ~/.ssh/xvzc.pub
 
-# # {{ else if eq .osid "linux-arch" }}
+# {{ else if eq .osid "linux-arch" }}
 Host home
 Host xvzc.github.com
 	HostName github.com
@@ -28,4 +28,4 @@ Host xvzc.github.com
     IdentityAgent "~/.1password/agent.sock"
     IdentityFile ~/.ssh/xvzc.pub
 
-# # {{ end }}
+# {{ end }}
