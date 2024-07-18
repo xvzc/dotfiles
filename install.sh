@@ -84,7 +84,7 @@ if [ "$machine" == "Mac" ]; then
 	source "$HOME/.local/share/chezmoi/setup/macos-setup.sh" && all
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
-	yay -S --needed --noconfirm - <~/.local/share/chezmoi/setup/aur_packages.txt
+	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
 
 	#################################################################
 	#                                                               #

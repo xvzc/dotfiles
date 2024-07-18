@@ -38,3 +38,4 @@ openssh
 pavucontrol
 
 ttf-font-awesome
+papirus-icon-theme
