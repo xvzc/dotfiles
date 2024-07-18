@@ -4,13 +4,13 @@ Include ~/.ssh/local.config
 
 # # {{ if eq .osid "darwin" }}
 Host home
-    StrictHostKeyChecking no
     HostName home.xvzc.dev
     User jerry
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/arch.pub
     IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     ForwardAgent yes
+    StrictHostKeyChecking no
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/arch.pub
 
 Host xvzc.github.com
 	HostName github.com
@@ -20,8 +20,12 @@ Host xvzc.github.com
     IdentityFile ~/.ssh/xvzc.pub
 
 # # {{ else if eq .osid "linux-arch" }}
-
-Match host * exec "test -z $SSH_CONNECTION"
-  IdentityAgent "~/.1password/agent.sock"
+Host home
+Host xvzc.github.com
+	HostName github.com
+    ForwardAgent yes
+    IdentitiesOnly yes
+    IdentityAgent "~/.1password/agent.sock"
+    IdentityFile ~/.ssh/xvzc.pub
 
 # # {{ end }}
