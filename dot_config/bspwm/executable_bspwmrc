@@ -17,15 +17,16 @@ bspc rule -a '*:flameshot' state=floating follow=on focus=on
 
 nitrogen --restore &
 flameshot &
-(pgrep -x picom > /dev/null && pkill -9 picom); 
+(pgrep -x picom > /dev/null && pkill -9 -f picom); 
 (picom --config ~/.config/bspwm/picom.conf &)
-(pgrep -x sxhkd > /dev/null && pkill -9 sxhkd); 
+(pgrep -x sxhkd > /dev/null && pkill -9 -f sxhkd); 
 (sxhkd -c ~/.config/bspwm/sxhkdrc &)
 
-(pgrep -x polybar > /dev/null && pkill -9 polybar); 
-(polybar -c ~/.config/bspwm/polybar.ini &)
+(pgrep -x polybar > /dev/null && pkill -9 -f polybar); 
+(polybar -c ~/.config/bspwm/polybar.ini root &)
+(polybar -c ~/.config/bspwm/polybar.ini sub &)
 
-(pgrep -x trayer > /dev/null && pkill -9 trayer); 
-(trayer -l --margin 0 --padding 10 --align left --edge top --height 29  --distance 0,0 --distancefrom left,top --transparent true --alpha 0 --tint '#000000' &)
+(pgrep -x trayer > /dev/null && pkill -9 -f trayer); 
+(trayer -l --margin 0 --padding 10 --align right --edge top --height 29  --distance 0,0 --distancefrom right,top --transparent true --alpha 0 --tint '#000000' &)
 
 

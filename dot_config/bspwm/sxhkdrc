@@ -31,9 +31,15 @@ alt + ctrl + s
 # state/flags
 #
 
-set the window state
-alt + super + {i,t,f}
-	bspc node -t {\~tiled,\~floating,\~fullscreen}
+alt + super + t
+    if [ "$(bspc query -N -n focused.tiled)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
+alt + super + f
+	bspc node -t \~fullscreen
 
 alt + super + y
     bspc node -g sticky
