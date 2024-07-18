@@ -33,7 +33,7 @@ install-brew() {
   if command -v brew &> /dev/null
   then
     echo "'brew' already exists. skipping installation.."
-    return 0
+    exit 0
   fi
 
 	if ! /opt/homebrew/bin/brew shellenv 2>&1; then
@@ -57,7 +57,7 @@ install-yay() {
   if command -v brew &> /dev/null
   then
     echo "'yay' already exists. skipping installation.."
-    return 0
+    exit 0
   fi
 
   mkdir -p ~/.install
