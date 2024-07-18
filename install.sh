@@ -30,6 +30,12 @@ install-xcode() {
 }
 
 install-brew() {
+  if command -v brew &> /dev/null
+  then
+    echo "'brew' already exists. skipping installation.."
+    return 0
+  fi
+
 	if ! /opt/homebrew/bin/brew shellenv 2>&1; then
 		echo "homdbrew not found. installing.."
 		require-sudo
@@ -47,19 +53,21 @@ install-brew() {
 	fi
 }
 
-install-chezmoi() {
-	if type chezmoi >/dev/null 2>&1; then
-		echo "Found chezmoi at $(whereis chezmoi). Skipping install."
-	else
-		echo "chezmoi not found. installing.."
-		if ! sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"; then
-			error "Failed to install chezmoi"
-		fi
-		export PATH="$HOME/.local/bin:$PATH"
-	fi
+install-yay() {
+  if command -v brew &> /dev/null
+  then
+    echo "'yay' already exists. skipping installation.."
+    return 0
+  fi
 
-	chezmoi init github.com/xvzc/dotfiles || error "Filed to init chezmoi"
-	chezmoi apply -R || error "Failed to apply dotfiles"
+  mkdir -p ~/.install
+  sudo pacman -S --needed base-devel git
+  git clone https://aur.archlinux.org/yay.git ~/.install/yay
+  cd ~/.install/yay && makepkg -si
+
+  if [ $? -ne 0 ]; then
+    error "Failed to install 'yay'"
+  fi
 }
 
 # Determine OS
@@ -74,8 +82,12 @@ echo "Detected OS: ${machine}"
 
 if [ "$machine" == "Mac" ]; then
 	install-xcode
-	install-chezmoi
 	install-brew
+
+  command -v chezmoi &> /dev/null || brew install chezmoi
+  chezmoi init github.com/xvzc/dotfiles || error "Filed to init chezmoi"
+	chezmoi apply -R || error "Failed to apply dotfiles"
+
 	brewfile="$HOME/.local/share/chezmoi/setup/Brewfile"
 	if ! brew bundle --no-lock --no-upgrade --file="$brewfile"; then
 		error "Failed to install MacOS packages"
@@ -84,17 +96,18 @@ if [ "$machine" == "Mac" ]; then
 	source "$HOME/.local/share/chezmoi/setup/macos-setup.sh" && all
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
-  (yay -Sy chezmoi && chezmoi init github.com/xvzc/dotfiles) || error "Filed to init chezmoi"
+  install-yay
+
+  command -v chezmoi &> /dev/null || yay -Sy chezmoi
+  chezmoi init github.com/xvzc/dotfiles || error "Filed to init chezmoi"
 	chezmoi apply -R || error "Failed to apply dotfiles"
+
 	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
 
 	#################################################################
 	#                                                               #
-	# INSTALL NIMF HERE                                             #
+	# INSTALL NIMF                                                  #
 	# - https://github.com/hamonikr/nimf                            #
-	#                                                               #
-	# INSTALL ROFI THEMES HERE                                      #
-	# - https://github.com/Murzchnvok/rofi-collection               #
 	#                                                               #
 	#################################################################
 else
