@@ -15,8 +15,6 @@ bspc config pointer_modifier mod1
 bspc rule -a '*:pavucontrol' state=floating follow=on focus=on
 bspc rule -a '*:flameshot' state=floating follow=on focus=on
 
-nitrogen --restore &
-flameshot &
 (pgrep -x picom > /dev/null && pkill -9 -f picom); 
 (picom --config ~/.config/bspwm/picom.conf &)
 (pgrep -x sxhkd > /dev/null && pkill -9 -f sxhkd); 
@@ -30,3 +28,6 @@ flameshot &
 (trayer -l --margin 0 --padding 10 --align right --edge top --height 29  --distance 0,0 --distancefrom right,top --transparent true --alpha 0 --tint '#000000' &)
 
 
+nitrogen --restore &
+flameshot &
+1password &

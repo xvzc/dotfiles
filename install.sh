@@ -105,12 +105,6 @@ elif [ "$machine" == "Linux" ]; then
 
 	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
 
-	#################################################################
-	#                                                               #
-	# INSTALL NIMF                                                  #
-	# - https://github.com/hamonikr/nimf                            #
-	#                                                               #
-	#################################################################
 else
 	error "Cannot determine operating system."
 fi

@@ -12,6 +12,7 @@ rofi
 xorg
 xorg-server
 xorg-xinit
+nimf-git
 
 base-devel
 pyenv

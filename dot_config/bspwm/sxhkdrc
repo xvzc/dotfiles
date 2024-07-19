@@ -7,7 +7,7 @@ alt + space
     rofi -show drun
 
 # make sxhkd reload its configuration files:
-alt + super + r 
+alt + ctrl + super + r 
     bspc wm -r
     
 
