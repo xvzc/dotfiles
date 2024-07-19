@@ -36,7 +36,9 @@ npm
 openssh
 pavucontrol
 unzip
+thunar
 
 ttf-font-awesome
+ttf-jetbrains-mono-nerd
 papirus-icon-theme
 noto-font-cjk
