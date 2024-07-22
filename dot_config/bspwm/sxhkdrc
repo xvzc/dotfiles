@@ -9,7 +9,10 @@ alt + space
 # make sxhkd reload its configuration files:
 alt + ctrl + super + r 
     bspc wm -r
+    xset r rate 200 50
     
+alt + super + l
+    betterlockscreen -l -q
 
 
 # close and kill
@@ -30,6 +33,7 @@ alt + ctrl + s
 #
 # state/flags
 #
+
 
 alt + super + t
     if [ "$(bspc query -N -n focused.tiled)" ]; then \
