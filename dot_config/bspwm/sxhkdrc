@@ -14,7 +14,6 @@ alt + ctrl + super + r
 alt + super + l
     betterlockscreen -l -q
 
-
 # close and kill
 alt + {_,shift + }q
 	bspc node -{c,k}
@@ -27,7 +26,7 @@ alt + y
 alt + g
 	bspc node -s biggest.window
 
-alt + ctrl + s
+super + alt + ctrl + s
     flameshot gui --clipboard --accept-on-select
 
 #
