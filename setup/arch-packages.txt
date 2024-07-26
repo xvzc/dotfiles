@@ -42,5 +42,6 @@ thunar
 
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
+ttf-d2coding
 papirus-icon-theme
 noto-font-cjk
