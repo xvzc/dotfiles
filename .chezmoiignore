@@ -16,6 +16,7 @@ Brewfile.lock.json
 install.sh
 init_private_resources.sh
 wallpaper.*
+GUIDE.md
 
 .oh-my-zsh
 Readme.md
