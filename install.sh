@@ -130,7 +130,7 @@ elif [ "$machine" == "Linux" ]; then
 
 	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
 
-  install-nimf
+  # install-nimf
 
 else
 	error "Cannot determine operating system."
