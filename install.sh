@@ -123,13 +123,14 @@ if [ "$machine" == "Mac" ]; then
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
   install-yay
-  install-nimf
 
   command -v chezmoi &> /dev/null || yay -Sy chezmoi
   chezmoi init github.com/xvzc/dotfiles || error "Filed to init chezmoi"
 	chezmoi apply -R || error "Failed to apply dotfiles"
 
 	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
+
+  install-nimf
 
 else
 	error "Cannot determine operating system."
