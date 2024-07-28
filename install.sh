@@ -62,12 +62,33 @@ install-yay() {
 
   rm -r ~/.install/yay
   mkdir -p ~/.install
-  sudo pacman -S --needed base-devel git
+  sudo pacman -Sy --needed base-devel git
   git clone https://aur.archlinux.org/yay.git ~/.install/yay
   cd ~/.install/yay && makepkg -si
 
   if [ $? -ne 0 ]; then
     error "Failed to install 'yay'"
+  fi
+}
+
+install-nimf() {
+  if command -v nimf &> /dev/null
+  then
+    echo "'nimf' already exists. skipping installation.."
+    return 0
+  fi
+
+  rm -rf ~/.install/libhangul-git
+  git clone https://aur.archlinux.org/libhangul-git.git ~/.install/libhangul-git
+  cd libhangul-git && makepkg -si 
+
+  rm -rf ~/.install/nimf
+  git clone https://github.com/hamonikr/nimf.git ~/.install/nimf
+  cd nimf && makepkg -si 
+
+
+  if [ $? -ne 0 ]; then
+    error "Failed to install 'nimf'"
   fi
 }
 
@@ -102,6 +123,9 @@ elif [ "$machine" == "Linux" ]; then
   command -v chezmoi &> /dev/null || yay -Sy chezmoi
   chezmoi init github.com/xvzc/dotfiles || error "Filed to init chezmoi"
 	chezmoi apply -R || error "Failed to apply dotfiles"
+
+  install-yay
+  install-nimf
 
 	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
 
