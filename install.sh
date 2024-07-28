@@ -82,18 +82,18 @@ install-nimf() {
   git clone https://aur.archlinux.org/libhangul-git.git ~/.install/libhangul-git
   cd ~/.install/libhangul-git && makepkg -si 
 
-  if [ $? -ne 0 ]; then
-    error "Failed to install 'libhangul-git'"
-  fi
+  # if [ $? -ne 0 ]; then
+  #   error "Failed to install 'libhangul-git'"
+  # fi
 
   rm -rf ~/.install/nimf
   git clone https://github.com/hamonikr/nimf.git ~/.install/nimf
   cd ~/.install/nimf && makepkg -si 
 
 
-  if [ $? -ne 0 ]; then
-    error "Failed to install 'nimf'"
-  fi
+  # if [ $? -ne 0 ]; then
+  #   error "Failed to install 'nimf'"
+  # fi
 }
 
 # Determine OS
