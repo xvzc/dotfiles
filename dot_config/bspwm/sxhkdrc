@@ -11,7 +11,7 @@ alt + ctrl + super + r
     bspc wm -r
     xset r rate 200 50
     
-alt + super + l
+Pause
     betterlockscreen -l -q
 
 # close and kill
