@@ -60,7 +60,7 @@ install-yay() {
     return 0
   fi
 
-  rm -r ~/.install/yay
+  rm -rf ~/.install/yay
   mkdir -p ~/.install
   sudo pacman -Sy --needed base-devel git
   git clone https://aur.archlinux.org/yay.git ~/.install/yay
@@ -80,7 +80,7 @@ install-nimf() {
 
   rm -rf ~/.install/libhangul-git
   git clone https://aur.archlinux.org/libhangul-git.git ~/.install/libhangul-git
-  cd libhangul-git && makepkg -si 
+  cd ~/.install/libhangul-git && makepkg -si 
 
   if [ $? -ne 0 ]; then
     error "Failed to install 'libhangul-git'"
@@ -88,7 +88,7 @@ install-nimf() {
 
   rm -rf ~/.install/nimf
   git clone https://github.com/hamonikr/nimf.git ~/.install/nimf
-  cd nimf && makepkg -si 
+  cd ~/.install/nimf && makepkg -si 
 
 
   if [ $? -ne 0 ]; then
