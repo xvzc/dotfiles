@@ -82,6 +82,10 @@ install-nimf() {
   git clone https://aur.archlinux.org/libhangul-git.git ~/.install/libhangul-git
   cd libhangul-git && makepkg -si 
 
+  if [ $? -ne 0 ]; then
+    error "Failed to install 'libhangul-git'"
+  fi
+
   rm -rf ~/.install/nimf
   git clone https://github.com/hamonikr/nimf.git ~/.install/nimf
   cd nimf && makepkg -si 
@@ -119,13 +123,11 @@ if [ "$machine" == "Mac" ]; then
 elif [ "$machine" == "Linux" ]; then
 	echo "Installing Linux packages.."
   install-yay
+  install-nimf
 
   command -v chezmoi &> /dev/null || yay -Sy chezmoi
   chezmoi init github.com/xvzc/dotfiles || error "Filed to init chezmoi"
 	chezmoi apply -R || error "Failed to apply dotfiles"
-
-  install-yay
-  install-nimf
 
 	yay -S --needed --noconfirm - < ~/.local/share/chezmoi/setup/arch-packages.txt
 
