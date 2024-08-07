@@ -42,4 +42,6 @@ ttf-font-awesome
 ttf-jetbrains-mono-nerd
 ttf-d2coding
 noto-fonts
+noto-fonts-emoji
+noto-fonts-cjk
 papirus-icon-theme
