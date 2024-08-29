@@ -24,6 +24,24 @@ echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut
 
 ```
 
+# (Arch Linux) Graphic Driver
+## AMD
+```bash
+yay -S xf86-video-amdgpu
+```
+
+> /etc/X11/20-amdgpu.conf
+```
+Section "OutputClass"
+     Identifier "AMD"
+     MatchDriver "amdgpu"
+     Driver "amdgpu"
+     Option "TearFree" "true"
+     Option "VariableRefresh" "true"
+     Option "AsyncFlipSecondaries" "true" #multimonitor setup, but at least one is not FreeSync capable
+EndSection
+```
+
 # (Arch Linux) Set locale
 ```bash
 sudo locale-gen en_US.UTF-8

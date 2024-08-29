@@ -8,8 +8,7 @@ alt + space
 
 # make sxhkd reload its configuration files:
 alt + ctrl + super + r 
-    bspc wm -r
-    xset r rate 200 50
+    bspc wm -r && xset r rate 200 50
     
 Pause
     betterlockscreen -l -q
@@ -46,7 +45,6 @@ alt + super + f
 
 alt + super + y
     bspc node -g sticky
-
 
 #
 # focus/swap

@@ -1,0 +1,35 @@
+daemon:
+  modules:
+  - Xim
+  - Wayland
+  - Indicator
+indicator:
+  icon_color: Black
+log:
+  global_level: DEBUG
+engine:
+  translation_layer: null
+  default_category: Latin
+  global_category_state: false
+  global_hotkeys:
+    Super-Space:
+      behavior: !Toggle
+        - Hangul
+        - Latin
+      result: Consume
+    Esc:
+      behavior: !Switch Latin
+      result: Bypass
+    # M-C-Backslash:
+    #   behavior: Ignore
+    # M-C-E:
+    #   behavior: Ignore
+    # Muhenkan:
+    #   behavior: Ignore
+    #   result: Bypass
+    # AltR:
+    #   behavior: Ignore
+    #   result: Bypass
+    # Hangul:
+    #   behavior: Ignore
+    #   result: Bypass

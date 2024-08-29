@@ -1,0 +1,63 @@
+[window]
+opacity = 0.9
+dimensions.columns = 125
+dimensions.lines = 35
+padding.x = 3
+padding.y = 3
+decorations = 'buttonless'
+
+[font]
+normal.family  = 'JetBrainsMono Nerd Font'
+normal.style = 'Regular'
+
+bold.family = 'JetBrainsMono Nerd Font'
+
+italic.family = 'JetBrainsMono Nerd Font'
+
+bold_italic.family = 'JetBrainsMono Nerd Font'
+
+size = 11.5
+
+offset.x = 0
+offset.y = 0
+
+[colors]
+primary.background = '#2c2c2c'
+primary.foreground = '#c5c8c6'
+
+cursor.text = '#2c2c2c'
+cursor.cursor = '#dbdbc1' 
+
+vi_mode_cursor.text = '#2c2c2c'
+vi_mode_cursor.cursor = '#dbdbc1' 
+
+selection.text = '#2c2c2c'
+selection.cursor = '#dbdbc1' 
+
+  # Normal colors
+normal.black = '#2c2c2c'
+normal.red = '#ba5458'
+normal.green = '#b9ca4a'
+normal.yellow = '#ebba7a'
+normal.blue = '#89a4f0'
+normal.magenta = '#b294bb'
+normal.cyan = '#70c0b1'
+normal.white = '#c5c8c6'
+
+  # Bright colors
+bright.black = '#8c8787'
+bright.red = '#cc6666'
+bright.green = '#b5bd68'
+bright.yellow = '#e6b137'
+bright.blue = '#89a4f0'
+bright.magenta = '#c397d8'
+bright.cyan = '#8abeb7'
+bright.white = '#dbdbc1'
+
+
+[[keyboard.bindings]]
+key = 'Space'
+mods = 'Control'
+chars = '\x00' 
+
+
