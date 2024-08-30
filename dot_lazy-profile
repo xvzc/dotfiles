@@ -15,7 +15,7 @@ export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 # ┌───────────┐ 
 # │ SPOOF-DPI │ 
 # └───────────┘ 
-export PATH="$PATH:$HOME/.spoof-dpi/bin"
+export PATH="$PATH:$HOME/.spoofdpi/bin"
 
 # ┌───────┐ 
 # │ CARGO │ 
