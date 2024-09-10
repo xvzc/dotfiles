@@ -12,6 +12,13 @@ Host home
   IdentityFile ~/.ssh/arch.pub
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+Host kwanghoo93.github.com
+	HostName github.com
+  ForwardAgent yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/kwanghoo93.pub
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
 Host xvzc.github.com
 	HostName github.com
   ForwardAgent yes
@@ -25,6 +32,12 @@ Host xvzc.github.com
   ForwardAgent yes
   IdentitiesOnly yes
   IdentityFile ~/.ssh/xvzc.pub
+
+Host kwanghoo93.github.com
+	HostName github.com
+  ForwardAgent yes
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/kwanghoo93.pub
 
 Match Host * exec "test -z $SSH_CONNECTION"
   IdentityAgent "~/.1password/agent.sock"
