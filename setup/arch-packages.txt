@@ -12,6 +12,8 @@ xorg
 xorg-server
 xorg-xinit
 betterlockscreen
+kime
+ly
 
 base-devel
 pyenv
