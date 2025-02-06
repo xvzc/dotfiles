@@ -20,8 +20,6 @@ alias 'bat -nu'='bat --style=numbers'
 
 _is_linux && alias open='thunar'
 
-alias g++='g++ -std=c++17'
-
 alias lazygit='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 alias lg='lazygit --use-config-file=$HOME/.config/lazygit/config.yml'
 
