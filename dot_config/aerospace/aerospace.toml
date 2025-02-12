@@ -1,0 +1,75 @@
+start-at-login = true 
+[gaps]
+    inner.horizontal = 8
+    inner.vertical =   8
+    outer.left =       8
+    outer.bottom =     8
+    outer.top =        8
+    outer.right =      8
+
+[mode.main.binding]
+    cmd-h = 'focus left'
+    cmd-j = 'focus down'
+    cmd-k = 'focus up'
+    cmd-l = 'focus right'
+
+    alt-cmd-h = 'move left'
+    alt-cmd-j = 'move down'
+    alt-cmd-k = 'move up'
+    alt-cmd-l = 'move right'
+
+    cmd-1 = 'workspace 1'
+    cmd-2 = 'workspace 2'
+    cmd-3 = 'workspace 3'
+    cmd-4 = 'workspace 4'
+    cmd-5 = 'workspace 5'
+    cmd-6 = 'workspace 6'
+    cmd-7 = 'workspace 7'
+    cmd-8 = 'workspace 8'
+    cmd-9 = 'workspace 9'
+    cmd-0 = 'workspace 10'
+
+    alt-cmd-1 = ['move-node-to-workspace 1', 'workspace 1']
+    alt-cmd-2 = ['move-node-to-workspace 2', 'workspace 2']
+    alt-cmd-3 = ['move-node-to-workspace 3', 'workspace 3']
+    alt-cmd-4 = ['move-node-to-workspace 4', 'workspace 4']
+    alt-cmd-5 = ['move-node-to-workspace 5', 'workspace 5']
+    alt-cmd-6 = ['move-node-to-workspace 6', 'workspace 6']
+    alt-cmd-7 = ['move-node-to-workspace 7', 'workspace 7']
+    alt-cmd-8 = ['move-node-to-workspace 8', 'workspace 8']
+    alt-cmd-9 = ['move-node-to-workspace 9', 'workspace 9']
+    alt-cmd-0 = ['move-node-to-workspace 10', 'workspace 10']
+
+    alt-s = 'mode service'
+
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-h = 'join-with left'
+    alt-j = 'join-with down'
+    alt-k = 'join-with up'
+    alt-l = 'join-with right'
+
+
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+
+
+[[on-window-detected]]
+    if.app-id = 'com.kakao.KakaoTalkMac'
+    run = ['layout floating', 'move-node-to-workspace 10']  # The callback itself
+    # if.app-name-regex-substring = 'KaKaoTalk'
+    # if.window-title-regex-substring = 'substring'
+    # if.workspace = 'workspace-name'
+    # if.during-aerospace-startup = true
+    # check-further-callbacks = true
+
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.systempreferences'
+    run = ['layout floating']  # The callback itself
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
+    run = ['layout floating']  # The callback itself

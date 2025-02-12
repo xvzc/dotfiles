@@ -12,8 +12,8 @@ config.window_close_confirmation = "NeverPrompt"
 
 config.cursor_blink_ease_out = "Constant"
 config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_rate = 700
-config.default_cursor_style = "BlinkingBlock"
+config.cursor_blink_rate = 0
+config.default_cursor_style = "SteadyBlock"
 
 config.audible_bell = "Disabled"
 
