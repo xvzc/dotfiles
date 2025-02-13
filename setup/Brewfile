@@ -33,7 +33,7 @@ brew "ranger"
 brew "ripgrep"
 brew "terraform"
 brew "wakeonlan"
-brew "yabai"
+brew "asdf"
 
 # Window manager
 brew "FelixKratz/formulae/borders"

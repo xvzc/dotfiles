@@ -45,18 +45,6 @@ ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
 # ZSH_HIGHLIGHT_STYLES[comment]='fg=#7d807e'
 # ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#eb87ff'
-
-# zstyle :prompt:pure:path color '#89a4f0'
-zstyle :prompt:pure:path color blue
-
-zstyle :prompt:pure:git:dirty color red
-zstyle :prompt:pure:git:branch color cyan
-
-zstyle :prompt:pure:prompt:error color red
-zstyle :prompt:pure:prompt:success color '#f5b5f4'
-
-zstyle :prompt:pure:virtualenv color '#5e5d49'
-zstyle :prompt:pure:virtualenv show yes
  
 # ┌──────────────────┐ 
 # │ AUTO_COMPLETIONS │ 
@@ -71,11 +59,6 @@ zstyle ':completion:*:*:git:*' user-commands \
 
 # formatting and messages
 zstyle ':completion:*' verbose yes
-# zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
-# zstyle ':completion:*:messages' format '%d'
-# zstyle ':completion:*:warnings' format "No matches"
-# zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-# zstyle ':completion:*' group-name ''
 
 # Completers for my own scripts
 zstyle ':completion:*' matcher-list '' \
@@ -84,38 +67,4 @@ zstyle ':completion:*' matcher-list '' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
 zstyle ':completion:*' list-colors "${LS_COLORS}"
-
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-    CUR_VI_MODE='NORMAL'
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
-    CUR_VI_MODE='*'
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
-function zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-zle -N zle-line-init
-
-
-# Better SSH/Rsync/SCP Autocomplete
-# zstyle ':completion:*:ssh:*' hosts off
-# zstyle ':completion:*:(ssh|scp|ftp|sftp):*' hosts $hosts
-# zstyle ':completion:*:(ssh|scp|ftp|sftp):*' users $users
-
-# Speed up zsh compinit by only checking cache once a day.
-# autoload -Uz compinit
-# for dump in ~/.zcompdump(N.mh+24); do
-#   compinit -i
-# done
-
 

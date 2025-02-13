@@ -1,38 +1,30 @@
 #!/bin/zsh
 # vim:filetype=zsh:tw=80:et
 
-export DOT_ZSH=$HOME/.zsh
+ZINIT="${HOME}/.local/share/zinit/zinit.git"
+[ ! -d $ZINIT ] && mkdir -p "$(dirname $ZINIT)"
+[ ! -d $ZINIT/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT"
+source "${ZINIT}/zinit.zsh"
 
-plugins=(
-    # git
-    fzf
-    vi-mode
-    zsh-defer
-    zsh-syntax-highlighting
-    autoswitch_virtualenv
-)
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-fpath+="$DOT_ZSH/pure"
-fpath+="$DOT_ZSH/_completion"
+DOT_ZSH=$HOME/.zsh
 
-source "$DOT_ZSH/oh-my-zsh/oh-my-zsh.sh"
-source "$DOT_ZSH/style.zsh"
+source "$DOT_ZSH/main.zsh"
 source "$DOT_ZSH/alias.zsh"
 source "$DOT_ZSH/opt.zsh"
-source "$DOT_ZSH/keymap.zsh"
+source "$DOT_ZSH/style.zsh"
 
 for file in $HOME/.zsh/util/*
 do
   source "$file"
 done
 
-[ -f ~/.lazy-profile ] && zsh-defer source "$HOME/.lazy-profile"
-[ -f ~/.secrets ] && zsh-defer source "$HOME/.secrets"
+[ -f $HOME/.secrets ] && zsh-defer source "$HOME/.secrets"
+[ -f $HOME/.lazy-profile ] && zsh-defer source "$HOME/.lazy-profile"
 
-# autoload -U +X compinit && compinit
-autoload -U promptinit; promptinit
-prompt pure
+fpath+="$DOT_ZSH/_completion"
+autoload -Uz compinit; compinit
 
 zmodload zsh/zprof
-
-# _run_tmux_if_terminal_is_one_of "WezTerm" "alacritty"

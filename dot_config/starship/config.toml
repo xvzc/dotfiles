@@ -1,0 +1,35 @@
+format = """
+$directory$git_branch$git_status$cmd_duration
+$character
+"""
+
+[directory]
+style = 'bold blue'
+home_symbol = '~'
+truncate_to_repo = false
+truncation_length = 0
+# truncation_length = 8
+# truncation_symbol = '…/'
+
+[git_branch]
+format = '[$branch](bold cyan)'
+
+[git_status]
+format = '([$modified $ahead_behind]($style))'
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇣⇡'
+modified = '*'
+
+[cmd_duration]
+format = '[$duration](bold yellow)'
+
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[❯](bold purple)'
+error_symbol = '[❯](bold red)'
+vimcmd_symbol = '[❮](bold purple)'
+vimcmd_replace_one_symbol = '[❮](bold purple)'
+vimcmd_replace_symbol = '[❮](bold purple)'
+vimcmd_visual_symbol = '[❮](bold purple)'
+
+

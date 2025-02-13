@@ -9,11 +9,12 @@
 # alias sudo='sudo '
 alias vi='nvim'
 
-if [ "$(command -v eza)" ]; then
+if [ $(command -v eza) ]; then
   alias l="ls"
   alias ls='eza --sort=type'
   alias la='eza -alg --sort=type'
 fi
+
 
 alias 'bat'='bat --style=plain'
 alias 'bat -nu'='bat --style=numbers'
