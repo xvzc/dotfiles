@@ -1,5 +1,5 @@
 format = """
-$directory$git_branch$git_status$cmd_duration
+$directory$git_branch${custom.git_dirty}$git_status$cmd_duration
 $character
 """
 
@@ -14,15 +14,18 @@ truncation_length = 0
 [git_branch]
 format = '[$branch](bold cyan)'
 
+[custom.git_dirty]
+when = """ [[ $(git status --porcelain) != '' ]] """ 
+format = "[*](red)"
+
 [git_status]
-format = '([$modified $ahead_behind]($style))'
-ahead = '⇡'
-behind = '⇣'
-diverged = '⇣⇡'
-modified = '*'
+format = ' ([$ahead_behind]($style))'
+ahead = '[⇡](cyan)'
+behind = '[⇣](cyan)'
+diverged = '[⇣⇡](cyan)'
 
 [cmd_duration]
-format = '[$duration](bold yellow)'
+format = ' [$duration](bold yellow)'
 
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[❯](bold purple)'

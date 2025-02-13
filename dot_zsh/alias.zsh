@@ -1,10 +1,9 @@
 #!/bin/zsh
 # vim:filetype=sh:tw=80
 
-
-# ┌─────────┐ 
-# │ GENERAL │ 
-# └─────────┘ 
+# ┌─────────┐
+# │ GENERAL │
+# └─────────┘
 
 # alias sudo='sudo '
 alias vi='nvim'
@@ -14,7 +13,6 @@ if [ $(command -v eza) ]; then
   alias ls='eza --sort=type'
   alias la='eza -alg --sort=type'
 fi
-
 
 alias 'bat'='bat --style=plain'
 alias 'bat -nu'='bat --style=numbers'
@@ -28,10 +26,9 @@ alias py='python3'
 alias python='python3'
 alias wol='wakeonlan -i $(dig +short $HOME_DDNS) -p 9 $DESKTOP_MAC_ADDRESS'
 
-
-# ┌─────────────┐ 
-# │ DIRECTORIES │ 
-# └─────────────┘ 
+# ┌─────────────┐
+# │ DIRECTORIES │
+# └─────────────┘
 alias d='dirs -v'
 alias 0='cd -0 &> /dev/null'
 alias 1='cd -1 &> /dev/null'
@@ -44,16 +41,15 @@ alias 7='cd -7 &> /dev/null'
 alias 8='cd -8 &> /dev/null'
 alias 9='cd -9 &> /dev/null'
 
-
-# ┌─────┐ 
-# │ GIT │ 
-# └─────┘ 
+# ┌─────┐
+# │ GIT │
+# └─────┘
 alias ggpush='git push origin "$(git_current_branch)"'
 alias ggpull='git pull origin "$(git_current_branch)"'
 
-# ┌─────────┐ 
-# │ CHEZMOI │ 
-# └─────────┘ 
+# ┌─────────┐
+# │ CHEZMOI │
+# └─────────┘
 alias cz='chezmoi'
 alias cvi='chezmoi edit --watch --hardlink=false'
 alias czg='chezmoi git'
@@ -64,9 +60,9 @@ alias czc='cd ~/.local/share/chezmoi'
 alias czr='chezmoi remove'
 alias czf='chezmoi forget'
 
-# ┌──────┐ 
-# │ TMUX │ 
-# └──────┘ 
+# ┌──────┐
+# │ TMUX │
+# └──────┘
 alias tat='tmux -u attach-session -t'
 alias tdt='tmux detach'
 alias tkt='tmux kill-session -t'
@@ -74,15 +70,15 @@ alias tst='tmux -u switch -t'
 alias tns='tmux -u new -c ~ -s'
 alias tls='tmux ls'
 
-# ┌────────┐ 
-# │ DOCKER │ 
-# └────────┘ 
+# ┌────────┐
+# │ DOCKER │
+# └────────┘
 alias dk='docker'
 alias dkc='docker-compose'
 
-# ┌────────────┐ 
-# │ KUBERNETES │ 
-# └────────────┘ 
+# ┌────────────┐
+# │ KUBERNETES │
+# └────────────┘
 if [ "$(command -v kubectl)" ]; then
   alias k='kubectl'
 
@@ -122,9 +118,9 @@ if [ "$(command -v kubectl)" ]; then
   alias kxi='kubectl exec -it'
 fi
 
-# ┌───────────┐ 
-# │ TERRAFORM │ 
-# └───────────┘ 
+# ┌───────────┐
+# │ TERRAFORM │
+# └───────────┘
 alias tf='terraform'
 alias tfi='terraform init'
 alias tfg='terraform get'
@@ -134,4 +130,3 @@ alias tfd='terraform destroy'
 alias tfu='terraform get --update'
 alias tfa='terraform get --update && terraform apply -auto-approve'
 alias tfp='terraform plan'
-
