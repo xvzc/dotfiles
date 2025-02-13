@@ -29,6 +29,11 @@ function _run_tmux_if_terminal_is_one_of() {
   return 0
 }
 
+function __git_prompt_git() {
+  GIT_OPTIONAL_LOCKS=0 command git "$@"
+}
+
+
 function git_current_branch() {
   local ref
   ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
