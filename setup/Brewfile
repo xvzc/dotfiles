@@ -4,11 +4,7 @@ tap "koekeishiya/formulae"
 tap "homebrew/cask-fonts"
 tap "daipeihust/tap"
 
-
-brew "python@3.11"
 brew "go" 
-brew "node@18", link: :force
-brew "bob"
 brew "bat"
 brew "chezmoi"
 brew "eza"
@@ -34,13 +30,6 @@ brew "ripgrep"
 brew "terraform"
 brew "wakeonlan"
 brew "asdf"
-
-# Window manager
-brew "FelixKratz/formulae/borders"
-brew "koekeishiya/formulae/yabai"
-brew "koekeishiya/formulae/skhd"
-brew "FelixKratz/formulae/sketchybar"
-
 
 cask "font-jetbrains-mono-nerd-font"
 cask "font-d2coding"

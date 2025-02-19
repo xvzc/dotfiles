@@ -17,10 +17,8 @@ ly
 asdf
 
 base-devel
-pyenv
 bat
 zsh
-bob
 ripgrep
 xclip
 rofi
@@ -34,8 +32,6 @@ git
 google-chrome
 grub
 lazygit
-nodejs
-npm
 openssh
 pavucontrol
 unzip
