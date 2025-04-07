@@ -13,7 +13,6 @@ DOT_ZSH=$HOME/.zsh
 
 source "$DOT_ZSH/main.zsh"
 source "$DOT_ZSH/alias.zsh"
-source "$DOT_ZSH/opt.zsh"
 source "$DOT_ZSH/style.zsh"
 
 for file in $HOME/.zsh/util/*
