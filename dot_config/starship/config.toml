@@ -4,7 +4,8 @@ $hostname$character
 """
 
 [directory]
-format = '[$path]($style)[$read_only]($read_only_style)'
+# format = '[$path]($style)[$read_only]($read_only_style)'
+format = '[$path]($style)'
 style = 'bold blue'
 home_symbol = '~'
 truncate_to_repo = false

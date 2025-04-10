@@ -15,6 +15,7 @@ export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
 ## zsh-vi-mode
 zi ice depth=1
 zi light jeffreytse/zsh-vi-mode
+ZVM_VI_EDITOR=nvim
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 ZVM_VI_HIGHLIGHT_BACKGROUND=white
 ZVM_VI_HIGHLIGHT_FOREGROUND=black
@@ -36,6 +37,7 @@ export KEYTIMEOUT=1
 
 # set default editor to nvim
 export EDITOR=nvim
+export VISUAL=nvim
 
 # ┌─────────┐ 
 # │ VI-MODE │ 
@@ -49,12 +51,6 @@ bindkey -a j history-beginning-search-forward
 ## Remove keymaps
 bindkey -r "^S"
 bindkey -r "^D"
-
-## Edit line in vim with ctrl-e:
-autoload -Uz edit-command-line
-zle -N edit-command-line
-
-bindkey "^E" edit-command-line
 
 # ┌───────────────┐ 
 # │ OTHER OPTIONS │ 
